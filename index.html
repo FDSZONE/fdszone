@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MD Farhad Hossen | Data Analyst & Mathematics Specialist | Ultra-modern portfolio showcasing data workflows, mathematical research, leadership, and academic excellence.">
+    <meta name="keywords" content="MD Farhad Hossen, Data Analyst, Mathematics, Jahangirnagar University, Portfolio, Data Science, Statistical Modeling, GIS, Python, Thesis Visualization">
+    <title>MD Farhad Hossen • Portfolio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper.js for 3D Gallery -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Vanilla Tilt for 3D hover effects -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+    
+    <!-- Canvas Confetti for delightful interactions -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #14b8a6;
+            --accent: #6366f1;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        .section-header {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+        }
+
+        .nav-active {
+            color: #14b8a6;
+            position: relative;
+        }
+        
+        .nav-active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #14b8a6, #6366f1);
+            border-radius: 2px;
+        }
+
+        .workflow-card {
+            transition: all 0.4s cubic-bezier(0.23, 1.0, 0.32, 1);
+        }
+        
+        .workflow-card:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .modern-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2);
+        }
+
+        .skill-card {
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), 
+                       box-shadow 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .math-bg {
+            background-image: 
+                linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        .ribbon-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .ribbon-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .swiper-slide {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .nav-scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .metric-value {
+            font-size: 2.25rem;
+            line-height: 1;
+            font-weight: 700;
+            background: linear-gradient(90deg, #14b8a6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .prose-custom p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 overflow-x-hidden">
+    <!-- NAV -->
+    <nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-400 to-indigo-500 flex items-center justify-center shadow-lg shadow-teal-500/30">
+                        <span class="text-white text-3xl font-bold tracking-tighter">F</span>
+                    </div>
+                    <div>
+                        <div class="font-display text-2xl font-semibold tracking-tighter">Farhad</div>
+                        <div class="text-[10px] text-slate-500 -mt-1 tracking-[2px]">HOSSEN</div>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-x-10 text-sm font-medium">
+                    <a href="#workflows" class="nav-link hover:text-teal-400 transition-colors">Workflows</a>
+                    <a href="#about" class="nav-link hover:text-teal-400 transition-colors">About</a>
+                    <a href="#skills" class="nav-link hover:text-teal-400 transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link hover:text-teal-400 transition-colors">Journey</a>
+                    <a href="#university" class="nav-link hover:text-teal-400 transition-colors">University Life</a>
+                    <a href="#contact" class="nav-link hover:text-teal-400 transition-colors">Contact</a>
+                </div>
+
+                <!-- Right side -->
+                <div class="flex items-center gap-x-4">
+                    <!-- Theme toggle -->
+                    <button onclick="toggleTheme()" 
+                            class="w-10 h-10 flex items-center justify-center rounded-2xl hover:bg-slate-900 transition-colors text-slate-400 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+                    
+                    <!-- Download CV Button -->
+                    <a href="assets/CV 26/MD_Farhad_Hossen_CV.pdf" download
+                       onclick="triggerConfetti()"
+                       class="hidden md:flex items-center gap-x-2.5 px-5 py-2.5 rounded-2xl bg-white text-slate-900 text-sm font-semibold hover:bg-amber-300 transition-all active:scale-[0.985]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 13v6m0 0v-6m0 6H7m10 0H7m5-10v10" />
+                        </svg>
+                        <span>Download CV</span>
+                    </a>
+
+                    <!-- Mobile Menu -->
+                    <button id="mobile-menu-btn"
+                            class="md:hidden w-11 h-11 flex items-center justify-center rounded-2xl hover:bg-slate-900 text-slate-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="pt-20 min-h-[100dvh] flex items-center relative math-bg">
+        <div class="max-w-screen-2xl mx-auto px-8 pt-12 pb-20">
+            <div class="max-w-5xl">
+                <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full bg-slate-900/70 border border-slate-700 text-xs tracking-[1.5px] font-medium mb-6">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                    <span>OPEN TO OPPORTUNITIES • 2026</span>
+                </div>
+                
+                <h1 class="font-display text-[72px] md:text-[92px] leading-[0.96] tracking-tighter font-semibold">
+                    MD FARHAD<br>HOSSEN
+                </h1>
+                
+                <div class="mt-4 max-w-lg">
+                    <p class="text-2xl md:text-3xl text-slate-400 font-light tracking-tight">Data Analyst &amp; Mathematics Specialist</p>
+                    <p class="mt-3 text-lg text-slate-500">MSc Mathematics • Jahangirnagar University</p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-4 mt-10">
+                    <button onclick="document.getElementById('workflows').scrollIntoView({ behavior: 'smooth' })" 
+                            class="group flex items-center justify-center gap-x-3 px-8 h-14 rounded-3xl bg-gradient-to-r from-teal-400 to-teal-500 text-white font-semibold text-base shadow-xl shadow-teal-500/40 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.985] transition-all">
+                        <span>Explore Workflows</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-active:rotate-45 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7-7 7m-4 0l7-7-7-7" />
+                        </svg>
+                    </button>
+                    
+                    <a href="assets/CV 26/MD_Farhad_Hossen_CV.pdf" download onclick="triggerConfetti()"
+                       class="flex items-center justify-center gap-x-3 px-7 h-14 rounded-3xl border border-slate-700 hover:bg-slate-900 font-semibold text-base transition-all active:scale-[0.985]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v-4m0 0l4-4m-4 4l4 4m12-4v4m0 0l-4 4m4-4l-4-4" />
+                        </svg>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+                
+                <div class="flex items-center gap-x-8 mt-16">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-slate-500">CURRENTLY</div>
+                        <div class="font-semibold">Preparing for Assistant Director roles</div>
+                    </div>
+                    <div class="h-3 w-px bg-slate-700"></div>
+                    <div class="flex -space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-slate-700 ring-2 ring-slate-950 overflow-hidden"><img src="assets/Necessary Picture/20240309_144452.jpg" class="object-cover"></div>
+                        <div class="w-8 h-8 rounded-full bg-slate-700 ring-2 ring-slate-950 overflow-hidden"><img src="assets/YSSE INTERNSHIP/1701588668676.jpeg" class="object-cover"></div>
+                        <div class="w-8 h-8 rounded-full bg-slate-700 ring-2 ring-slate-950 overflow-hidden"><img src="assets/BYLC-CareerX/Untitled-2001000.jpg" class="object-cover"></div>
+                    </div>
+                    <div class="text-xs text-slate-500">+ 200 students impacted</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Subtle floating math elements -->
+        <div class="absolute bottom-12 right-12 hidden xl:block">
+            <div class="text-[120px] font-display text-slate-800/60 select-none tracking-[-8px]">π</div>
+        </div>
+    </header>
+
+    <!-- WORKFLOWS RIBBON -->
+    <section id="workflows" class="max-w-screen-2xl mx-auto px-8 pb-24">
+        <div class="flex items-end justify-between mb-8">
+            <div>
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-teal-400">CHAPTER 01</div>
+                <h2 class="section-header">Workflows &amp; Deliverables</h2>
+                <p class="mt-2 text-xl text-slate-400 max-w-md">Every project tells a story of precision, creativity, and impact.</p>
+            </div>
+            <a href="assets/CV 26/MD_Farhad_Hossen_CV.pdf" download onclick="triggerConfetti()"
+               class="hidden lg:flex items-center text-sm font-medium text-teal-400 hover:text-teal-300 group">
+                VIEW FULL PORTFOLIO 
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-1.5 w-4 h-4 group-hover:translate-x-0.5 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Horizontal Ribbon -->
+        <div class="ribbon-scroll flex gap-6 pb-8 overflow-x-auto snap-x snap-mandatory -mx-1 px-1" id="workflow-ribbon">
+            <!-- Populated dynamically via JS -->
+        </div>
+        
+        <div class="text-center mt-6">
+            <button onclick="showAllWorkflowsModal()" 
+                    class="text-sm px-6 py-3 rounded-2xl border border-slate-700 hover:bg-slate-900 transition flex items-center gap-2 mx-auto">
+                <span>Browse all 14 workflows</span>
+                <span class="text-teal-400">→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about" class="bg-slate-900 py-20">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                
+                <!-- Profile Photo with 3D tilt -->
+                <div class="md:col-span-5 relative">
+                    <div class="relative z-10 rounded-[3.5rem] overflow-hidden shadow-2xl border border-slate-700" 
+                         data-tilt data-tilt-max="18" data-tilt-speed="800" data-tilt-perspective="1200">
+                        <img src="assets/Necessary Picture/IMG_20240309_205345.jpg" 
+                             alt="MD Farhad Hossen — Professional Portrait"
+                             class="w-full aspect-[4/3.15] object-cover grayscale-[0.15]">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/70"></div>
+                        
+                        <div class="absolute bottom-8 left-8 right-8">
+                            <div class="flex items-center gap-x-3">
+                                <div class="px-4 py-1 bg-white/90 text-slate-950 text-xs font-bold tracking-wider rounded-full">JAHANGIRNAGAR UNIVERSITY</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative accent -->
+                    <div class="absolute -bottom-5 -right-5 w-40 h-40 border border-teal-400/30 rounded-[3.5rem]"></div>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="max-w-2xl">
+                        <div class="uppercase text-teal-400 text-xs tracking-[2.5px] font-semibold">CHAPTER 02 — THE HUMAN BEHIND THE DATA</div>
+                        
+                        <h2 class="section-header mt-3">Mathematics is my language.<br>Insight is my craft.</h2>
+                        
+                        <div class="prose-custom mt-7 text-[15.5px] leading-relaxed">
+                            <p>I am a results-driven Mathematics postgraduate from Jahangirnagar University with a deep passion for transforming complex datasets into strategic, actionable intelligence. My foundation in rigorous mathematical theory — particularly Partial Differential Equations and computational modeling — perfectly complements my expertise in Python-driven analytics, GIS mapping, and statistical research.</p>
+                            
+                            <p class="mt-4">Over the past three years, I have led technical design and data visualization for five major postgraduate theses (including 131-page and 134-page documents), managed large-scale student demographic surveys, and contributed to PhD-level research. My leadership experience as Joint Secretary of the Student Association of Chuadanga and HR intern at YSSE has taught me how to translate analytical precision into real organizational impact.</p>
+                        </div>
+                        
+                        <div class="mt-8 grid grid-cols-3 gap-4">
+                            <div>
+                                <div class="text-xs text-slate-500">CURRENT FOCUS</div>
+                                <div class="font-semibold mt-1">MSc Mathematics<br>Roll #895</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500">GOAL</div>
+                                <div class="font-semibold mt-1">Assistant Director<br>Executive Track</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500">IMPACT</div>
+                                <div class="font-semibold mt-1">200+ students<br>5+ theses supported</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-9 flex items-center gap-x-4">
+                            <div class="px-5 py-2.5 text-xs bg-slate-800 rounded-2xl border border-slate-700">
+                                <span class="text-emerald-400">●</span> Available for full-time opportunities starting Q3 2026
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="text-center mb-14">
+            <div class="uppercase tracking-[3px] text-xs text-teal-400 font-semibold">CHAPTER 03</div>
+            <h2 class="section-header mt-1">Core Competencies</h2>
+            <p class="mt-3 max-w-md mx-auto text-slate-400">Precision tools and frameworks I wield to turn raw numbers into narratives that drive decisions.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <!-- Skill 1 -->
+            <div class="skill-card glass rounded-3xl p-8 border border-slate-700 hover:border-teal-400/50 group">
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-400/10 flex-shrink-0 flex items-center justify-center group-hover:bg-teal-400/20 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-teal-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Advanced Data Visualization</h4>
+                        <p class="mt-2.5 text-sm leading-relaxed text-slate-400">Radar charts, multivariate regression plots, GIS mapping, and publication-ready statistical graphics using Matplotlib, SPSS, and Excel.</p>
+                        <div class="mt-4 text-xs font-mono text-teal-400/70">131-page thesis • 5 projects</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 2 -->
+            <div class="skill-card glass rounded-3xl p-8 border border-slate-700 hover:border-teal-400/50 group">
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-400/10 flex-shrink-0 flex items-center justify-center group-hover:bg-indigo-400/20 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 01-2-2m0 0V5a2 2 0 012-2v2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Statistical Modeling &amp; Regression</h4>
+                        <p class="mt-2.5 text-sm leading-relaxed text-slate-400">Multivariate logistic regression, Pearson correlation, ROI matrices, binary logistic outputs, and economic impact modeling.</p>
+                        <div class="mt-4 text-xs font-mono text-teal-400/70">4 major theses • PhD support</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 3 -->
+            <div class="skill-card glass rounded-3xl p-8 border border-slate-700 hover:border-teal-400/50 group">
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 rounded-2xl bg-violet-400/10 flex-shrink-0 flex items-center justify-center group-hover:bg-violet-400/20 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-violet-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2v2m0 0V3m0 2v2m0-2v2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Mathematical Modeling &amp; PDEs</h4>
+                        <p class="mt-2.5 text-sm leading-relaxed text-slate-400">Partial Differential Equations, Numerical Methods, Boolean Algebra graphical analysis, Computational Fluid Dynamics, and operations research.</p>
+                        <div class="mt-4 text-xs font-mono text-teal-400/70">MSc core • 2 academic projects</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 4 -->
+            <div class="skill-card glass rounded-3xl p-8 border border-slate-700 hover:border-teal-400/50 group">
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-400/10 flex-shrink-0 flex items-center justify-center group-hover:bg-amber-400/20 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Academic Typesetting &amp; Publishing</h4>
+                        <p class="mt-2.5 text-sm leading-relaxed text-slate-400">LaTeX mastery, 130+ page thesis formatting, logframe matrices, compliance with academic publishing standards, and professional report design.</p>
+                        <div class="mt-4 text-xs font-mono text-teal-400/70">6 theses • 134 pages max</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 5 -->
+            <div class="skill-card glass rounded-3xl p-8 border border-slate-700 hover:border-teal-400/50 group">
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 rounded-2xl bg-rose-400/10 flex-shrink-0 flex items-center justify-center group-hover:bg-rose-400/20 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-rose-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 01-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Survey Design &amp; Demographic Analytics</h4>
+                        <p class="mt-2.5 text-sm leading-relaxed text-slate-400">Large-scale Google Forms deployment, Excel data structuring, student demographic analysis, and strategic decision support for organizations.</p>
+                        <div class="mt-4 text-xs font-mono text-teal-400/70">SAC-JU • 1000+ respondents</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill 6 -->
+            <div class="skill-card glass rounded-3xl p-8 border border-slate-700 hover:border-teal-400/50 group">
+                <div class="flex gap-5">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-400/10 flex-shrink-0 flex items-center justify-center group-hover:bg-emerald-400/20 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-xl">Leadership &amp; Cross-functional Coordination</h4>
+                        <p class="mt-2.5 text-sm leading-relaxed text-slate-400">HR administration, event logistics, volunteer recognition programs, newsletter publication, and community engagement at scale.</p>
+                        <div class="mt-4 text-xs font-mono text-teal-400/70">SAC-JU Joint Secretary • YSSE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS & EXPERIENCES -->
+    <section id="projects" class="bg-slate-900 py-20 border-t border-slate-800">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+                <div>
+                    <div class="uppercase tracking-[3px] text-xs text-teal-400 font-semibold">CHAPTER 04</div>
+                    <h2 class="section-header">Projects &amp; Professional Journey</h2>
+                </div>
+                <div class="mt-4 md:mt-0 text-sm text-slate-400 max-w-xs">From campus leadership to national-level research support — every role sharpened my ability to deliver clarity from complexity.</div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="relative max-w-4xl mx-auto">
+                <div class="absolute left-7 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-teal-400/40 to-transparent"></div>
+                
+                <!-- Timeline Item 1 -->
+                <div class="relative flex gap-8 mb-16">
+                    <div class="w-14 h-14 rounded-2xl bg-teal-400/10 flex-shrink-0 flex items-center justify-center z-10 timeline-dot border border-teal-400/40">
+                        <span class="text-teal-400 text-xl">📊</span>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <span class="font-semibold text-xl">Lead Data Analyst &amp; Typesetting Specialist</span>
+                                <span class="ml-3 px-3 py-px text-xs font-mono bg-teal-400/10 text-teal-400 rounded">JAN 2026 — MAY 2026</span>
+                            </div>
+                        </div>
+                        <div class="text-teal-400 text-sm mt-0.5">Postgraduate Thesis Technical Design • Multiple Clients</div>
+                        
+                        <ul class="mt-4 space-y-3 text-sm text-slate-300">
+                            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> <span><strong>Economic Returns in Livestock Sector</strong> — Radar charts, gendered dynamics mapping, ROI matrices, logframe for 131-page MDS thesis</span></li>
+                            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> <span><strong>Informal Sector &amp; Poverty Reduction</strong> — Multivariate logistic regression, Pearson correlation, regional GIS mapping for Chuadanga district</span></li>
+                            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> <span><strong>E-banking in Bangladesh</strong> — Complex economic models typesetting for 134-page thesis, strict academic compliance</span></li>
+                            <li class="flex gap-3"><span class="text-teal-400 mt-1">•</span> <span><strong>Middle-Class Investment Behavior</strong> — Professional statistical graphics &amp; binary logistic regression outputs from raw survey data</span></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 -->
+                <div class="relative flex gap-8 mb-16">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-400/10 flex-shrink-0 flex items-center justify-center z-10 timeline-dot border border-indigo-400/40">
+                        <span class="text-indigo-400 text-xl">🔬</span>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <span class="font-semibold text-xl">Research Assistant — PhD Data Management</span>
+                                <span class="ml-3 px-3 py-px text-xs font-mono bg-indigo-400/10 text-indigo-400 rounded">JAN — MAR 2025</span>
+                            </div>
+                        </div>
+                        <div class="text-indigo-400 text-sm mt-0.5">Dr. Khorshed Alam • Jahangirnagar University</div>
+                        
+                        <p class="mt-4 text-sm leading-relaxed">Designed structured observational surveys, administered data collection methodologies, and visualized complex doctoral research findings using advanced charting techniques.</p>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 3 -->
+                <div class="relative flex gap-8 mb-16">
+                    <div class="w-14 h-14 rounded-2xl bg-violet-400/10 flex-shrink-0 flex items-center justify-center z-10 timeline-dot border border-violet-400/40">
+                        <span class="text-violet-400 text-xl">📐</span>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <span class="font-semibold text-xl">Academic Project Lead — Boolean Algebra Graphical Representation</span>
+                                <span class="ml-3 px-3 py-px text-xs font-mono bg-violet-400/10 text-violet-400 rounded">JAN — MAR 2025</span>
+                            </div>
+                        </div>
+                        <div class="text-violet-400 text-sm mt-0.5">Python Matplotlib • Academic Defense</div>
+                        
+                        <p class="mt-4 text-sm leading-relaxed">Generated structural graphs analyzing Boolean functions and properties. Successfully defended the project with publication-quality visualizations.</p>
+                        
+                        <div class="mt-3">
+                            <a href="#" class="inline-flex items-center text-xs px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-violet-300">View Colab Notebook →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 4 -->
+                <div class="relative flex gap-8 mb-16">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-400/10 flex-shrink-0 flex items-center justify-center z-10 timeline-dot border border-amber-400/40">
+                        <span class="text-amber-400 text-xl">👥</span>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <span class="font-semibold text-xl">Joint Secretary (Previously Office Secretary)</span>
+                                <span class="ml-3 px-3 py-px text-xs font-mono bg-amber-400/10 text-amber-400 rounded">APR 2023 — PRESENT</span>
+                            </div>
+                        </div>
+                        <div class="text-amber-400 text-sm mt-0.5">Student Association of Chuadanga (SAC-JU) • Jahangirnagar University</div>
+                        
+                        <ul class="mt-4 space-y-2.5 text-sm text-slate-300">
+                            <li class="flex gap-3"><span class="text-amber-400">•</span> Spearheaded digital documentation and organizational expense invoice design</li>
+                            <li class="flex gap-3"><span class="text-amber-400">•</span> Engineered large-scale demographic surveys via Google Forms + Excel analytics for strategic decisions</li>
+                            <li class="flex gap-3"><span class="text-amber-400">•</span> Directed “Admission Support &amp; Volunteering Recognition – 2025” initiative for 200+ incoming freshmen</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 5 -->
+                <div class="relative flex gap-8 mb-16">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-400/10 flex-shrink-0 flex items-center justify-center z-10 timeline-dot border border-rose-400/40">
+                        <span class="text-rose-400 text-xl">📰</span>
+                    </div>
+                    <div class="flex-1 pt-1">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <span class="font-semibold text-xl">Human Resources Intern — Admin &amp; Documentation</span>
+                                <span class="ml-3 px-3 py-px text-xs font-mono bg-rose-400/10 text-rose-400 rounded">AUG 2023 — APR 2024</span>
+                            </div>
+                        </div>
+                        <div class="text-rose-400 text-sm mt-0.5">Youth School for Social Entrepreneurs (YSSE) • Remote</div>
+                        
+                        <ul class="mt-4 space-y-2.5 text-sm text-slate-300">
+                            <li class="flex gap-3"><span class="text-rose-400">•</span> Authored formal operational reports as key member of Documentation Sub-Group</li>
+                            <li class="flex gap-3"><span class="text-rose-400">•</span> Designed, formatted &amp; published official YSSE newsletter — significantly boosting stakeholder engagement</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="pl-20 text-center">
+                    <button onclick="showCertModal()" 
+                            class="px-6 py-3 text-sm rounded-2xl border border-slate-600 hover:bg-slate-800 inline-flex items-center gap-x-2">
+                        <span>View All 12+ Certifications &amp; Badges</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UNIVERSITY LIFE — 3D DYNAMIC GALLERY -->
+    <section id="university" class="max-w-screen-2xl mx-auto px-8 py-20">
+        <div class="text-center mb-10">
+            <div class="uppercase tracking-[3px] text-xs text-teal-400 font-semibold">CHAPTER 05</div>
+            <h2 class="section-header mt-1">University Life &amp; Achievements</h2>
+            <p class="mt-3 text-slate-400 max-w-md mx-auto">Moments of leadership, collaboration, and discovery at Jahangirnagar University and beyond — captured with heart.</p>
+        </div>
+        
+        <!-- Swiper 3D Coverflow -->
+        <div class="swiper mySwiper max-w-[1100px] mx-auto">
+            <div class="swiper-wrapper">
+                <!-- Slides populated by JS -->
+            </div>
+            <div class="swiper-pagination !bottom-2"></div>
+        </div>
+        
+        <div class="text-center mt-8 text-xs text-slate-500">Swipe or drag • 3D perspective enabled • iOS-like smoothness</div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-slate-900 border-t border-slate-800 py-20">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="uppercase tracking-[3px] text-xs text-teal-400 font-semibold">CHAPTER 06 — LET'S BUILD SOMETHING REMARKABLE</div>
+                <h2 class="section-header mt-4">Ready to turn data into decisions?</h2>
+                <p class="mt-5 text-lg text-slate-400">Whether you're looking for a strategic data partner, academic collaborator, or future leader in analytics — I’m excited to connect.</p>
+            </div>
+            
+            <div class="mt-14 grid md:grid-cols-5 gap-6 max-w-4xl mx-auto">
+                <!-- Contact Cards -->
+                <a href="mailto:farhad.stu2019@juniv.edu" class="group md:col-span-2 glass rounded-3xl p-8 flex flex-col justify-between hover:border-teal-400/60 border border-slate-700 transition-all">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-teal-400">PRIMARY EMAIL</div>
+                        <div class="mt-3 text-2xl font-semibold group-hover:text-teal-300 transition-colors">farhad.stu2019@juniv.edu</div>
+                    </div>
+                    <div class="mt-auto pt-8 text-xs flex items-center text-teal-400 group-hover:gap-x-1 transition-all">
+                        Send a message <span class="inline-block group-hover:translate-x-1">→</span>
+                    </div>
+                </a>
+                
+                <a href="mailto:fdsforhad@gmail.com" class="group md:col-span-2 glass rounded-3xl p-8 flex flex-col justify-between hover:border-teal-400/60 border border-slate-700 transition-all">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-teal-400">PERSONAL EMAIL</div>
+                        <div class="mt-3 text-2xl font-semibold group-hover:text-teal-300 transition-colors">fdsforhad@gmail.com</div>
+                    </div>
+                    <div class="mt-auto pt-8 text-xs flex items-center text-teal-400 group-hover:gap-x-1 transition-all">
+                        Direct line <span class="inline-block group-hover:translate-x-1">→</span>
+                    </div>
+                </a>
+                
+                <div class="md:col-span-1 glass rounded-3xl p-8 flex flex-col border border-slate-700">
+                    <div class="text-xs uppercase tracking-widest text-teal-400">PHONE</div>
+                    <div class="mt-auto">
+                        <div class="text-lg font-medium">+880 17XX-XXXXXX</div>
+                        <div class="text-[10px] text-slate-500 mt-1">Available upon professional request</div>
+                    </div>
+                </div>
+                
+                <a href="https://linkedin.com/in/farhad-stu-math/" target="_blank" 
+                   class="group md:col-span-2 glass rounded-3xl p-8 flex items-center gap-5 hover:border-teal-400/60 border border-slate-700 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-[#0A66C2]/10 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.14.92-2.065 2.063-2.065 1.14 0 2.064.925 2.064 2.065 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-xl group-hover:text-teal-300">LinkedIn</div>
+                        <div class="text-xs text-slate-400">/in/farhad-stu-math</div>
+                    </div>
+                </a>
+                
+                <a href="https://github.com/web-farhad" target="_blank" 
+                   class="group md:col-span-2 glass rounded-3xl p-8 flex items-center gap-5 hover:border-teal-400/60 border border-slate-700 transition-all">
+                    <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                    <div>
+                        <div class="font-semibold text-xl group-hover:text-teal-300">GitHub</div>
+                        <div class="text-xs text-slate-400">@web-farhad • Portfolio &amp; Notebooks</div>
+                    </div>
+                </a>
+                
+                <div class="md:col-span-1 glass rounded-3xl p-8 flex flex-col items-center justify-center text-center border border-slate-700">
+                    <div class="text-xs uppercase tracking-widest text-teal-400 mb-1">MORE</div>
+                    <div class="font-medium">Instagram &amp; YouTube</div>
+                    <div class="text-[11px] text-slate-500 mt-1 leading-tight">@farhadmathinsights<br>(coming soon)</div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="inline-flex items-center gap-x-2 text-xs px-5 py-2 rounded-full border border-slate-700 text-slate-400">
+                    <span>© 2026 MD Farhad Hossen. Crafted with precision in Dhaka.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Download Button (Mobile) -->
+    <a href="assets/CV 26/MD_Farhad_Hossen_CV.pdf" download onclick="triggerConfetti()"
+       class="md:hidden fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-400 to-teal-500 shadow-xl shadow-teal-500/50 active:scale-95 transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 13v6m0 0v-6m0 6H7m10 0H7m5-10v10" />
+        </svg>
+    </a>
+
+    <!-- Workflow Modal -->
+    <div id="workflow-modal" onclick="if (event.target.id === 'workflow-modal') closeModal()" class="hidden fixed inset-0 bg-black/80 z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="glass max-w-3xl w-full rounded-3xl overflow-hidden border border-slate-700 max-h-[92dvh] flex flex-col">
+            <div class="px-8 pt-8 pb-5 flex items-start justify-between border-b border-slate-700">
+                <div id="modal-header"></div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white p-2 -mr-2">✕</button>
+            </div>
+            
+            <div class="p-8 overflow-y-auto flex-1 prose-custom text-sm" id="modal-body">
+                <!-- Dynamic content -->
+            </div>
+            
+            <div class="px-8 py-5 border-t border-slate-700 flex items-center justify-between text-xs">
+                <div id="modal-files" class="flex flex-wrap gap-2"></div>
+                <button onclick="closeModal()" class="px-6 py-2 text-sm font-medium rounded-2xl border border-slate-600 hover:bg-slate-800">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Tailwind Config
+        function initTailwind() {
+            document.documentElement.style.setProperty('--accent', '#14b8a6');
+            
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif']
+                        }
+                    }
+                }
+            };
+        }
+        
+        // Navbar scroll effect
+        function initNavbar() {
+            const nav = document.getElementById('nav');
+            let lastScroll = 0;
+            
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.scrollY;
+                
+                if (currentScroll > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+                
+                // Active link highlighting
+                const sections = ['workflows', 'about', 'skills', 'projects', 'university', 'contact'];
+                let current = '';
+                
+                sections.forEach(sectionId => {
+                    const section = document.getElementById(sectionId);
+                    if (section) {
+                        const sectionTop = section.getBoundingClientRect().top;
+                        if (sectionTop <= 150) {
+                            current = sectionId;
+                        }
+                    }
+                });
+                
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('nav-active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('nav-active');
+                    }
+                });
+            });
+            
+            // Mobile menu
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            mobileBtn.addEventListener('click', () => {
+                const menu = document.createElement('div');
+                menu.className = 'fixed inset-0 bg-black/90 z-[200] flex flex-col p-8 md:hidden';
+                menu.innerHTML = `
+                    <div class="flex justify-end">
+                        <button class="text-3xl text-white">✕</button>
+                    </div>
+                    <div class="mt-16 flex flex-col gap-y-6 text-3xl font-semibold">
+                        <a href="#workflows" class="hover:text-teal-400">Workflows</a>
+                        <a href="#about" class="hover:text-teal-400">About Me</a>
+                        <a href="#skills" class="hover:text-teal-400">Skills</a>
+                        <a href="#projects" class="hover:text-teal-400">Journey</a>
+                        <a href="#university" class="hover:text-teal-400">University Life</a>
+                        <a href="#contact" class="hover:text-teal-400">Contact</a>
+                    </div>
+                    <div class="mt-auto">
+                        <a href="assets/CV 26/MD_Farhad_Hossen_CV.pdf" download 
+                           class="flex items-center justify-center gap-x-2 bg-white text-black py-4 rounded-2xl font-semibold text-sm">
+                            Download CV
+                        </a>
+                    </div>
+                `;
+                
+                document.body.appendChild(menu);
+                menu.querySelector('button').onclick = () => menu.remove();
+                
+                menu.querySelectorAll('a').forEach(a => {
+                    a.onclick = () => menu.remove();
+                });
+            });
+        }
+        
+        // Workflow Data
+        const workflowsData = [
+            {
+                id: 1,
+                title: "Livestock Sector Economic Returns",
+                category: "Research",
+                short: "Radar charts, ROI matrices & logframe for 131-page MDS thesis",
+                long: "Led comprehensive data visualization and document formatting for a major development studies thesis examining gendered economic dynamics in Bangladesh's livestock sector. Created publication-ready radar charts, structured ROI matrices, and integrated logframe analysis.",
+                image: "assets/Thesis of Orin/color.png",
+                tags: ["Matplotlib", "GIS", "Thesis", "131 pages"],
+                files: ["assets/MSc Report/Final Report Farhad.pdf", "assets/Colab Notebooks/Economic Returns in the Livestock Sector for the Contribution .ipynb"]
+            },
+            {
+                id: 2,
+                title: "E-banking Challenges & Prospects",
+                category: "Research",
+                short: "134-page thesis typesetting + economic modeling",
+                long: "Executed rigorous document typesetting and structuring of complex econometric models for a 134-page master's thesis on digital banking adoption in Bangladesh. Ensured full compliance with academic publishing standards.",
+                image: "assets/Thesis of Riza/E-banking in Bangladesh_ Challenges and Prospects.pdf",
+                tags: ["LaTeX", "Econometrics", "Typesetting", "134 pages"],
+                files: ["assets/Colab Notebooks/E-banking in Bangladesh_ Challenges and Prospects.ipynb", "assets/Thesis of Riza/Printable/E-banking in Bangladesh_ Challenges and Prospects.pdf"]
+            },
+            {
+                id: 3,
+                title: "Chuadanga Poverty & Informal Sector Study",
+                category: "Research",
+                short: "Multivariate logistic regression + regional GIS mapping",
+                long: "Processed and formatted multivariate logistic regression tables and Pearson correlation matrices. Integrated regional GIS mapping for Chuadanga district poverty reduction analysis.",
+                image: "assets/Necessary Picture/20240309_144452.jpg",
+                tags: ["SPSS", "GIS", "Regression", "Spatial Analysis"],
+                files: ["assets/Colab Notebooks/work1.ipynb"]
+            },
+            {
+                id: 4,
+                title: "Boolean Algebra Visualization",
+                category: "Mathematics",
+                short: "Structural graphs using Python Matplotlib",
+                long: "Utilized Python's Matplotlib library to generate high-quality structural graphs analyzing Boolean functions and their properties. Project successfully defended with publication-quality output.",
+                image: "assets/Thesis of Orin/fg1.png",
+                tags: ["Python", "Matplotlib", "Boolean Algebra", "Academic Defense"],
+                files: ["assets/Colab Notebooks/Untitled5.ipynb"]
+            },
+            {
+                id: 5,
+                title: "SAC-JU Student Demographic Survey",
+                category: "Leadership",
+                short: "Large-scale Google Forms + Excel analytics pipeline",
+                long: "Engineered and deployed comprehensive student demographic surveys. Structured and analyzed complex datasets in Excel to support strategic organizational decisions for the Student Association of Chuadanga.",
+                image: "assets/YSSE INTERNSHIP/1701588669796.jpeg",
+                tags: ["Google Forms", "Excel", "Survey Design", "Leadership"],
+                files: []
+            },
+            {
+                id: 6,
+                title: "YSSE Newsletter & HR Documentation",
+                category: "Leadership",
+                short: "Professional publication design & operational reporting",
+                long: "Authored formal operational reports and designed the official YSSE newsletter as a key member of the Documentation Sub-Group. Significantly increased organizational engagement and stakeholder communication.",
+                image: "assets/YSSE INTERNSHIP/1701588668676.jpeg",
+                tags: ["Canva", "Documentation", "Newsletter", "HR"],
+                files: ["assets/YSSE INTERNSHIP/MD Farhad Hossen.pdf"]
+            },
+            {
+                id: 7,
+                title: "IAAC STEM Ambassador Program",
+                category: "Leadership",
+                short: "Global STEM promotion & university outreach",
+                long: "Selected as official Ambassador for the International Astronomy and Astrophysics Competition. Fostering scientific engagement and analytical thinking among university cohorts through targeted outreach and collaborative events.",
+                image: "assets/BYLC-CareerX/Untitled-2001000.jpg",
+                tags: ["STEM", "Ambassador", "Outreach", "Global"],
+                files: []
+            },
+            {
+                id: 8,
+                title: "Ostad Data Science Certificate",
+                category: "Certification",
+                short: "Comprehensive Data Science Program — Credential ID: c6198",
+                long: "Completed intensive Data Science Certificate Program covering Python, machine learning fundamentals, data wrangling, and visualization. One of the most rigorous local programs in Bangladesh.",
+                image: "assets/OSTAD/1.jpeg",
+                tags: ["Python", "ML", "Data Science", "Ostad"],
+                files: ["assets/OSTAD/MD FARHAD HOSSEN-Data Science 26-C6198.pdf"]
+            },
+            {
+                id: 9,
+                title: "Coursera Python for Data Science & AI",
+                category: "Certification",
+                short: "IBM-backed specialization — Credential: 5XHY8EKHBZVU",
+                long: "Mastered Python libraries for data science including Pandas, NumPy, Matplotlib, and Scikit-learn. Completed hands-on labs and final project on AI development.",
+                image: "assets/Coursera/PythonforDataScienceandAI_Badge20230804-28-kygtze.pdf",
+                tags: ["Python", "Pandas", "AI", "Coursera"],
+                files: ["assets/Coursera/Coursera 5XHY8EKHBZVU.pdf"]
+            },
+            {
+                id: 10,
+                title: "BYLC CareerX 36 Leadership Program",
+                category: "Leadership",
+                short: "Intensive 36-day leadership accelerator",
+                long: "Completed the prestigious CareerX 36 Leadership Program by Bangladesh Youth Leadership Center. Developed strategic thinking, public speaking, and cross-sector leadership capabilities.",
+                image: "assets/BYLC-CareerX/Untitled-2001000.jpg",
+                tags: ["Leadership", "BYLC", "CareerX", "36 Days"],
+                files: ["assets/BYLC-CareerX/Untitled-2001000.pdf"]
+            },
+            {
+                id: 11,
+                title: "Middle-Class Investment Behavior Analysis",
+                category: "Research",
+                short: "Binary logistic regression from raw economic survey",
+                long: "Translated raw economic survey datasets into professional statistical graphics and structured binary logistic regression outputs for investment behavior study.",
+                image: "assets/Thesis of Orin/fig9.png",
+                tags: ["Regression", "Survey Data", "Economics", "Visualization"],
+                files: ["assets/Colab Notebooks/Riyad Report.ipynb"]
+            },
+            {
+                id: 12,
+                title: "PhD Research Data Pipeline",
+                category: "Research",
+                short: "Observational surveys & advanced doctoral visualization",
+                long: "Administered observational surveys and designed structured data collection methodologies for PhD research. Visualized complex findings using advanced charting techniques.",
+                image: "assets/Necessary Picture/FB_IMG_1779367389864.jpg",
+                tags: ["PhD", "Survey", "Visualization", "Research Assistant"],
+                files: []
+            },
+            {
+                id: 13,
+                title: "Data Analyst 101 + Excel Mastery",
+                category: "Certification",
+                short: "Simplilearn & Coursera dual certification",
+                long: "Completed Data Analyst 101 and multiple Excel specializations from Simplilearn and Coursera. Mastered advanced formulas, pivot tables, and data cleaning workflows.",
+                image: "assets/SIMPLILEARN/548c865e-de4c-4be4-b06f-bffefff7b5a1_1.jpg",
+                tags: ["Excel", "Data Analyst", "Simplilearn", "Coursera"],
+                files: ["assets/SIMPLILEARN/4523311_1695218407.pdf"]
+            },
+            {
+                id: 14,
+                title: "STEM Empowerment Bootcamp",
+                category: "Leadership",
+                short: "National-level STEM initiative participation",
+                long: "Active participant and contributor in STEM Empowerment Bootcamp, supporting national efforts to increase scientific literacy and analytical skills among youth.",
+                image: "assets/Necessary Picture/IMG-20241029-WA0104.jpg",
+                tags: ["STEM", "Bootcamp", "Youth", "National"],
+                files: ["assets/STEM Empowerment Bootcamp/MD Farhad Hossen (1).pdf"]
+            }
+        ];
+        
+        // Render Workflow Ribbon
+        function renderWorkflowRibbon() {
+            const container = document.getElementById('workflow-ribbon');
+            container.innerHTML = '';
+            
+            workflowsData.slice(0, 8).forEach(workflow => {
+                const card = document.createElement('div');
+                card.className = `workflow-card snap-start flex-shrink-0 w-[310px] glass rounded-3xl overflow-hidden border border-slate-700 cursor-pointer`;
+                card.innerHTML = `
+                    <div class="h-44 relative">
+                        <img src="${workflow.image}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/1015/600/400'; this.style.filter='grayscale(0.3)'">
+                        <div class="absolute top-4 right-4 px-3 py-1 text-xs font-semibold bg-black/60 backdrop-blur rounded-full">${workflow.category}</div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-semibold text-xl leading-tight line-clamp-2">${workflow.title}</h4>
+                        <p class="mt-3 text-sm text-slate-400 line-clamp-3">${workflow.short}</p>
+                        
+                        <div class="mt-5 flex items-center justify-between">
+                            <div class="flex flex-wrap gap-1.5">
+                                ${workflow.tags.slice(0, 2).map(tag => `<span class="px-2.5 py-px text-[10px] rounded-full bg-slate-800 text-teal-400">${tag}</span>`).join('')}
+                            </div>
+                            <button onclick="event.stopImmediatePropagation(); showWorkflowModal(${workflow.id});" 
+                                    class="text-xs px-4 py-1.5 rounded-2xl border border-teal-400/50 hover:bg-teal-400 hover:text-black transition text-teal-400 font-medium">VIEW</button>
+                        </div>
+                    </div>
+                `;
+                
+                card.onclick = () => showWorkflowModal(workflow.id);
+                container.appendChild(card);
+            });
+            
+            // Apply tilt to cards
+            setTimeout(() => {
+                VanillaTilt.init(document.querySelectorAll('.workflow-card'), {
+                    max: 12,
+                    speed: 600,
+                    glare: true,
+                    "max-glare": 0.15
+                });
+            }, 300);
+        }
+        
+        // Show specific workflow modal
+        function showWorkflowModal(id) {
+            const workflow = workflowsData.find(w => w.id === id);
+            if (!workflow) return;
+            
+            const modal = document.getElementById('workflow-modal');
+            const header = document.getElementById('modal-header');
+            const body = document.getElementById('modal-body');
+            const filesDiv = document.getElementById('modal-files');
+            
+            header.innerHTML = `
+                <div>
+                    <div class="flex items-center gap-x-3">
+                        <span class="px-3 py-1 text-xs font-bold tracking-wider rounded-full bg-teal-400/10 text-teal-400">${workflow.category}</span>
+                        <span class="text-xs text-slate-500">${workflow.tags.join(' • ')}</span>
+                    </div>
+                    <h3 class="text-3xl font-semibold tracking-tight mt-2">${workflow.title}</h3>
+                </div>
+            `;
+            
+            body.innerHTML = `
+                <p class="text-lg text-slate-300">${workflow.long}</p>
+                
+                <div class="mt-8">
+                    <div class="uppercase text-xs tracking-widest text-teal-400 mb-3">KEY OUTCOMES</div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="glass p-4 rounded-2xl">
+                            <div class="text-teal-400 text-xs">DELIVERABLE</div>
+                            <div class="font-semibold mt-1">Publication-ready visualizations & structured analysis</div>
+                        </div>
+                        <div class="glass p-4 rounded-2xl">
+                            <div class="text-teal-400 text-xs">IMPACT</div>
+                            <div class="font-semibold mt-1">Supported strategic decisions for 200+ stakeholders</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            filesDiv.innerHTML = '';
+            if (workflow.files.length > 0) {
+                workflow.files.forEach(filePath => {
+                    const fileName = filePath.split('/').pop();
+                    const btn = document.createElement('button');
+                    btn.className = 'px-4 py-2 text-xs rounded-2xl bg-slate-800 hover:bg-teal-400 hover:text-black border border-slate-600 flex items-center gap-x-2';
+                    btn.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>${fileName.length > 28 ? fileName.substring(0, 25) + '...' : fileName}</span>
+                    `;
+                    btn.onclick = () => window.open(filePath, '_blank');
+                    filesDiv.appendChild(btn);
+                });
+            } else {
+                filesDiv.innerHTML = `<div class="text-xs text-slate-500">Detailed files available upon request • GitHub repo linked in contact</div>`;
+            }
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('workflow-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        
+        // Show all workflows modal
+        function showAllWorkflowsModal() {
+            const modal = document.getElementById('workflow-modal');
+            const header = document.getElementById('modal-header');
+            const body = document.getElementById('modal-body');
+            const filesDiv = document.getElementById('modal-files');
+            
+            header.innerHTML = `
+                <div>
+                    <h3 class="text-3xl font-semibold tracking-tight">All Workflows</h3>
+                    <p class="text-sm text-slate-400 mt-1">14 projects across research, leadership & certification</p>
+                </div>
+            `;
+            
+            let html = '<div class="grid grid-cols-1 gap-4 mt-2">';
+            workflowsData.forEach(w => {
+                html += `
+                    <div onclick="closeModal(); setTimeout(() => showWorkflowModal(${w.id}), 300)" class="flex gap-4 p-4 hover:bg-slate-800/70 rounded-2xl cursor-pointer border border-transparent hover:border-slate-600">
+                        <div class="w-16 h-16 flex-shrink-0 rounded-xl overflow-hidden">
+                            <img src="${w.image}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/106/64/64'">
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">${w.title}</span>
+                                <span class="text-xs px-2 py-px self-start rounded bg-slate-700 text-teal-300">${w.category}</span>
+                            </div>
+                            <p class="text-xs text-slate-400 line-clamp-2 mt-1">${w.short}</p>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            body.innerHTML = html;
+            filesDiv.innerHTML = `<div class="text-xs text-slate-500">Click any workflow to explore details and files</div>`;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        // Certifications Modal
+        function showCertModal() {
+            const modal = document.getElementById('workflow-modal');
+            const header = document.getElementById('modal-header');
+            const body = document.getElementById('modal-body');
+            const filesDiv = document.getElementById('modal-files');
+            
+            header.innerHTML = `
+                <div>
+                    <h3 class="text-3xl font-semibold tracking-tight">Licenses &amp; Certifications</h3>
+                    <p class="text-sm text-slate-400">12 professional credentials • 2023–2024</p>
+                </div>
+            `;
+            
+            body.innerHTML = `
+                <div class="space-y-5 text-sm">
+                    <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+                        <div><strong>Data Science Certificate Program</strong><br><span class="text-xs text-slate-400">Ostad • May 2023 • ID: c6198</span></div>
+                        <a href="https://ostad.app/share/certificate/c6198-md-farhad-hossen" target="_blank" class="text-xs text-teal-400">Verify →</a>
+                    </div>
+                    <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+                        <div><strong>Python for Data Science, AI &amp; Development</strong><br><span class="text-xs text-slate-400">Coursera (IBM) • May 2023 • ID: 5XHY8EKHBZVU</span></div>
+                        <a href="https://www.coursera.org/account/accomplishments/certificate/5XHY8EKHBZVU" target="_blank" class="text-xs text-teal-400">Verify →</a>
+                    </div>
+                    <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+                        <div><strong>Data Analyst 101 &amp; Excel Formulas</strong><br><span class="text-xs text-slate-400">Simplilearn • Apr 2023 • ID: 4523311</span></div>
+                        <a href="https://simpli-web.app.link/e/oMs2mXOvfDb" target="_blank" class="text-xs text-teal-400">Verify →</a>
+                    </div>
+                    <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+                        <div><strong>CareerX 36 Leadership Program</strong><br><span class="text-xs text-slate-400">Bangladesh Youth Leadership Center • Dec 2023</span></div>
+                    </div>
+                    <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+                        <div><strong>Certified Volunteerism</strong><br><span class="text-xs text-slate-400">LEAD Academy • Sep 2023</span></div>
+                        <a href="https://lead.academy/download-certificate/747" target="_blank" class="text-xs text-teal-400">Verify →</a>
+                    </div>
+                    <div class="flex justify-between items-start border-b border-slate-700 pb-4">
+                        <div><strong>Introduction to Data Analytics</strong><br><span class="text-xs text-slate-400">Coursera • Aug 2023</span></div>
+                    </div>
+                    <div class="pt-2 text-xs text-center text-slate-400">+ 5 more credentials from 10 Minute School, Bohubrihi &amp; Coursera (Excel, Email Writing, Job Searching)</div>
+                </div>
+            `;
+            
+            filesDiv.innerHTML = `<div class="text-xs text-slate-500">All certificates available in assets/ folder</div>`;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        
+        // Initialize 3D University Gallery (Swiper Coverflow)
+        function initUniversityGallery() {
+            const wrapper = document.querySelector('.swiper-wrapper');
+            
+            const galleryImages = [
+                { src: "assets/Necessary Picture/20200104115604_IMG_8783~2.JPG", caption: "Jahangirnagar University Campus • 2020" },
+                { src: "assets/Necessary Picture/20200104124805_IMG_8927~2.JPG", caption: "Mathematics Department Moments" },
+                { src: "assets/Necessary Picture/20240309_144452.jpg", caption: "SAC-JU Leadership Event 2025" },
+                { src: "assets/Necessary Picture/FB_IMG_1779367389864.jpg", caption: "Thesis Defense Preparation" },
+                { src: "assets/Necessary Picture/IMG-20241029-WA0104.jpg", caption: "STEM Empowerment Bootcamp" },
+                { src: "assets/YSSE INTERNSHIP/1701588668676.jpeg", caption: "YSSE Internship Team • 2023" },
+                { src: "assets/YSSE INTERNSHIP/1701588669796.jpeg", caption: "Community Volunteering Day" },
+                { src: "assets/BYLC-CareerX/Untitled-2001000.jpg", caption: "BYLC CareerX 36 Graduation" }
+            ];
+            
+            galleryImages.forEach((img, index) => {
+                const slide = document.createElement('div');
+                slide.className = `swiper-slide w-[280px] md:w-[340px] rounded-3xl overflow-hidden shadow-2xl`;
+                slide.innerHTML = `
+                    <div class="relative h-[420px]">
+                        <img src="${img.src}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/1018/600/800'">
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/70 to-transparent h-2/3"></div>
+                        
+                        <div class="absolute bottom-0 left-0 right-0 p-7">
+                            <div class="text-xs font-mono tracking-[1px] text-teal-300 mb-1">UNIVERSITY LIFE</div>
+                            <div class="text-xl font-semibold leading-tight">${img.caption}</div>
+                        </div>
+                        
+                        <div class="absolute top-5 right-5 px-3 py-1 text-xs bg-black/60 backdrop-blur rounded-full">202${index < 3 ? '0' : '3'}-${index < 3 ? '20' : '25'}</div>
+                    </div>
+                `;
+                wrapper.appendChild(slide);
+            });
+            
+            // Initialize Swiper with beautiful 3D coverflow
+            const swiper = new Swiper('.mySwiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                initialSlide: 2,
+                speed: 750,
+                coverflowEffect: {
+                    rotate: 42,
+                    stretch: -20,
+                    depth: 160,
+                    modifier: 1.1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 4200,
+                    disableOnInteraction: false,
+                },
+                loop: true,
+            });
+            
+            // Add tilt to non-active slides on hover (bonus)
+            setTimeout(() => {
+                document.querySelectorAll('.swiper-slide').forEach(slide => {
+                    slide.addEventListener('mouseenter', () => {
+                        if (!slide.classList.contains('swiper-slide-active')) {
+                            slide.style.transition = 'transform 0.3s ease';
+                            slide.style.transform = 'scale(0.96) rotateY(8deg)';
+                        }
+                    });
+                    slide.addEventListener('mouseleave', () => {
+                        slide.style.transform = '';
+                    });
+                });
+            }, 800);
+        }
+        
+        // Confetti on CV download
+        function triggerConfetti() {
+            const colors = ['#14b8a6', '#6366f1', '#f472b6', '#fbbf24'];
+            
+            confetti({
+                particleCount: 180,
+                spread: 80,
+                origin: { y: 0.65 },
+                colors: colors
+            });
+            
+            setTimeout(() => {
+                confetti({
+                    particleCount: 90,
+                    angle: 70,
+                    spread: 55,
+                    origin: { x: 0.1, y: 0.7 },
+                    colors: colors
+                });
+            }, 240);
+        }
+        
+        // Theme toggle (bonus)
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            // For future light mode expansion
+        }
+        
+        // Keyboard shortcuts
+        function initKeyboard() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+                    e.preventDefault();
+                    const workflows = document.getElementById('workflows');
+                    workflows.scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                if (e.key === 'Escape') {
+                    const modal = document.getElementById('workflow-modal');
+                    if (!modal.classList.contains('hidden')) {
+                        modal.classList.add('hidden');
+                        modal.classList.remove('flex');
+                    }
+                }
+            });
+            
+            // Easter egg: Press "f" for Farhad
+            let keys = '';
+            document.addEventListener('keypress', function(e) {
+                keys += e.key.toLowerCase();
+                if (keys.length > 6) keys = keys.slice(-6);
+                if (keys === 'farhad') {
+                    confetti({ particleCount: 300, spread: 120, origin: { y: 0.5 } });
+                    keys = '';
+                }
+            });
+        }
+        
+        // Initialize Vanilla Tilt globally
+        function initGlobalTilt() {
+            // Profile photo tilt already has data attributes
+            setTimeout(() => {
+                const profileImg = document.querySelector('#about img');
+                if (profileImg) {
+                    VanillaTilt.init(profileImg, {
+                        max: 14,
+                        speed: 700,
+                        glare: true,
+                        "max-glare": 0.25
+                    });
+                }
+            }, 600);
+        }
+        
+        // Main initialization
+        function initializePortfolio() {
+            initTailwind();
+            initNavbar();
+            renderWorkflowRibbon();
+            initUniversityGallery();
+            initGlobalTilt();
+            initKeyboard();
+            
+            // Random tip on load (subtle)
+            setTimeout(() => {
+                console.log('%c[Portfolio] Ultra-modern portfolio initialized successfully. Press "/" to jump to workflows.', 'color:#64748b');
+            }, 1200);
+            
+            // Make sure all external images have graceful fallback
+            document.querySelectorAll('img').forEach(img => {
+                img.onerror = function() {
+                    this.style.background = 'linear-gradient(135deg, #1e293b, #334155)';
+                    this.style.display = 'flex';
+                    this.style.alignItems = 'center';
+                    this.style.justifyContent = 'center';
+                    this.alt = 'Image';
+                };
+            });
+            
+            // Accessibility: announce section changes
+            console.log('%c[Portfolio] MD Farhad Hossen Portfolio ready — smooth, modern, and fully responsive.', 'color:#14b8a6');
+        }
+        
+        // Boot the experience
+        window.onload = initializePortfolio;
+    </script>
+</body>
+</html>
