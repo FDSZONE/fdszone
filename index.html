@@ -449,62 +449,196 @@
         </div>
     </div>
 
-    <!-- SCRIPTS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // Data & Utilities
-        const rawUrl = p => "https://raw.githubusercontent.com/FDSZONE/fdszone/main/" + p.split('/').map(encodeURIComponent).join('/');
-        const blobUrl = p => "https://github.com/FDSZONE/fdszone/blob/main/" + p.split('/').map(encodeURIComponent).join('/');
+   // Data & Utilities
+const rawUrl = p => "https://raw.githubusercontent.com/FDSZONE/fdszone/main/" + p.split('/').map(encodeURIComponent).join('/');
+const blobUrl = p => "https://github.com/FDSZONE/fdszone/blob/main/" + p.split('/').map(encodeURIComponent).join('/');
 
-        const workflowsData = [
-           { 
+const workflowsData = [
+    { 
         id: 1, 
         title: "Livestock Sector Economic Returns", 
         category: "Research", 
         short: "Radar charts, ROI matrices & logframe for 131-page MDS thesis", 
         long: "Led comprehensive data visualization and document formatting for a major development studies thesis examining gendered economic dynamics in Bangladesh's livestock sector.", 
-        image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Saiful%20Islam/Screenshot_20260521-230619.png", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417631832.png"), 
         tags: ["Matplotlib", "GIS"], 
-        files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Saiful%20Islam/Printable/New%20Thesis%20of%20Saiful%20Islam.pdf"] },
-            { 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Saiful%20Islam/Printable/New%20Thesis%20of%20Saiful%20Islam.pdf")
+        ] 
+    },
+    { 
         id: 2, 
         title: "E-banking Challenges & Prospects", 
         category: "Research", 
         short: "134-page thesis typesetting + economic modeling", 
         long: "Executed rigorous document typesetting and structuring of complex econometric models for a 134-page master's thesis on digital banking adoption in Bangladesh.", 
-        image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riza/Screenshot_20260521-231241~2.jpg", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417554272.png"), 
         tags: ["LaTeX", "Econometrics"], 
-        files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riza/Printable/New%20Thesis%20of%20Riza.pdf"] },
-            { 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riza/Printable/New%20Thesis%20of%20Riza.pdf")
+        ] 
+    },
+    { 
         id: 3, 
         title: "Chuadanga Poverty & Informal Sector", 
         category: "Research", 
         short: "Multivariate logistic regression + regional GIS mapping", 
         long: "Processed and formatted multivariate logistic regression tables and Pearson correlation matrices. Integrated regional GIS mapping for Chuadanga district poverty reduction analysis.", 
-        image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riyad/Screenshot_20260521-232017~2.jpg", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417694017.png"), 
         tags: ["SPSS", "GIS"], 
-        files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/Printable/New%20Thesis%20of%20Riyad.pdf"] },
-           { 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/Printable/New%20Thesis%20of%20Riyad.pdf")
+        ] 
+    },
+    { 
         id: 4, 
         title: "Boolean Algebra Visualization", 
         category: "Mathematics", 
         short: "Structural graphs using Python Matplotlib", 
         long: "Utilized Python's Matplotlib library to generate high-quality structural graphs analyzing Boolean functions and their properties. Project successfully defended.", 
-        image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/Screenshot_20260521-232553~2.jpg", 
+        image: rawUrl("https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/Screenshot_20260521-232553~2.jpg"), 
         tags: ["Python", "Boolean Algebra"], 
-        files: ["https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/New%20Work%20Boolean%20Algebra.pdf"] },
-            { id: 5, title: "SAC-JU Student Survey Analytics", category: "Leadership", short: "Large-scale Google Forms + Excel analytics pipeline", long: "Engineered and deployed comprehensive student demographic surveys. Structured and analyzed complex datasets in Excel to support strategic decisions.", image: rawUrl("assets/YSSE INTERNSHIP/1701588669796.jpeg"), tags: ["Excel", "Survey Design"], files: [] },
-            { id: 6, title: "YSSE HR Documentation", category: "Leadership", short: "Professional publication design & operational reporting", long: "Authored formal operational reports and designed the official YSSE newsletter as a key member of the Documentation Sub-Group.", image: rawUrl("assets/YSSE INTERNSHIP/1701588668676.jpeg"), tags: ["Documentation", "HR"], files: [blobUrl("assets/YSSE INTERNSHIP/MD Farhad Hossen.pdf")] },
-            { id: 7, title: "Data Science Certificate", category: "Certification", short: "Comprehensive Data Science Program — Ostad", long: "Completed intensive Data Science Certificate Program covering Python, machine learning fundamentals, data wrangling, and visualization.", image: rawUrl("assets/OSTAD/1.jpeg"), tags: ["Python", "ML"], files: [blobUrl("assets/OSTAD/MD FARHAD HOSSEN-Data Science 26-C6198.pdf")] },
-            { id: 8, title: "Python for Data Science & AI", category: "Certification", short: "IBM-backed specialization — Coursera", long: "Mastered Python libraries for data science including Pandas, NumPy, Matplotlib, and Scikit-learn.", image: rawUrl("assets/Coursera/PythonforDataScienceandAI_Badge20230804-28-kygtze.pdf"), tags: ["Python", "AI"], files: [blobUrl("assets/Coursera/Coursera 5XHY8EKHBZVU.pdf")] },
-            { id: 9, title: "BYLC CareerX 36", category: "Leadership", short: "Intensive 36-day leadership accelerator", long: "Completed the prestigious CareerX 36 Leadership Program by Bangladesh Youth Leadership Center.", image: rawUrl("assets/BYLC-CareerX/Untitled-2001000.jpg"), tags: ["Leadership", "CareerX"], files: [blobUrl("assets/BYLC-CareerX/Untitled-2001000.pdf")] },
-            { id: 10, title: "Middle-Class Investment Analysis", category: "Research", short: "Binary logistic regression from raw economic survey", long: "Translated raw economic survey datasets into professional statistical graphics and structured binary logistic regression outputs.", image: rawUrl("assets/Thesis of Orin/fig9.png"), tags: ["Regression", "Economics"], files: [blobUrl("assets/Colab Notebooks/Riyad Report.ipynb")] },
-            { id: 11, title: "STEM Ambassador Program", category: "Leadership", short: "Global STEM promotion & university outreach", long: "Selected as official Ambassador for the International Astronomy and Astrophysics Competition.", image: rawUrl("assets/BYLC-CareerX/Untitled-2001000.jpg"), tags: ["STEM", "Ambassador"], files: [] },
-            { id: 12, title: "PhD Research Data Pipeline", category: "Research", short: "Observational surveys & advanced visualization", long: "Administered observational surveys and designed structured data collection methodologies for PhD research.", image: rawUrl("assets/Necessary Picture/FB_IMG_1779367389864.jpg"), tags: ["PhD", "Survey"], files: [] },
-            { id: 13, title: "Data Analyst 101 + Excel Mastery", category: "Certification", short: "Simplilearn & Coursera dual certification", long: "Completed Data Analyst 101 and multiple Excel specializations from Simplilearn and Coursera.", image: rawUrl("assets/SIMPLILEARN/548c865e-de4c-4be4-b06f-bffefff7b5a1_1.jpg"), tags: ["Excel", "Data Analyst"], files: [blobUrl("assets/SIMPLILEARN/4523311_1695218407.pdf")] },
-            { id: 14, title: "STEM Empowerment Bootcamp", category: "Leadership", short: "National-level STEM initiative participation", long: "Active participant and contributor in STEM Empowerment Bootcamp.", image: rawUrl("assets/Necessary Picture/IMG-20241029-WA0104.jpg"), tags: ["STEM", "Bootcamp"], files: [blobUrl("assets/STEM Empowerment Bootcamp/MD Farhad Hossen (1).pdf")] }
-        ];
-
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/New%20Work%20Boolean%20Algebra.pdf")
+        ] 
+    },
+    { 
+        id: 5, 
+        title: "SAC-JU Student Survey Analytics", 
+        category: "Leadership", 
+        short: "Large-scale Google Forms + Excel analytics pipeline", 
+        long: "Engineered and deployed comprehensive student demographic surveys. Structured and analyzed complex datasets in Excel to support strategic decisions.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20Certificate/Certificate/20260521_233917-COLLAGE.jpg"), 
+        tags: ["Excel", "Survey Design"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20Certificate/Certificate/Certificate%20SAC-JU.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20SAC-JU/SAC-JU%202024%20.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20SAC-JU/SAC-JU%202023.pdf")
+        ] 
+    },
+    { 
+        id: 6, 
+        title: "YSSE HR Documentation", 
+        category: "Leadership", 
+        short: "Professional publication design & operational reporting", 
+        long: "Authored formal operational reports and designed the official YSSE newsletter as a key member of the Documentation Sub-Group.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/Screenshot_20260522-081202.png"), 
+        tags: ["Documentation", "HR"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/NEWSLETTER.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/Youth%20Ambassador.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/Black%20Grey%20Minimalist%20Clean%20Creative%20Portfolio%20Presentation.pptx.pdf")
+        ] 
+    },
+    { 
+        id: 7, 
+        title: "Data Science Certificate", 
+        category: "Certification", 
+        short: "Comprehensive Data Science Program — Ostad", 
+        long: "Completed intensive Data Science Certificate Program covering Python, machine learning fundamentals, data wrangling, and visualization.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/ce57d9e9-d81c-450e-a487-0cb49577f597_1.jpg"), 
+        tags: ["Python", "ML"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-A11357.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-C6198.pdf")
+        ] 
+    },
+    { 
+        id: 8, 
+        title: "Python for Data Science & AI", 
+        category: "Certification", 
+        short: "IBM-backed specialization — Coursera", 
+        long: "Mastered Python libraries for data science including Pandas, NumPy, Matplotlib, and Scikit-learn.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/1779416760359.png"), 
+        tags: ["Python", "AI"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Coursera%205XHY8EKHBZVU.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Data%20Analytics.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Introduction%20Excel.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/PythonforDataScienceandAI_Badge20230804-28-kygtze.pdf")
+        ] 
+    },
+    { 
+        id: 9, 
+        title: "BYLC CareerX 36", 
+        category: "Leadership", 
+        short: "Intensive 36-day leadership accelerator", 
+        long: "Completed the prestigious CareerX 36 Leadership Program by Bangladesh Youth Leadership Center.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/BYLC-CareerX/Untitled-2001000.jpg"), 
+        tags: ["Leadership", "CareerX"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/BYLC-CareerX/Untitled-2001000.pdf")
+        ] 
+    },
+    { 
+        id: 10, 
+        title: "Middle-Class Investment Analysis", 
+        category: "Research", 
+        short: "Binary logistic regression from raw economic survey", 
+        long: "Translated raw economic survey datasets into professional statistical graphics and structured binary logistic regression outputs.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417304510.png"), 
+        tags: ["Regression", "Economics"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Ratul/Printable/New%20Thesis%20of%20Ratul.pdf")
+        ] 
+    },
+    { 
+        id: 11, 
+        title: "STEM Ambassador Program", 
+        category: "Leadership", 
+        short: "Global STEM promotion & university outreach", 
+        long: "Selected as official Ambassador for the International Astronomy and Astrophysics Competition.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/IAAC/AmbassadorPoster-2025-MHOSSEN-56a9b5204b5b77cb597ee75a15bfc908_copy.pdf"), 
+        tags: ["STEM", "Ambassador"], 
+        files: [
+            blobUrl("https://drive.google.com/file/d/1YjlznNpcOvL4X5MYF2XU_7bzP8Z017yS/view?usp=sharing")
+        ] 
+    },
+    { 
+        id: 12, 
+        title: "PhD Research Data Pipeline", 
+        category: "Research", 
+        short: "Observational surveys & advanced visualization", 
+        long: "Administered observational surveys and designed structured data collection methodologies for PhD research.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/1779418659530.png"), 
+        tags: ["PhD", "Survey"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/Sample%20of%20Survey%20Google%20Form.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/%E0%A6%A8%E0%A6%BF%E0%A6%89%20%E0%A6%AE%E0%A6%BF%E0%A6%A1%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE%20%E0%A6%93%20%E0%A6%9A%E0%A6%B2%E0%A6%9A%E0%A7%8D%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A7%8D%E0%A6%B0%20%E0%A6%AC%E0%A6%BF%E0%A6%B7%E0%A6%AF%E0%A6%BC%E0%A6%95%20%E0%A6%A6%E0%A6%B0%E0%A7%8D%E0%A6%B6%E0%A6%95%20%E0%A6%85%E0%A6%AD%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%A4%E0%A6%BE%E0%A6%B0%20%E0%A6%9C%E0%A6%B0%E0%A6%BF%E0%A6%AA%20(Responses).pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/PhD_Survey_Data_Representation.pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/7th%20Chapter-last%20PS%209%20March.pdf")
+        ] 
+    },
+    { 
+        id: 13, 
+        title: "Human Resources Internship - YSSE", 
+        category: "Experience", 
+        short: "9-month HR Internship at Youth School for Social Entrepreneurs", 
+        long: "Completed a comprehensive Human Resources Internship at Youth School for Social Entrepreneurs (YSSE), managing HR operations, internal networking, and organizational documentation.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/1701588669796.jpeg"), 
+        tags: ["HR", "Internship", "YSSE"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/MD%20Farhad%20Hossen%20(2).pdf"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/MD%20Farhad%20Hossen.pdf")
+        ] 
+    },
+    { 
+        id: 14, 
+        title: "Data Analysis Notebooks & Thesis Work", 
+        category: "Research", 
+        short: "E-banking analysis and economic thesis research", 
+        long: "Developed comprehensive Python data analysis notebooks (Jupyter/Colab) covering E-banking prospects in Bangladesh and statistical analysis for academic thesis research.", 
+        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/1779419404503.png"), 
+        tags: ["Python", "Data Analysis", "Notebooks"], 
+        files: [
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/Bangladesh%20E-Banking.ipynb"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/E-banking%20in%20Bangladesh_%20Challenges%20and%20Prospects.ipynb"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/Orin%20Thesis(1).ipynb"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/work1.ipynb"),
+            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Orin/Orin%20Thesis%20New/Thesis%20of%20Orin.pdf")
+        ] 
+    }
+];
         // Custom Cursor Logic
         const cursor = document.getElementById('custom-cursor');
         document.addEventListener('mousemove', e => {
