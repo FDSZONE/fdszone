@@ -2,9 +2,9 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="MD Farhad Hossen | Data Analyst & Mathematics Specialist">
-    <title>MD Farhad Hossen • Ultra-Modern Portfolio</title>
+    <title>MD Farhad Hossen • iOS Premium Portfolio</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,748 +19,750 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        /* Apple System Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         :root {
-            --bg-color: #020617; /* Slate 950 */
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-bg: rgba(15, 23, 42, 0.5);
+            /* Pure iOS Dark Mode Palette */
+            --bg-color: #000000;
+            --surface: #1c1c1e;
+            --glass-bg: rgba(22, 22, 23, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.14);
+            --accent: #0A84FF; /* iOS System Blue */
+            --text-primary: #F5F5F7;
+            --text-secondary: #86868B;
         }
 
         body {
-            font-family: '-apple-system', 'BlinkMacSystemFont', 'Inter', system-ui, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", system-ui, sans-serif;
             background-color: var(--bg-color);
-            color: #f8fafc;
+            color: var(--text-primary);
             overflow-x: hidden;
-            cursor: none; /* Hide default cursor for desktop */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .font-display { font-family: 'Space Grotesk', '-apple-system', sans-serif; }
-
-        /* Premium Film Grain Noise Overlay */
-        .bg-noise {
-            position: fixed; inset: 0; z-index: -1;
-            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-            opacity: 0.05; pointer-events: none;
+        /* iOS Fluid Momentum Aurora Background */
+        .aurora-bg {
+            position: fixed; inset: 0; z-index: -2;
+            background: radial-gradient(circle at 20% 40%, rgba(10, 132, 255, 0.16), transparent 30%),
+                        radial-gradient(circle at 80% 25%, rgba(48, 209, 88, 0.12), transparent 30%),
+                        radial-gradient(circle at 45% 75%, rgba(147, 51, 234, 0.16), transparent 30%),
+                        radial-gradient(circle at 75% 85%, rgba(255, 45, 85, 0.1), transparent 25%);
+            filter: blur(90px);
+            transform: translate3d(0,0,0);
+            will-change: transform;
+            animation: auroraShift 22s ease-in-out infinite alternate;
         }
 
-        /* Ambient Animated Orbs */
-        .orb-1, .orb-2 {
-            position: fixed; border-radius: 50%; filter: blur(100px); z-index: -2;
-            animation: floatOrb 25s ease-in-out infinite alternate;
-        }
-        .orb-1 { width: 50vw; height: 50vw; background: rgba(20, 184, 166, 0.07); top: -10%; left: -10%; }
-        .orb-2 { width: 40vw; height: 40vw; background: rgba(99, 102, 241, 0.07); bottom: -10%; right: -10%; animation-delay: -5s; }
-
-        @keyframes floatOrb {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(5%, 10%) scale(1.2); }
-            100% { transform: translate(-5%, -5%) scale(0.9); }
+        @keyframes auroraShift {
+            0% { transform: scale(1) translate3d(0px, 0px, 0); }
+            50% { transform: scale(1.08) translate3d(20px, -25px, 0); }
+            100% { transform: scale(1) translate3d(-20px, 25px, 0); }
         }
 
-        /* Custom Magnetic Cursor */
-        #custom-cursor {
-            position: fixed; top: 0; left: 0; w-4; h-4; 
-            background: white; border-radius: 50%; 
-            pointer-events: none; z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s, background-color 0.3s, mix-blend-mode 0.3s;
-            mix-blend-mode: difference;
-        }
-        .cursor-hover { width: 60px !important; height: 60px !important; background: rgba(20, 184, 166, 1) !important; mix-blend-mode: normal !important; filter: blur(4px); }
-
-        /* iOS Ultra-Glassmorphism */
-        .glass {
+        /* Premium Spatial Blurs */
+        .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
+            backdrop-filter: blur(40px) saturate(210%);
+            -webkit-backdrop-filter: blur(40px) saturate(210%);
             border: 1px solid var(--glass-border);
-            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0px rgba(255, 255, 255, 0.15);
         }
+
+        /* Hardware Accelerated 3D Engine */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 2000px;
+            transform: translate3d(0,0,0);
+        }
+        .tilt-content {
+            transform: translateZ(45px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .tilt-content-deep {
+            transform: translateZ(75px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Micro-Grid Background Layer */
+        .ios-grid {
+            background-size: 32px 32px;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+        }
+
+        /* Apple System Kinetic Scrolling & Springs */
+        .spring-hover { 
+            transition: transform 0.45s cubic-bezier(0.2, 1, 0.2, 1), box-shadow 0.45s cubic-bezier(0.2, 1, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+        .spring-hover:hover { 
+            transform: scale(1.02) translateY(-4px); 
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6); 
+        }
+        .active-press:active { 
+            transform: scale(0.96) translateY(0px); 
+            transition: transform 0.08s ease-out; 
+        }
+
+        .sf-pro-display { letter-spacing: -0.025em; }
+        .sf-pro-text { letter-spacing: -0.015em; }
         
-        /* Advanced Scroll Progress Bar */
-        #scroll-progress {
-            position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #14b8a6, #6366f1);
-            z-index: 1000; width: 0%; box-shadow: 0 0 10px rgba(20,184,166,0.8); transition: width 0.1s ease-out;
+        .text-gradient {
+            background: linear-gradient(180deg, #FFFFFF 0%, #C5C5C7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Bento Box Grid Utilities */
-        .bento-hover { transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
-        .bento-hover:hover { transform: translateY(-8px) scale(1.02); z-index: 10; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.7); }
+        /* Native Scrollbar Simulation Indicator */
+        #scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px; 
+            background: linear-gradient(90deg, #0A84FF, #30D158, #BF5AF2);
+            z-index: 1000; width: 0%; 
+            transition: width 0.08s linear;
+        }
 
-        /* Scroll Reveal System */
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .delay-100 { transition-delay: 100ms; } .delay-200 { transition-delay: 200ms; } .delay-300 { transition-delay: 300ms; }
+        /* Fluid Animation Engine */
+        .reveal { 
+            opacity: 0; 
+            transform: translate3d(0, 35px, 0) scale(0.99); 
+            transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1); 
+            will-change: opacity, transform;
+        }
+        .reveal.active { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+        .delay-100 { transition-delay: 100ms; } 
+        .delay-200 { transition-delay: 200ms; } 
+        .delay-300 { transition-delay: 300ms; }
 
-        /* Ribbon Scroll */
-        .ribbon-scroll { scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 2rem; margin-bottom: -2rem; }
-        .ribbon-scroll::-webkit-scrollbar { display: none; }
+        .squircle { border-radius: 24px; }
+        .squircle-lg { border-radius: 38px; }
     </style>
 </head>
-<body class="selection:bg-teal-500/30 selection:text-teal-200">
+<body class="selection:bg-blue-500/30 selection:text-blue-200 ios-grid">
     
-    <!-- Background Layers -->
-    <div class="bg-noise"></div>
-    <div class="orb-1"></div>
-    <div class="orb-2"></div>
-    
-    <!-- Scroll Progress -->
+    <!-- Background System -->
+    <div class="aurora-bg"></div>
     <div id="scroll-progress"></div>
 
-    <!-- Custom Cursor -->
-    <div id="custom-cursor" class="hidden md:block w-3 h-3"></div>
-
-    <!-- FLOATING iOS NAV -->
-    <div class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50 transition-all duration-500" id="nav-container">
-        <nav class="glass rounded-full px-6 py-3 flex items-center justify-between border border-white/20 shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-            <div class="flex items-center gap-x-4 cursor-pointer group hover-target" onclick="window.scrollTo(0,0)">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-indigo-500 flex items-center justify-center shadow-[0_0_20px_rgba(20,184,166,0.5)] group-hover:rotate-12 transition-all duration-500">
-                    <span class="text-white text-2xl font-bold font-display">F</span>
-                </div>
-                <div class="hidden sm:block">
-                    <div class="font-display text-lg font-bold tracking-tight leading-none text-white">Farhad</div>
-                    <div class="text-[9px] text-teal-400 tracking-[0.2em] font-bold uppercase mt-1">Portfolio</div>
+    <!-- iOS FLOATING NAV (DYNAMIC ISLAND METAPHOR) -->
+    <div class="fixed top-6 left-1/2 -translate-x-1/2 w-[92%] max-w-5xl z-50 transition-all duration-500 flex justify-center" id="nav-container">
+        <nav class="glass-panel rounded-full px-4 py-2.5 flex items-center justify-between gap-x-6 border border-white/10 shadow-2xl w-full">
+            <div class="flex items-center gap-x-3 cursor-pointer group active-press" onclick="window.scrollTo(0,0)">
+                <div class="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                    <span class="text-lg font-bold sf-pro-display">F</span>
                 </div>
             </div>
 
-            <div class="hidden md:flex items-center gap-x-1 bg-black/20 p-1 rounded-full border border-white/5">
-                <a href="#workflows" class="hover-target px-5 py-2 text-xs font-semibold rounded-full hover:bg-white/10 transition-all text-slate-300 hover:text-white">Workflows</a>
-                <a href="#about" class="hover-target px-5 py-2 text-xs font-semibold rounded-full hover:bg-white/10 transition-all text-slate-300 hover:text-white">About</a>
-                <a href="#skills" class="hover-target px-5 py-2 text-xs font-semibold rounded-full hover:bg-white/10 transition-all text-slate-300 hover:text-white">Skills</a>
-                <a href="#projects" class="hover-target px-5 py-2 text-xs font-semibold rounded-full hover:bg-white/10 transition-all text-slate-300 hover:text-white">Journey</a>
-                <a href="#contact" class="hover-target px-5 py-2 text-xs font-semibold rounded-full hover:bg-white/10 transition-all text-slate-300 hover:text-white">Contact</a>
+            <div class="hidden md:flex items-center gap-x-1 bg-black/30 p-1 rounded-full border border-white/5">
+                <a href="#workflows" class="px-4 py-1.5 text-xs font-medium rounded-full hover:bg-white/10 transition-all text-gray-300 hover:text-white">Research</a>
+                <a href="#about" class="px-4 py-1.5 text-xs font-medium rounded-full hover:bg-white/10 transition-all text-gray-300 hover:text-white">Profile</a>
+                <a href="#skills" class="px-4 py-1.5 text-xs font-medium rounded-full hover:bg-white/10 transition-all text-gray-300 hover:text-white">Expertise</a>
+                <a href="#projects" class="px-4 py-1.5 text-xs font-medium rounded-full hover:bg-white/10 transition-all text-gray-300 hover:text-white">Journey</a>
             </div>
 
             <div class="flex items-center gap-x-3">
                 <a href="https://github.com/FDSZONE/fdszone/blob/main/CV%2026/MD_Farhad_Hossen_CV.pdf" target="_blank" download="MD_Farhad_Hossen_CV.pdf" onclick="triggerConfetti()"
-                   class="hover-target hidden md:flex items-center gap-x-2 px-6 py-2.5 rounded-full bg-white text-black text-xs font-bold uppercase tracking-wider hover:bg-teal-400 hover:text-white hover:shadow-[0_0_20px_rgba(20,184,166,0.6)] transition-all duration-300">
+                   class="active-press hidden md:flex items-center justify-center px-5 py-2 rounded-full bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-all shadow-[0_4px_12px_rgba(10,132,255,0.3)]">
                     Download CV
                 </a>
-                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                <button id="mobile-menu-btn" class="md:hidden w-9 h-9 flex items-center justify-center rounded-full bg-white/10 text-white active-press">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
                 </button>
             </div>
         </nav>
     </div>
 
-    <!-- HERO -->
-    <header class="pt-32 pb-20 min-h-[100dvh] flex items-center relative overflow-hidden">
-        <!-- Math Grid Background Overlay -->
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LCAyNTUsIDI1NSwgMC4wNykiLz48L3N2Zz4=')] opacity-60"></div>
-        
-        <div class="max-w-screen-2xl mx-auto px-8 relative z-10 w-full">
-            <div class="max-w-5xl">
-                <div class="reveal inline-flex items-center gap-x-3 px-5 py-2.5 rounded-full glass text-[10px] uppercase tracking-[0.2em] font-bold mb-8 border border-teal-500/30 shadow-[0_0_20px_rgba(20,184,166,0.15)]">
-                    <div class="w-2 h-2 bg-teal-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(20,184,166,1)]"></div>
-                    <span class="text-teal-50">Open to Opportunities • 2026</span>
-                </div>
-                
-                <h1 class="reveal delay-100 font-display text-[12vw] md:text-[120px] leading-[0.85] tracking-tighter font-bold text-white pb-4 drop-shadow-2xl">
-                    MD FARHAD<br>
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400 animate-gradient-x">HOSSEN</span>
-                </h1>
-                
-                <div class="reveal delay-200 mt-8 max-w-2xl">
-                    <p class="text-2xl md:text-4xl font-display font-bold text-slate-300 tracking-tight">Data Analyst <span class="text-teal-500">&</span> Math Specialist</p>
-                    <p class="mt-5 text-lg md:text-xl text-slate-400 leading-relaxed font-medium">MSc Mathematics, Jahangirnagar University.<br>Transforming raw numbers into architectural decisions.</p>
-                </div>
+    <!-- Mobile Navigation System -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-3xl z-[45] hidden flex-col items-center justify-center gap-8 opacity-0 transition-opacity duration-300">
+        <a href="#workflows" class="mobile-link text-2xl font-medium text-white tracking-tight">Research</a>
+        <a href="#about" class="mobile-link text-2xl font-medium text-white tracking-tight">Profile</a>
+        <a href="#skills" class="mobile-link text-2xl font-medium text-white tracking-tight">Expertise</a>
+        <a href="#projects" class="mobile-link text-2xl font-medium text-white tracking-tight">Journey</a>
+        <a href="#contact" class="mobile-link text-2xl font-medium text-white tracking-tight">Contact & Socials</a>
+    </div>
 
-                <div class="reveal delay-300 flex flex-wrap items-center gap-5 mt-14">
-                    <button onclick="document.getElementById('workflows').scrollIntoView({ behavior: 'smooth' })" 
-                            class="hover-target group flex items-center justify-center gap-x-3 px-8 h-16 rounded-full bg-white text-black font-bold text-sm uppercase tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(255,255,255,0.5)] hover:scale-105 transition-all duration-400">
-                        <span>Explore Workflows</span>
-                        <svg class="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" d="M14 5l7 7-7 7m-4 0l7-7-7-7" /></svg>
-                    </button>
-                </div>
-                
-                <div class="reveal delay-300 mt-20 glass w-fit p-2 pl-6 rounded-[3rem] border border-white/10 flex items-center gap-8">
-                    <div>
-                        <div class="text-[9px] uppercase tracking-[0.2em] text-teal-400 font-bold mb-1">Impact Radius</div>
-                        <div class="font-bold text-white text-base">200+ Students Mentored</div>
+    <!-- HERO PROFILE HEADLINE -->
+    <header class="pt-36 pb-16 min-h-[100dvh] flex items-center relative overflow-hidden flex-col justify-center text-center">
+        <div class="max-w-screen-2xl mx-auto px-6 relative z-10 w-full flex flex-col items-center">
+            
+            <!-- Apple Notification Center Badge Concept -->
+            <div class="reveal inline-flex items-center gap-x-2.5 px-4 py-2 rounded-full glass-panel text-xs font-medium text-gray-300 mb-8 border border-white/10 shadow-sm backdrop-blur-xl">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="font-medium tracking-wide">Data Science Specialist &bull; Class of 2026</span>
+            </div>
+            
+            <!-- Optimized Spatial UI Workspace Panel -->
+            <div class="reveal delay-100 flex flex-col items-center max-w-5xl w-full perspective-1000">
+                <div class="w-full glass-panel squircle-lg p-8 md:p-14 border border-white/20 shadow-[0_32px_100px_rgba(0,0,0,0.7)] relative group transform-gpu transition-all duration-500 hover:border-white/30 tilt-card" data-tilt data-tilt-max="3" data-tilt-speed="800" data-tilt-glare="true" data-tilt-max-glare="0.15">
+                    
+                    <!-- Decorative Clean Tech Accents to optimize text space visually -->
+                    <div class="absolute top-4 left-6 hidden md:flex items-center gap-1 opacity-20">
+                        <div class="w-2 h-2 rounded-full bg-white"></div>
+                        <div class="w-16 h-[1px] bg-white"></div>
+                        <span class="text-[9px] text-white font-mono tracking-widest">SYS.MTRX</span>
                     </div>
-                    <div class="flex -space-x-4 p-2 bg-black/40 rounded-full border border-white/5">
-                        <div class="w-12 h-12 rounded-full border-2 border-[#020617] overflow-hidden"><img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/Necessary%20Picture/20240309_144452.jpg" class="object-cover w-full h-full"></div>
-                        <div class="w-12 h-12 rounded-full border-2 border-[#020617] overflow-hidden"><img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/YSSE%20INTERNSHIP/1701588668676.jpeg" class="object-cover w-full h-full"></div>
-                        <div class="w-12 h-12 rounded-full border-2 border-[#020617] overflow-hidden"><img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg" class="object-cover w-full h-full"></div>
+                    <div class="absolute top-4 right-6 hidden md:flex items-center opacity-20 font-mono text-[9px] tracking-widest text-white">
+                        [ 23.53 N / 90.26 E ]
+                    </div>
+                    
+                    <h1 class="tilt-content text-[12vw] md:text-[100px] leading-[0.85] font-bold text-gradient pb-6 tracking-tighter sf-pro-display">
+                        MD Farhad Hossen
+                    </h1>
+                    
+                    <div class="tilt-content w-24 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent my-4 mx-auto"></div>
+                    
+                    <h2 class="tilt-content text-2xl md:text-4xl sf-pro-display font-semibold text-white drop-shadow-md tracking-tight mb-6">
+                        Mathematics Specialist <span class="text-blue-500">&amp;</span> Data Analyst
+                    </h2>
+                    
+                    <p class="tilt-content text-base md:text-lg text-gray-300 font-normal leading-relaxed sf-pro-text max-w-3xl mx-auto opacity-95">
+                        Double alumnus of <span class="text-white font-semibold">Jahangirnagar University</span> (BSc &amp; MSc). Backed by an intensive record in Python-driven data science (Ostad/IBM) and organizational leadership (BYLC CareerX, YSSE), I transform raw logic into architectural intelligence. Currently operating as an independent consultant, I engineer comprehensive econometric theses for Master of Development Studies candidates.
+                    </p>
+                    
+                    <!-- Integrated System Tags Array -->
+                    <div class="tilt-content-deep flex flex-wrap justify-center gap-2.5 mt-8 max-w-2xl mx-auto">
+                        <div class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase rounded-full bg-white/5 border border-white/10 text-gray-300">Multivariate Analysis</div>
+                        <div class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase rounded-full bg-white/5 border border-white/10 text-gray-300">LaTeX Architecture</div>
+                        <div class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase rounded-full bg-white/5 border border-white/10 text-gray-300">Boolean Logic</div>
+                        <div class="px-4 py-1.5 text-[10px] font-bold tracking-widest uppercase rounded-full bg-white/5 border border-white/10 text-gray-300">Predictive Modeling</div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-50">
-            <div class="text-[9px] uppercase tracking-widest font-bold text-teal-400">Scroll</div>
-            <div class="w-px h-8 bg-gradient-to-b from-teal-400 to-transparent"></div>
+            <div class="reveal delay-200 flex flex-wrap justify-center gap-4 mt-10">
+                <button onclick="document.getElementById('workflows').scrollIntoView({ behavior: 'smooth' })" 
+                        class="active-press flex items-center gap-x-2 px-7 h-12 rounded-full bg-white text-black font-semibold text-sm hover:scale-105 transition-transform duration-300 shadow-[0_4px_24px_rgba(255,255,255,0.25)]">
+                    <span>Explore Data Workflows</span>
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7m-4 0l7-7-7-7" /></svg>
+                </button>
+            </div>
+            
+            <!-- Identity Control Dynamic Badge -->
+            <div class="reveal delay-300 mt-16 glass-panel p-2.5 pr-6 rounded-full flex items-center gap-5 border border-white/10 shadow-lg tilt-card" data-tilt data-tilt-max="5">
+                <div class="flex -space-x-3 p-0.5 tilt-content">
+                    <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/Necessary%20Picture/20240309_144452.jpg" class="w-10 h-10 rounded-full border-2 border-[#1c1c1e] object-cover">
+                    <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/YSSE%20INTERNSHIP/1701588668676.jpeg" class="w-10 h-10 rounded-full border-2 border-[#1c1c1e] object-cover">
+                    <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg" class="w-10 h-10 rounded-full border-2 border-[#1c1c1e] object-cover">
+                </div>
+                <div class="text-left tilt-content">
+                    <div class="text-[10px] text-blue-400 font-bold tracking-wider uppercase">Strategic Experience</div>
+                    <div class="font-semibold text-white text-xs">YSSE HR Alumnus &bull; SAC-JU Executive</div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- WORKFLOWS -->
-    <section id="workflows" class="max-w-screen-2xl mx-auto px-4 sm:px-8 pb-32">
-        <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 pl-4">
+    <!-- WORKFLOWS MODULE -->
+    <section id="workflows" class="max-w-screen-2xl mx-auto px-6 sm:px-10 pb-32 pt-10">
+        <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-                <div class="uppercase tracking-[0.2em] text-[10px] font-bold text-teal-400 mb-4 flex items-center gap-3">
-                    <div class="w-6 h-px bg-teal-400"></div> CHAPTER 01
-                </div>
-                <h2 class="text-5xl md:text-6xl font-display font-bold text-white tracking-tighter">Workflows <span class="text-slate-500">&</span><br>Deliverables.</h2>
+                <h2 class="text-3xl md:text-5xl sf-pro-display font-bold text-white tracking-tight">Workflows.</h2>
+                <p class="text-gray-400 mt-2 text-base md:text-lg">Biochemical pathways, econometric models, and algorithms.</p>
             </div>
-            <button onclick="showAllWorkflowsModal()" class="hover-target group flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-white bg-white/5 hover:bg-white px-8 py-4 rounded-full border border-white/20 hover:text-black transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.05)]">
-                Browse all 14 Projects <span class="group-hover:translate-x-2 transition-transform">→</span>
+            <button onclick="showAllWorkflowsModal()" class="active-press flex items-center gap-2 text-xs font-semibold text-white bg-white/10 px-5 py-2.5 rounded-full hover:bg-white hover:text-black transition-colors shadow-md">
+                Browse all 14 Projects <span class="text-base leading-none">&rarr;</span>
             </button>
         </div>
 
-        <div class="reveal delay-100 ribbon-scroll flex gap-8 overflow-x-auto snap-x snap-mandatory pb-12 pt-4 px-4 -mx-4" id="workflow-ribbon">
+        <div class="reveal delay-100 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-12 pt-4 -mx-6 px-6 md:mx-0 md:px-0" id="workflow-ribbon">
             <!-- JS Populated -->
         </div>
     </section>
 
-   <!-- ABOUT ME & SKILLS -->
-    <section id="about" class="py-32 relative">
-        <div class="absolute inset-0 bg-slate-900/40 border-y border-white/5"></div>
-        <div class="max-w-screen-2xl mx-auto px-8 relative z-10">
-            
-            <div class="grid lg:grid-cols-2 gap-20 items-center mb-32">
-                <!-- 3D Profile Photo -->
-                <div class="reveal relative perspective-1000">
-                    <div class="relative z-10 rounded-[3rem] overflow-hidden glass border border-white/20 p-2" 
-                         data-tilt data-tilt-max="8" data-tilt-speed="1000" data-tilt-glare="true" data-tilt-max-glare="0.4">
-                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/IMG_0004.jpeg" 
-                             alt="MD Farhad Hossen" class="w-full aspect-[4/4.5] object-cover rounded-[2.5rem] filter contrast-110">
-                        
-                        <div class="absolute bottom-10 left-10 right-10 glass p-6 rounded-[2rem] border border-white/20 shadow-2xl">
-                            <div class="text-white text-sm font-bold tracking-widest uppercase mb-1">MSc Mathematics</div>
-                            <div class="text-teal-400 text-sm font-medium">Jahangirnagar University</div>
+    <!-- ACCOUNTABLE ENGAGEMENT & BIO INFRASTRUCTURE -->
+    <section id="about" class="py-32 relative border-t border-white/5 bg-white/[0.01]">
+        <div class="max-w-screen-2xl mx-auto px-6 sm:px-10 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
+                
+                <div class="reveal relative flex justify-center tilt-card" data-tilt data-tilt-max="5" data-tilt-speed="1000" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                    <div class="relative z-10 squircle overflow-hidden glass-panel p-2 shadow-[0_24px_50px_rgba(0,0,0,0.6)] max-w-md w-full border border-white/20">
+                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/IMG_0004.jpeg" alt="MD Farhad Hossen" class="w-full aspect-[4/5] object-cover squircle tilt-content">
+                        <div class="absolute bottom-6 left-6 right-6 glass-panel p-5 squircle border border-white/20 tilt-content-deep shadow-2xl bg-black/40">
+                            <div class="text-white text-base font-bold sf-pro-display">MSc Mathematics</div>
+                            <div class="text-blue-400 text-xs font-medium mt-1">Research Consultant</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="reveal delay-100">
-                    <div class="uppercase tracking-[0.2em] text-[10px] font-bold text-teal-400 mb-4 flex items-center gap-3">
-                        <div class="w-6 h-px bg-teal-400"></div> CHAPTER 02
-                    </div>
-                    <h2 class="text-5xl md:text-6xl font-display font-bold text-white tracking-tighter leading-[1.1]">Math is my language.<br><span class="text-slate-500">Insight is my craft.</span></h2>
-                    
-                    <div class="mt-10 text-xl leading-relaxed text-slate-300 font-medium">
-                        <p class="mb-6">I am a results-driven Mathematics postgraduate with a deep passion for transforming complex datasets into strategic intelligence.</p>
-                        <p>I have led technical design for five major postgraduate theses (up to 134 pages) and managed large-scale demographic pipelines. My leadership experience as Joint Secretary of SAC-JU has taught me how to translate analytical precision into real organizational impact.</p>
+                    <h2 class="text-3xl md:text-5xl sf-pro-display font-bold text-white tracking-tight leading-tight">Insight is my craft.<br><span class="text-blue-500">Impact is the goal.</span></h2>
+                    <div class="mt-8 text-base md:text-lg leading-relaxed text-gray-300 sf-pro-text space-y-6 opacity-95">
+                        <p>Having officially completed my BSc and MSc in Mathematics at Jahangirnagar University (2026), I channel my analytical precision into high-stakes academic consulting. I actively freelance to design rigorous econometric models and draft extensive theses for Master of Development Studies (MDS) candidates—most notably analyzing the crucial role of the informal sector in alleviating poverty within the Chuadanga district.</p>
+                        <p>Beyond academia, I serve as the <span class="text-white font-semibold">Joint Secretary for the Student Association of Chuadanga (SAC-JU)</span> and act as a global Ambassador for the <span class="text-white font-semibold">International Astronomy and Astrophysics Competition (IAAC)</span>.</p>
+                        
+                        <!-- RE-UPGRADED PREVIOUS REAL-WORLD ACHIEVEMENTS AREA -->
+                        <div class="p-6 glass-panel squircle border-l-4 border-l-blue-500 text-white space-y-3">
+                            <h4 class="text-sm font-bold tracking-widest uppercase text-blue-400">Previous Project Milestones</h4>
+                            <ul class="text-sm text-gray-300 space-y-2 list-none p-0 m-0">
+                                <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&bull;</span> Deployed Jupyter and Google Colab analysis modules evaluating e-banking penetration limits and adoption metrics across regional divisions.</li>
+                                <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&bull;</span> Synthesized multivariate linear and logistic outputs in SPSS, formatting strict compliance criteria across five multi-chapter research frameworks.</li>
+                                <li class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&bull;</span> Built comprehensive simulation models tracing non-linear biological pathways and structural logic graph matrices with Matplotlib pipelines.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-            <!-- Detailed Skills Grid -->
+            <!-- CORE EXPERTISE PANEL -->
             <div id="skills" class="reveal">
-                <div class="uppercase tracking-[0.2em] text-[10px] font-bold text-teal-400 mb-10 flex items-center gap-3 justify-center">
-                    <div class="w-6 h-px bg-teal-400"></div> CHAPTER 03 <div class="w-6 h-px bg-teal-400"></div>
-                </div>
-                
+                <h3 class="text-xl font-semibold text-white mb-8 sf-pro-display tracking-tight">Comprehensive Expertise</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bento-hover glass p-10 rounded-[2.5rem] border border-white/10 relative overflow-hidden group">
-                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-teal-500/20 blur-3xl rounded-full group-hover:bg-teal-500/40 transition-all"></div>
-                        <h4 class="font-display font-bold text-2xl text-white mb-4 relative z-10">Data Visualization</h4>
-                        <p class="text-slate-400 font-medium relative z-10">Radar charts, multivariate regression plots, GIS mapping, and publication-ready graphics using Matplotlib and SPSS.</p>
+                    
+                    <div class="spring-hover glass-panel p-8 squircle group tilt-card" data-tilt data-tilt-max="4">
+                        <div class="tilt-content-deep w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center mb-5 border border-blue-500/20">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" /></svg>
+                        </div>
+                        <h4 class="tilt-content sf-pro-display font-bold text-lg text-white mb-2">Data Science &amp; AI</h4>
+                        <p class="tilt-content text-gray-400 text-xs leading-relaxed">Certified by IBM and Ostad. Mastery in Python, Pandas, Matplotlib, and Scikit-learn for extracting insights from raw economic datasets via Jupyter/Colab.</p>
                     </div>
                     
-                    <div class="bento-hover glass p-10 rounded-[2.5rem] border border-white/10 relative overflow-hidden group">
-                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-indigo-500/20 blur-3xl rounded-full group-hover:bg-indigo-500/40 transition-all"></div>
-                        <h4 class="font-display font-bold text-2xl text-white mb-4 relative z-10">Statistical Modeling</h4>
-                        <p class="text-slate-400 font-medium relative z-10">Multivariate logistic regression, Pearson correlation, ROI matrices, and economic impact modeling.</p>
+                    <div class="spring-hover glass-panel p-8 squircle group tilt-card" data-tilt data-tilt-max="4">
+                        <div class="tilt-content-deep w-12 h-12 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center mb-5 border border-purple-500/20">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                        </div>
+                        <h4 class="tilt-content sf-pro-display font-bold text-lg text-white mb-2">Mathematical Modeling</h4>
+                        <p class="tilt-content text-gray-400 text-xs leading-relaxed">Specialized in non-linear dynamics and Boolean algebra. Conducted extensive analysis of biochemical pathways using the Goldbeter-Lefever reaction model.</p>
                     </div>
 
-                    <div class="bento-hover glass p-10 rounded-[2.5rem] border border-white/10 relative overflow-hidden group">
-                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/20 blur-3xl rounded-full group-hover:bg-amber-500/40 transition-all"></div>
-                        <h4 class="font-display font-bold text-2xl text-white mb-4 relative z-10">Academic Typesetting</h4>
-                        <p class="text-slate-400 font-medium relative z-10">LaTeX mastery, 130+ page thesis formatting, compliance with publishing standards, and report design.</p>
+                    <div class="spring-hover glass-panel p-8 squircle group tilt-card" data-tilt data-tilt-max="4">
+                        <div class="tilt-content-deep w-12 h-12 bg-green-500/10 text-green-400 rounded-xl flex items-center justify-center mb-5 border border-green-500/20">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                        </div>
+                        <h4 class="tilt-content sf-pro-display font-bold text-lg text-white mb-2">Academic Typesetting</h4>
+                        <p class="tilt-content text-gray-400 text-xs leading-relaxed">Uncompromising LaTeX precision. Architected structural integrity and strict academic compliance for five major postgraduate theses (up to 134 pages each).</p>
                     </div>
+
+                    <div class="spring-hover glass-panel p-8 squircle group tilt-card" data-tilt data-tilt-max="4">
+                        <div class="tilt-content-deep w-12 h-12 bg-orange-500/10 text-orange-400 rounded-xl flex items-center justify-center mb-5 border border-orange-500/20">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        </div>
+                        <h4 class="tilt-content sf-pro-display font-bold text-lg text-white mb-2">Econometrics &amp; GIS</h4>
+                        <p class="tilt-content text-gray-400 text-xs leading-relaxed">Advanced proficiency in SPSS for multivariate logistic regression, Pearson correlations, and integrating complex economic mapping via geographic information systems.</p>
+                    </div>
+
+                    <div class="spring-hover glass-panel p-8 squircle group tilt-card" data-tilt data-tilt-max="4">
+                        <div class="tilt-content-deep w-12 h-12 bg-teal-500/10 text-teal-400 rounded-xl flex items-center justify-center mb-5 border border-teal-500/20">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                        </div>
+                        <h4 class="tilt-content sf-pro-display font-bold text-lg text-white mb-2">Survey Engineering</h4>
+                        <p class="tilt-content text-gray-400 text-xs leading-relaxed">Developed end-to-end data pipelines for large-scale university demographics and structured observational methodologies for PhD-level research.</p>
+                    </div>
+
+                    <div class="spring-hover glass-panel p-8 squircle group tilt-card" data-tilt data-tilt-max="4">
+                        <div class="tilt-content-deep w-12 h-12 bg-pink-500/10 text-pink-400 rounded-xl flex items-center justify-center mb-5 border border-pink-500/20">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        </div>
+                        <h4 class="tilt-content sf-pro-display font-bold text-lg text-white mb-2">Org. Leadership</h4>
+                        <p class="tilt-content text-gray-400 text-xs leading-relaxed">Graduate of BYLC CareerX 36. Translated analytical precision into human impact via my 9-month HR Internship at YSSE and ongoing tenure as SAC-JU Joint Secretary.</p>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS TIMELINE -->
-    <section id="projects" class="py-32 relative overflow-hidden">
-        <div class="max-w-screen-xl mx-auto px-8 relative z-10">
-            <div class="reveal text-center mb-24">
-                <div class="uppercase tracking-[0.2em] text-[10px] font-bold text-teal-400 mb-4 flex items-center gap-3 justify-center">
-                    <div class="w-6 h-px bg-teal-400"></div> CHAPTER 04 <div class="w-6 h-px bg-teal-400"></div>
-                </div>
-                <h2 class="text-5xl md:text-6xl font-display font-bold text-white tracking-tighter">Professional Journey.</h2>
+    <!-- CHRONOLOGICAL TIMELINE PATHWAY -->
+    <section id="projects" class="py-32 relative">
+        <div class="max-w-screen-xl mx-auto px-6 sm:px-10 relative z-10">
+            <div class="reveal mb-20 text-center">
+                <h2 class="text-3xl md:text-5xl sf-pro-display font-bold text-white tracking-tight">Career &amp; Milestones.</h2>
             </div>
             
             <div class="relative max-w-4xl mx-auto">
-                <!-- Glowing Timeline Line -->
-                <div class="absolute left-8 md:left-[50%] md:-translate-x-[50%] top-0 bottom-0 w-[2px] bg-gradient-to-b from-teal-500 via-indigo-500 to-transparent shadow-[0_0_15px_rgba(20,184,166,0.5)]"></div>
+                <div class="absolute left-6 md:left-[50%] md:-translate-x-[50%] top-0 bottom-0 w-[1px] bg-white/10"></div>
                 
-                <!-- Timeline Items -->
-                <div class="reveal relative flex flex-col md:flex-row gap-8 mb-24 md:justify-between w-full group">
-                    <div class="hidden md:block w-5/12 text-right pt-6 pr-8">
-                        <div class="text-2xl font-display font-bold text-teal-400">2026</div>
-                        <div class="text-xs font-bold tracking-widest uppercase text-slate-500 mt-1">Jan — May</div>
+                <div class="reveal relative flex flex-col md:flex-row gap-8 mb-16 md:justify-between w-full group">
+                    <div class="hidden md:block w-5/12 text-right pt-2 pr-8">
+                        <div class="text-xl font-bold text-white">2026</div>
+                        <div class="text-xs font-semibold text-blue-400 tracking-wider uppercase mt-1">Feb 24 - Present</div>
                     </div>
-                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-teal-400 border-4 border-[#020617] mt-8 z-10 shadow-[0_0_20px_rgba(20,184,166,1)] group-hover:scale-150 transition-transform"></div>
-                    <div class="pl-24 md:pl-8 md:w-5/12">
-                        <div class="bento-hover glass p-8 rounded-[2.5rem] border border-white/10 border-l-teal-500/50">
-                            <h3 class="font-display font-bold text-2xl text-white">Lead Data Analyst</h3>
-                            <p class="text-teal-400 text-sm font-bold uppercase tracking-wider mt-2 mb-4">Thesis Typesetting Specialist</p>
-                            <p class="text-slate-400 font-medium leading-relaxed">Engineered visualizations, econometric models, and structural LaTeX formatting for five major postgraduate theses (up to 134 pages), strictly adhering to academic standards.</p>
+                    <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-blue-500 border-[3px] border-black mt-3 z-10 shadow-[0_0_10px_rgba(10,132,255,0.8)]"></div>
+                    <div class="pl-16 md:pl-8 md:w-5/12">
+                        <div class="glass-panel p-6 squircle hover:bg-white/[0.05] transition-colors border border-white/10 border-l-blue-500 tilt-card" data-tilt data-tilt-max="4">
+                            <h3 class="tilt-content sf-pro-display font-bold text-xl text-white">Graduation &amp; Thesis Consulting</h3>
+                            <p class="tilt-content text-blue-400 text-xs font-bold uppercase mt-1 mb-2">Jahangirnagar University</p>
+                            <p class="tilt-content text-gray-400 text-xs leading-relaxed">Officially completed BSc and MSc in Mathematics. Leveraging statistical prowess as a freelance consultant engineering Master of Development Studies theses.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal delay-100 relative flex flex-col md:flex-row-reverse gap-8 mb-24 md:justify-between w-full group">
-                    <div class="hidden md:block w-5/12 text-left pt-6 pl-8">
-                        <div class="text-2xl font-display font-bold text-indigo-400">2025</div>
-                        <div class="text-xs font-bold tracking-widest uppercase text-slate-500 mt-1">Jan — Mar</div>
+                <div class="reveal delay-100 relative flex flex-col md:flex-row-reverse gap-8 mb-16 md:justify-between w-full group">
+                    <div class="hidden md:block w-5/12 text-left pt-2 pl-8">
+                        <div class="text-xl font-bold text-white">2025</div>
+                        <div class="text-xs font-semibold text-purple-400 tracking-wider uppercase mt-1">May - Present</div>
                     </div>
-                    <div class="absolute left-8 md:left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-indigo-400 border-4 border-[#020617] mt-8 z-10 shadow-[0_0_20px_rgba(99,102,241,1)] group-hover:scale-150 transition-transform"></div>
-                    <div class="pl-24 md:pr-8 md:pl-0 md:w-5/12">
-                        <div class="bento-hover glass p-8 rounded-[2.5rem] border border-white/10 border-l-indigo-500/50 md:border-l-white/10 md:border-r-indigo-500/50 md:text-right">
-                            <h3 class="font-display font-bold text-2xl text-white">Research Assistant</h3>
-                            <p class="text-indigo-400 text-sm font-bold uppercase tracking-wider mt-2 mb-4">PhD Data Management</p>
-                            <p class="text-slate-400 font-medium leading-relaxed">Designed structured observational surveys and visualized complex doctoral research findings using advanced charting techniques for Jahangirnagar University faculty.</p>
+                    <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-500 border-[3px] border-black mt-3 z-10 shadow-[0_0_10px_rgba(147,51,234,0.8)]"></div>
+                    <div class="pl-16 md:pr-8 md:pl-0 md:w-5/12">
+                        <div class="glass-panel p-6 squircle hover:bg-white/[0.05] transition-colors md:text-right border border-white/10 border-l-purple-500 md:border-l-white/10 md:border-r-purple-500 tilt-card" data-tilt data-tilt-max="4">
+                            <h3 class="tilt-content sf-pro-display font-bold text-xl text-white">Global STEM Ambassador</h3>
+                            <p class="tilt-content text-purple-400 text-xs font-bold uppercase mt-1 mb-2">IAAC</p>
+                            <p class="tilt-content text-gray-400 text-xs leading-relaxed">Appointed as Ambassador for the International Astronomy and Astrophysics Competition, promoting STEM outreach globally.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="reveal text-center mt-32 relative z-20">
-                    <button onclick="showCertModal()" class="hover-target px-10 py-5 text-sm font-bold uppercase tracking-widest rounded-full bg-white text-black hover:bg-teal-400 hover:text-white transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(20,184,166,0.6)]">
-                        View All 14 Certifications
+                <div class="reveal delay-200 relative flex flex-col md:flex-row gap-8 mb-16 md:justify-between w-full group">
+                    <div class="hidden md:block w-5/12 text-right pt-2 pr-8">
+                        <div class="text-xl font-bold text-white">2023-24</div>
+                        <div class="text-xs font-semibold text-green-400 tracking-wider uppercase mt-1">Aug '23 - Sep '24</div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-green-500 border-[3px] border-black mt-3 z-10 shadow-[0_0_10px_rgba(48,209,88,0.8)]"></div>
+                    <div class="pl-16 md:pl-8 md:w-5/12">
+                        <div class="glass-panel p-6 squircle hover:bg-white/[0.05] transition-colors border border-white/10 border-l-green-500 tilt-card" data-tilt data-tilt-max="4">
+                            <h3 class="tilt-content sf-pro-display font-bold text-xl text-white">HR Intern &amp; Leadership</h3>
+                            <p class="tilt-content text-green-400 text-xs font-bold uppercase mt-1 mb-2">YSSE &amp; SAC-JU</p>
+                            <p class="tilt-content text-gray-400 text-xs leading-relaxed">Served a 9-month HR internship at Youth School for Social Entrepreneurs (YSSE) and took office as Joint Secretary for the Student Association of Chuadanga.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal text-center mt-20 relative z-20">
+                    <button onclick="showCertModal()" class="active-press px-8 py-3 text-xs font-bold tracking-widest uppercase rounded-full glass-panel text-white hover:bg-white hover:text-black transition-all border border-white/20">
+                        View Verified Credentials
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3D GALLERY -->
-    <section id="university" class="py-32 relative">
-        <div class="absolute inset-0 bg-slate-900/30 border-y border-white/5"></div>
+    <!-- DYNAMIC EXPANDED 3D MEDIA GALLERY -->
+    <section id="university" class="py-32 relative border-t border-white/5 bg-white/[0.01]">
         <div class="reveal text-center mb-16 relative z-10">
-            <div class="uppercase tracking-[0.2em] text-[10px] font-bold text-teal-400 mb-4 flex items-center gap-3 justify-center">
-                <div class="w-6 h-px bg-teal-400"></div> CHAPTER 05 <div class="w-6 h-px bg-teal-400"></div>
-            </div>
-            <h2 class="text-5xl md:text-6xl font-display font-bold text-white tracking-tighter">University &amp; Beyond.</h2>
+            <h2 class="text-3xl md:text-5xl sf-pro-display font-bold text-white tracking-tight">University &amp; Beyond.</h2>
+            <p class="text-gray-400 mt-3 text-base">Swipe to explore tactical project operations and visual assets.</p>
         </div>
         
-        <div class="reveal delay-100 swiper mySwiper max-w-[1600px] mx-auto py-10 perspective-1000 relative z-10">
+        <div class="reveal delay-100 swiper mySwiper max-w-[1800px] mx-auto py-10 relative z-10">
             <div class="swiper-wrapper" id="university-gallery">
                 <!-- JS Populated -->
             </div>
-            <div class="swiper-pagination mt-12"></div>
+            <div class="swiper-pagination mt-16"></div>
         </div>
     </section>
 
-    <!-- CONTACT (THE BENTO BOX) -->
-    <section id="contact" class="py-32 relative">
-        <div class="max-w-screen-xl mx-auto px-6 lg:px-8 relative z-10">
+    <!-- CORE INTERACTION HUB (iOS APP GRID DESIGNED BENTO BOX) -->
+    <section id="contact" class="py-32 relative border-t border-white/5 overflow-hidden">
+        <div class="max-w-screen-xl mx-auto px-6 sm:px-10 relative z-10">
             <div class="reveal text-center mb-20">
-                <div class="uppercase tracking-[0.2em] text-[10px] font-bold text-teal-400 mb-4 flex items-center gap-3 justify-center">
-                    <div class="w-6 h-px bg-teal-400"></div> CHAPTER 06 <div class="w-6 h-px bg-teal-400"></div>
-                </div>
-                <h2 class="text-6xl md:text-8xl font-display font-bold text-white tracking-tighter leading-[0.9] drop-shadow-2xl">
-                    Let's Build.<br><span class="text-slate-600">Together.</span>
-                </h2>
+                <h2 class="text-4xl md:text-7xl sf-pro-display font-bold text-white tracking-tight leading-none">Let's Build.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">Together.</span></h2>
             </div>
             
-            <!-- Bento Box Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 
-                <!-- Primary Email (Spans 2) -->
-                <a href="mailto:farhad.stu2019@juniv.edu" class="reveal hover-target md:col-span-2 bento-hover glass rounded-[3rem] p-10 flex flex-col justify-between group overflow-hidden relative">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 blur-3xl rounded-full group-hover:bg-teal-500/20 transition-all"></div>
-                    <div>
-                        <div class="text-[10px] uppercase tracking-widest text-teal-400 font-bold mb-6">Primary Email</div>
-                        <div class="text-2xl md:text-4xl font-display font-bold text-white group-hover:text-teal-300 break-all transition-colors">farhad.stu2019<br>@juniv.edu</div>
+                <a href="mailto:farhad.stu2019@juniv.edu" class="reveal spring-hover col-span-2 glass-panel squircle p-8 flex flex-col justify-between group relative min-h-[220px] md:min-h-[250px] tilt-card" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.15">
+                    <div class="tilt-content absolute top-0 right-0 w-64 h-64 bg-blue-500/10 blur-3xl rounded-full group-hover:bg-blue-500/20 transition-all"></div>
+                    <div class="tilt-content">
+                        <div class="text-[10px] font-bold tracking-widest text-blue-400 mb-2 uppercase">Direct Access</div>
+                        <div class="text-xl md:text-2xl sf-pro-display font-bold text-white group-hover:text-blue-300 transition-colors break-all">farhad.stu2019<br>@juniv.edu</div>
                     </div>
-                    <div class="mt-12 flex justify-end">
-                        <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-teal-400 group-hover:text-black transition-all">
-                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" d="M14 5l7 7-7 7m-4 0l7-7-7-7" /></svg>
+                    <div class="tilt-content-deep mt-8 flex justify-end">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-blue-500 group-hover:scale-110 transition-all shadow-lg">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7-7 7m-4 0l7-7-7-7" /></svg>
                         </div>
                     </div>
                 </a>
 
-                <!-- LinkedIn -->
-                <a href="https://linkedin.com/in/farhad-stu-math/" target="_blank" class="reveal delay-100 hover-target md:col-span-1 bento-hover glass rounded-[3rem] p-8 flex flex-col items-center justify-center text-center group hover:bg-[#0A66C2]/10 hover:border-[#0A66C2]/50">
-                    <div class="w-16 h-16 rounded-3xl bg-[#0A66C2] flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform"><svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.14.92-2.065 2.063-2.065 1.14 0 2.064.925 2.064 2.065 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-                    <div class="font-display font-bold text-white text-xl">LinkedIn</div>
-                    <div class="text-xs text-slate-400 mt-2">farhad-stu-math</div>
-                </a>
-
-                <!-- GitHub -->
-                <a href="https://github.com/FDSZONE/fdszone" target="_blank" class="reveal delay-200 hover-target md:col-span-1 bento-hover glass rounded-[3rem] p-8 flex flex-col items-center justify-center text-center group hover:bg-white/10 hover:border-white/50">
-                    <div class="w-16 h-16 rounded-3xl bg-white text-black flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform"><svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
-                    <div class="font-display font-bold text-white text-xl">GitHub</div>
-                    <div class="text-xs text-slate-400 mt-2">@fdszone</div>
-                </a>
-
-                <!-- Instagram -->
-                <a href="https://www.instagram.com/farhad.stu2019" target="_blank" class="reveal hover-target md:col-span-1 bento-hover glass rounded-[3rem] p-8 flex flex-col items-center justify-center text-center group hover:bg-[#E1306C]/10 hover:border-[#E1306C]/50">
-                    <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-[#F56040] via-[#E1306C] to-[#C13584] flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform"><svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
-                    <div class="font-display font-bold text-white text-xl">Instagram</div>
-                    <div class="text-xs text-slate-400 mt-2">@farhad.stu2019</div>
-                </a>
-
-                <!-- YouTube -->
-                <a href="https://www.youtube.com/@Bri-Studio" target="_blank" class="reveal delay-100 hover-target md:col-span-1 bento-hover glass rounded-[3rem] p-8 flex flex-col items-center justify-center text-center group hover:bg-[#FF0000]/10 hover:border-[#FF0000]/50">
-                    <div class="w-16 h-16 rounded-3xl bg-[#FF0000] flex items-center justify-center shadow-lg mb-6 group-hover:scale-110 transition-transform"><svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .501 6.186C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div>
-                    <div class="font-display font-bold text-white text-xl">YouTube</div>
-                    <div class="text-xs text-slate-400 mt-2">@Bri-Studio</div>
-                </a>
-
-                <!-- Secondary Email & Phone (Spans 2) -->
-                <div class="reveal delay-200 md:col-span-2 bento-hover glass rounded-[3rem] p-10 flex flex-col justify-center">
-                    <div class="grid grid-cols-2 gap-8">
-                        <div>
-                            <div class="text-[10px] uppercase tracking-widest text-indigo-400 font-bold mb-4">Secondary Email</div>
-                            <div class="text-xl font-bold text-white break-all">fdsforhad@gmail.com</div>
-                        </div>
-                        <div>
-                            <div class="text-[10px] uppercase tracking-widest text-indigo-400 font-bold mb-4">Direct Line</div>
-                            <div class="text-xl font-bold text-white">+880 1731-130949</div>
-                            <div class="text-sm font-medium text-slate-400 mt-1">+880 1627-739293</div>
-                        </div>
+                <a href="https://linkedin.com/in/farhad-stu-math/" target="_blank" class="reveal delay-100 spring-hover col-span-1 glass-panel squircle p-6 flex flex-col items-center justify-center text-center group tilt-card" data-tilt data-tilt-max="8">
+                    <div class="tilt-content-deep w-14 h-14 rounded-[1.25rem] bg-[#0A66C2] flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.14.92-2.065 2.063-2.065 1.14 0 2.064.925 2.064 2.065 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </div>
-                </div>
+                    <div class="tilt-content sf-pro-display font-bold text-white text-sm md:text-base">LinkedIn</div>
+                </a>
+
+                <a href="https://github.com/FDSZONE/fdszone" target="_blank" class="reveal delay-200 spring-hover col-span-1 glass-panel squircle p-6 flex flex-col items-center justify-center text-center group tilt-card" data-tilt data-tilt-max="8">
+                    <div class="tilt-content-deep w-14 h-14 rounded-[1.25rem] bg-white text-black flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                    <div class="tilt-content sf-pro-display font-bold text-white text-sm md:text-base">GitHub</div>
+                </a>
+
+                <a href="https://www.instagram.com/farhad.stu2019" target="_blank" class="reveal delay-100 spring-hover col-span-1 glass-panel squircle p-6 flex flex-col items-center justify-center text-center group tilt-card" data-tilt data-tilt-max="8">
+                    <div class="tilt-content-deep w-14 h-14 rounded-[1.25rem] bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </div>
+                    <div class="tilt-content sf-pro-display font-bold text-white text-sm md:text-base">Instagram</div>
+                </a>
+
+                <a href="https://www.facebook.com/farhad.stu2019" target="_blank" class="reveal delay-200 spring-hover col-span-1 glass-panel squircle p-6 flex flex-col items-center justify-center text-center group tilt-card" data-tilt data-tilt-max="8">
+                    <div class="tilt-content-deep w-14 h-14 rounded-[1.25rem] bg-[#1877F2] flex items-center justify-center shadow-lg mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </div>
+                    <div class="tilt-content sf-pro-display font-bold text-white text-sm md:text-base">Facebook</div>
+                </a>
+
+                <a href="https://www.youtube.com/@Bri-Studio" target="_blank" class="reveal delay-300 spring-hover col-span-2 glass-panel squircle p-6 flex flex-row items-center justify-center gap-6 group tilt-card" data-tilt data-tilt-max="4">
+                    <div class="tilt-content-deep w-14 h-14 rounded-[1.25rem] bg-[#FF0000] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform shrink-0">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .501 6.186C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </div>
+                    <div class="tilt-content text-left">
+                        <div class="text-[10px] font-bold tracking-widest text-red-400 mb-0.5 uppercase">Creative Channel</div>
+                        <div class="sf-pro-display font-bold text-white text-xl">YouTube</div>
+                        <div class="text-gray-400 text-xs mt-0.5">@Bri-Studio</div>
+                    </div>
+                </a>
+
             </div>
             
-            <div class="mt-24 text-center">
-                <div class="inline-flex items-center gap-x-2 text-[10px] font-bold tracking-widest uppercase px-6 py-3 rounded-full glass border border-white/5 text-slate-500">
-                    <span>© 2026 MD Farhad Hossen. Designed with precision in Dhaka.</span>
+            <div class="mt-20 text-center">
+                <div class="inline-flex items-center justify-center px-5 py-2.5 rounded-full glass-panel border border-white/5 shadow-inner">
+                    <p class="text-[10px] text-gray-400 font-semibold tracking-wider uppercase">&copy; 2026 MD Farhad Hossen. Engineered with precision in Dhaka.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Floating Mobile CV -->
+    <!-- Floating Mobile Target Action -->
     <a href="https://github.com/FDSZONE/fdszone/blob/main/CV%2026/MD_Farhad_Hossen_CV.pdf" target="_blank" download="MD_Farhad_Hossen_CV.pdf" onclick="triggerConfetti()"
-       class="md:hidden fixed bottom-6 right-6 z-[60] flex h-16 w-16 items-center justify-center rounded-full bg-white text-black shadow-[0_10px_40px_rgba(255,255,255,0.4)] active:scale-90 transition-transform">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" d="M17 13v6m0 0v-6m0 6H7m10 0H7m5-10v10" /></svg>
+       class="md:hidden fixed bottom-6 right-6 z-[40] flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-2xl active-press border border-white/20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
     </a>
 
-    <!-- Universal iOS Modal -->
-    <div id="workflow-modal" class="hidden fixed inset-0 bg-[#020617]/90 backdrop-blur-3xl z-[100] items-center justify-center p-4 md:p-8 transition-opacity duration-500 opacity-0">
-        <div class="modal-content relative glass max-w-5xl w-full h-[95vh] rounded-[3rem] overflow-hidden border border-white/20 flex flex-col shadow-[0_40px_100px_rgba(0,0,0,1)] scale-95 transition-transform duration-500">
-            <!-- Close Btn -->
-            <button onclick="closeModal()" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white hover:text-black text-white transition-all z-50 backdrop-blur-md">✕</button>
+    <!-- System UI Sheet Modal Layer -->
+    <div id="workflow-modal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md z-[100] items-end justify-center sm:items-center sm:p-4 transition-opacity duration-300 opacity-0">
+        <div class="modal-content relative glass-panel w-full sm:max-w-4xl h-[90vh] sm:h-[85vh] rounded-t-[2rem] sm:rounded-[2rem] overflow-hidden flex flex-col shadow-2xl transform translate-y-full sm:translate-y-10 sm:scale-95 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] border border-white/20">
             
-            <div class="flex-1 overflow-y-auto custom-scrollbar p-10 md:p-16">
-                <div id="modal-header" class="mb-12"></div>
-                <div id="modal-body" class="text-xl leading-relaxed text-slate-300"></div>
-                <div id="modal-files" class="mt-12 flex flex-wrap gap-4 pt-10 border-t border-white/10"></div>
+            <div class="w-full flex justify-center pt-4 pb-2 sm:hidden absolute top-0 z-50">
+                <div class="w-12 h-1 bg-white/20 rounded-full"></div>
+            </div>
+
+            <button onclick="closeModal()" class="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white text-white hover:text-black transition-colors z-50 backdrop-blur-lg">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            
+            <div class="flex-1 overflow-y-auto pt-16 sm:pt-12 p-8 sm:p-12">
+                <div id="modal-header" class="mb-8"></div>
+                <div id="modal-body" class="text-base text-gray-300 sf-pro-text leading-relaxed"></div>
+                <div id="modal-files" class="mt-10 flex flex-wrap gap-3 pt-8 border-t border-white/10"></div>
             </div>
         </div>
     </div>
 
-   // Data & Utilities
-const rawUrl = p => "https://raw.githubusercontent.com/FDSZONE/fdszone/main/" + p.split('/').map(encodeURIComponent).join('/');
-const blobUrl = p => "https://github.com/FDSZONE/fdszone/blob/main/" + p.split('/').map(encodeURIComponent).join('/');
+    <!-- NATIVE INFRASTRUCTURE LOGIC -->
+    <script>
+        const rawUrl = p => "https://raw.githubusercontent.com/FDSZONE/fdszone/main/" + p.split('/').map(encodeURIComponent).join('/');
+        const blobUrl = p => "https://github.com/FDSZONE/fdszone/blob/main/" + p.split('/').map(encodeURIComponent).join('/');
 
-const workflowsData = [
-    { 
-        id: 1, 
-        title: "Livestock Sector Economic Returns", 
-        category: "Research", 
-        short: "Radar charts, ROI matrices & logframe for 131-page MDS thesis", 
-        long: "Led comprehensive data visualization and document formatting for a major development studies thesis examining gendered economic dynamics in Bangladesh's livestock sector.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417631832.png"), 
-        tags: ["Matplotlib", "GIS"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Saiful%20Islam/Printable/New%20Thesis%20of%20Saiful%20Islam.pdf")
-        ] 
-    },
-    { 
-        id: 2, 
-        title: "E-banking Challenges & Prospects", 
-        category: "Research", 
-        short: "134-page thesis typesetting + economic modeling", 
-        long: "Executed rigorous document typesetting and structuring of complex econometric models for a 134-page master's thesis on digital banking adoption in Bangladesh.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417554272.png"), 
-        tags: ["LaTeX", "Econometrics"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riza/Printable/New%20Thesis%20of%20Riza.pdf")
-        ] 
-    },
-    { 
-        id: 3, 
-        title: "Chuadanga Poverty & Informal Sector", 
-        category: "Research", 
-        short: "Multivariate logistic regression + regional GIS mapping", 
-        long: "Processed and formatted multivariate logistic regression tables and Pearson correlation matrices. Integrated regional GIS mapping for Chuadanga district poverty reduction analysis.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417694017.png"), 
-        tags: ["SPSS", "GIS"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/Printable/New%20Thesis%20of%20Riyad.pdf")
-        ] 
-    },
-    { 
-        id: 4, 
-        title: "Boolean Algebra Visualization", 
-        category: "Mathematics", 
-        short: "Structural graphs using Python Matplotlib", 
-        long: "Utilized Python's Matplotlib library to generate high-quality structural graphs analyzing Boolean functions and their properties. Project successfully defended.", 
-        image: rawUrl("https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/Screenshot_20260521-232553~2.jpg"), 
-        tags: ["Python", "Boolean Algebra"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/New%20Work%20Boolean%20Algebra.pdf")
-        ] 
-    },
-    { 
-        id: 5, 
-        title: "SAC-JU Student Survey Analytics", 
-        category: "Leadership", 
-        short: "Large-scale Google Forms + Excel analytics pipeline", 
-        long: "Engineered and deployed comprehensive student demographic surveys. Structured and analyzed complex datasets in Excel to support strategic decisions.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20Certificate/Certificate/20260521_233917-COLLAGE.jpg"), 
-        tags: ["Excel", "Survey Design"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20Certificate/Certificate/Certificate%20SAC-JU.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20SAC-JU/SAC-JU%202024%20.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20SAC-JU/SAC-JU%202023.pdf")
-        ] 
-    },
-    { 
-        id: 6, 
-        title: "YSSE HR Documentation", 
-        category: "Leadership", 
-        short: "Professional publication design & operational reporting", 
-        long: "Authored formal operational reports and designed the official YSSE newsletter as a key member of the Documentation Sub-Group.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/Screenshot_20260522-081202.png"), 
-        tags: ["Documentation", "HR"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/NEWSLETTER.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/Youth%20Ambassador.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/Black%20Grey%20Minimalist%20Clean%20Creative%20Portfolio%20Presentation.pptx.pdf")
-        ] 
-    },
-    { 
-        id: 7, 
-        title: "Data Science Certificate", 
-        category: "Certification", 
-        short: "Comprehensive Data Science Program — Ostad", 
-        long: "Completed intensive Data Science Certificate Program covering Python, machine learning fundamentals, data wrangling, and visualization.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/ce57d9e9-d81c-450e-a487-0cb49577f597_1.jpg"), 
-        tags: ["Python", "ML"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-A11357.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-C6198.pdf")
-        ] 
-    },
-    { 
-        id: 8, 
-        title: "Python for Data Science & AI", 
-        category: "Certification", 
-        short: "IBM-backed specialization — Coursera", 
-        long: "Mastered Python libraries for data science including Pandas, NumPy, Matplotlib, and Scikit-learn.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/1779416760359.png"), 
-        tags: ["Python", "AI"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Coursera%205XHY8EKHBZVU.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Data%20Analytics.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Introduction%20Excel.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/PythonforDataScienceandAI_Badge20230804-28-kygtze.pdf")
-        ] 
-    },
-    { 
-        id: 9, 
-        title: "BYLC CareerX 36", 
-        category: "Leadership", 
-        short: "Intensive 36-day leadership accelerator", 
-        long: "Completed the prestigious CareerX 36 Leadership Program by Bangladesh Youth Leadership Center.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/BYLC-CareerX/Untitled-2001000.jpg"), 
-        tags: ["Leadership", "CareerX"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/BYLC-CareerX/Untitled-2001000.pdf")
-        ] 
-    },
-    { 
-        id: 10, 
-        title: "Middle-Class Investment Analysis", 
-        category: "Research", 
-        short: "Binary logistic regression from raw economic survey", 
-        long: "Translated raw economic survey datasets into professional statistical graphics and structured binary logistic regression outputs.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/1779417304510.png"), 
-        tags: ["Regression", "Economics"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Ratul/Printable/New%20Thesis%20of%20Ratul.pdf")
-        ] 
-    },
-    { 
-        id: 11, 
-        title: "STEM Ambassador Program", 
-        category: "Leadership", 
-        short: "Global STEM promotion & university outreach", 
-        long: "Selected as official Ambassador for the International Astronomy and Astrophysics Competition.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/IAAC/AmbassadorPoster-2025-MHOSSEN-56a9b5204b5b77cb597ee75a15bfc908_copy.pdf"), 
-        tags: ["STEM", "Ambassador"], 
-        files: [
-            blobUrl("https://drive.google.com/file/d/1YjlznNpcOvL4X5MYF2XU_7bzP8Z017yS/view?usp=sharing")
-        ] 
-    },
-    { 
-        id: 12, 
-        title: "PhD Research Data Pipeline", 
-        category: "Research", 
-        short: "Observational surveys & advanced visualization", 
-        long: "Administered observational surveys and designed structured data collection methodologies for PhD research.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/1779418659530.png"), 
-        tags: ["PhD", "Survey"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/Sample%20of%20Survey%20Google%20Form.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/%E0%A6%A8%E0%A6%BF%E0%A6%89%20%E0%A6%AE%E0%A6%BF%E0%A6%A1%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A6%BE%20%E0%A6%93%20%E0%A6%9A%E0%A6%B2%E0%A6%9A%E0%A7%8D%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A7%8D%E0%A6%B0%20%E0%A6%AC%E0%A6%BF%E0%A6%B7%E0%A6%AF%E0%A6%BC%E0%A6%95%20%E0%A6%A6%E0%A6%B0%E0%A7%8D%E0%A6%B6%E0%A6%95%20%E0%A6%85%E0%A6%AD%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%A4%E0%A6%BE%E0%A6%B0%20%E0%A6%9C%E0%A6%B0%E0%A6%BF%E0%A6%AA%20(Responses).pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/PhD_Survey_Data_Representation.pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20PhD/7th%20Chapter-last%20PS%209%20March.pdf")
-        ] 
-    },
-    { 
-        id: 13, 
-        title: "Human Resources Internship - YSSE", 
-        category: "Experience", 
-        short: "9-month HR Internship at Youth School for Social Entrepreneurs", 
-        long: "Completed a comprehensive Human Resources Internship at Youth School for Social Entrepreneurs (YSSE), managing HR operations, internal networking, and organizational documentation.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/1701588669796.jpeg"), 
-        tags: ["HR", "Internship", "YSSE"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/MD%20Farhad%20Hossen%20(2).pdf"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/MD%20Farhad%20Hossen.pdf")
-        ] 
-    },
-    { 
-        id: 14, 
-        title: "Data Analysis Notebooks & Thesis Work", 
-        category: "Research", 
-        short: "E-banking analysis and economic thesis research", 
-        long: "Developed comprehensive Python data analysis notebooks (Jupyter/Colab) covering E-banking prospects in Bangladesh and statistical analysis for academic thesis research.", 
-        image: rawUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/1779419404503.png"), 
-        tags: ["Python", "Data Analysis", "Notebooks"], 
-        files: [
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/Bangladesh%20E-Banking.ipynb"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/E-banking%20in%20Bangladesh_%20Challenges%20and%20Prospects.ipynb"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/Orin%20Thesis(1).ipynb"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Colab%20Notebooks/work1.ipynb"),
-            blobUrl("https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Orin/Orin%20Thesis%20New/Thesis%20of%20Orin.pdf")
-        ] 
-    }
-];
-        // Custom Cursor Logic
-        const cursor = document.getElementById('custom-cursor');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        
-        document.querySelectorAll('a, button, .hover-target, .swiper-slide, .bento-hover').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
-        });
+        const workflowsData = [
+            { 
+                id: 1, 
+                title: "Livestock Sector Economic Returns", 
+                category: "Research", 
+                short: "Radar charts, ROI matrices & logframe for 131-page MDS thesis", 
+                long: "Led comprehensive data visualization and document formatting for a major development studies thesis examining gendered economic dynamics in Bangladesh's livestock sector.", 
+                image: rawUrl("Thesis of Riyad/1779417631832.png"), 
+                tags: ["Matplotlib", "GIS"], 
+                files: [blobUrl("Thesis of Saiful Islam/Printable/New Thesis of Saiful Islam.pdf")] 
+            },
+            { 
+                id: 2, 
+                title: "E-banking Challenges & Prospects", 
+                category: "Research", 
+                short: "134-page thesis typesetting + economic modeling", 
+                long: "Executed rigorous document typesetting and structuring of complex econometric models for a 134-page master's thesis on digital banking adoption in Bangladesh.", 
+                image: rawUrl("Thesis of Riyad/1779417554272.png"), 
+                tags: ["LaTeX", "Econometrics"], 
+                files: [blobUrl("Thesis of Riza/Printable/New Thesis of Riza.pdf")] 
+            },
+            { 
+                id: 3, 
+                title: "Chuadanga Poverty & Informal Sector", 
+                category: "Research", 
+                short: "Multivariate logistic regression + regional GIS mapping", 
+                long: "Processed and formatted multivariate logistic regression tables and Pearson correlation matrices. Integrated regional GIS mapping for Chuadanga district poverty reduction analysis.", 
+                image: rawUrl("Thesis of Riyad/1779417694017.png"), 
+                tags: ["SPSS", "GIS"], 
+                files: [blobUrl("Thesis of Riyad/Printable/New Thesis of Riyad.pdf")] 
+            },
+            { 
+                id: 4, 
+                title: "Boolean Algebra Visualization", 
+                category: "Mathematics", 
+                short: "Structural graphs using Python Matplotlib", 
+                long: "Utilized Python's Matplotlib library to generate high-quality structural graphs analyzing Boolean functions and their properties. Project successfully defended.", 
+                image: rawUrl("Project Linkedln/Report on Boolean Algebra/Screenshot_20260521-232553~2.jpg"), 
+                tags: ["Python", "Boolean Algebra"], 
+                files: [blobUrl("Project Linkedln/Report on Boolean Algebra/New Work Boolean Algebra.pdf")] 
+            },
+            { 
+                id: 5, 
+                title: "SAC-JU Student Survey Analytics", 
+                category: "Leadership", 
+                short: "Large-scale Google Forms + Excel analytics pipeline", 
+                long: "Engineered and deployed comprehensive student demographic surveys. Structured and analyzed complex datasets in Excel to support strategic decisions.", 
+                image: rawUrl("Project Linkedln/Project Certificate/Certificate/20260521_233917-COLLAGE.jpg"), 
+                tags: ["Excel", "Survey Design"], 
+                files: [
+                    blobUrl("Project Linkedln/Project Certificate/Certificate/Certificate SAC-JU.pdf"),
+                    blobUrl("Project Linkedln/Project SAC-JU/SAC-JU 2024 .pdf")
+                ] 
+            },
+            { 
+                id: 6, 
+                title: "YSSE HR Documentation", 
+                category: "Leadership", 
+                short: "Professional publication design & operational reporting", 
+                long: "Authored formal operational reports and designed the official YSSE newsletter as a key member of the Documentation Sub-Group.", 
+                image: rawUrl("Project Linkedln/Project YSSE/Screenshot_20260522-081202.png"), 
+                tags: ["Documentation", "HR"], 
+                files: [blobUrl("Project Linkedln/Project YSSE/NEWSLETTER.pdf")] 
+            },
+            { 
+                id: 7, 
+                title: "Data Science Certificate", 
+                category: "Certification", 
+                short: "Comprehensive Data Science Program — Ostad", 
+                long: "Completed intensive Data Science Certificate Program covering Python, machine learning fundamentals, data wrangling, and visualization.", 
+                image: rawUrl("Asset/OSTAD/ce57d9e9-d81c-450e-a487-0cb49577f597_1.jpg"), 
+                tags: ["Python", "ML"], 
+                files: [blobUrl("Asset/OSTAD/MD FARHAD HOSSEN-Data Science 26-A11357.pdf")] 
+            },
+            { 
+                id: 8, 
+                title: "Python for Data Science & AI", 
+                category: "Certification", 
+                short: "IBM-backed specialization — Coursera", 
+                long: "Mastered Python libraries for data science including Pandas, NumPy, Matplotlib, and Scikit-learn.", 
+                image: rawUrl("Asset/Coursera/1779416760359.png"), 
+                tags: ["Python", "AI"], 
+                files: [blobUrl("Asset/Coursera/Coursera 5XHY8EKHBZVU.pdf")] 
+            }
+        ];
 
-        // Scroll Progress & Navbar
+        // Frame Render Tick
         window.addEventListener('scroll', () => {
-            // Progress Bar
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             document.getElementById('scroll-progress').style.width = (winScroll / height) * 100 + "%";
-            
-            // Navbar Glass effect
-            const nav = document.querySelector('#nav-container nav');
-            if(winScroll > 50) nav.classList.add('bg-black/60', 'backdrop-blur-3xl');
-            else nav.classList.remove('bg-black/60', 'backdrop-blur-3xl');
         });
 
-        // Scroll Reveal Observer
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if(menuOpen) {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => mobileMenu.classList.add('opacity-100'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('opacity-100');
+                setTimeout(() => { mobileMenu.classList.add('hidden'); document.body.style.overflow = 'auto'; }, 300);
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.remove('opacity-100');
+                setTimeout(() => { mobileMenu.classList.add('hidden'); document.body.style.overflow = 'auto'; }, 300);
+            });
+        });
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Reveal once
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        }, { threshold: 0.05, rootMargin: "0px 0px -20px 0px" });
 
-        // Build Ribbon
+        // Generate Cards
         const ribbon = document.getElementById('workflow-ribbon');
-        workflowsData.slice(0, 8).forEach(w => {
+        workflowsData.slice(0, 6).forEach(w => {
             const card = document.createElement('div');
-            card.className = "hover-target snap-start flex-shrink-0 w-[380px] glass rounded-[3rem] overflow-hidden cursor-pointer flex flex-col border border-white/10 hover:border-teal-500/50 transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] group";
+            card.className = "snap-start flex-shrink-0 w-[290px] md:w-[360px] glass-panel squircle overflow-hidden cursor-pointer flex flex-col group spring-hover tilt-card transform-gpu";
+            card.setAttribute("data-tilt", "");
+            card.setAttribute("data-tilt-max", "4");
             card.innerHTML = `
-                <div class="h-64 relative overflow-hidden bg-black p-2">
-                    <img src="${w.image}" class="w-full h-full object-cover rounded-[2.5rem] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700" onerror="this.src='https://picsum.photos/id/1015/600/400'">
-                    <div class="absolute top-6 right-6 px-4 py-2 text-[10px] font-bold tracking-widest uppercase bg-black/50 backdrop-blur-xl text-white rounded-full border border-white/20">${w.category}</div>
+                <div class="h-52 relative overflow-hidden bg-[#1c1c1e]">
+                    <img src="${w.image}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500 ease-out tilt-content" onerror="this.src='https://picsum.photos/id/1015/600/400'">
+                    <div class="absolute top-4 right-4 px-3 py-1 text-[9px] font-bold tracking-widest uppercase glass-panel text-white rounded-full tilt-content-deep shadow-lg">${w.category}</div>
                 </div>
-                <div class="p-8 flex-1 flex flex-col">
-                    <h4 class="font-display font-bold text-3xl leading-tight text-white group-hover:text-teal-300 transition-colors">${w.title}</h4>
-                    <p class="mt-4 text-base font-medium text-slate-400 line-clamp-2">${w.short}</p>
-                    <div class="mt-auto pt-8 flex gap-3">
-                        ${w.tags.slice(0, 2).map(t => `<span class="px-4 py-2 text-[10px] font-bold tracking-widest uppercase rounded-full bg-white/5 border border-white/10 text-white">${t}</span>`).join('')}
-                    </div>
+                <div class="p-6 flex-1 flex flex-col tilt-content border-t border-white/5">
+                    <h4 class="sf-pro-display font-bold text-xl leading-tight text-white group-hover:text-blue-400 transition-colors">${w.title}</h4>
+                    <p class="mt-2.5 text-xs text-gray-400 line-clamp-2">${w.short}</p>
                 </div>`;
             card.onclick = () => showWorkflowModal(w.id);
             ribbon.appendChild(card);
         });
 
-        // iOS Modal System
         const modal = document.getElementById('workflow-modal');
         const modalContent = modal.querySelector('.modal-content');
 
         function setModalState(show) {
             if(show) {
                 modal.classList.remove('hidden'); 
-                setTimeout(() => {
-                    modal.classList.add('opacity-100');
-                    modalContent.classList.remove('scale-95');
-                    modalContent.classList.add('scale-100');
-                }, 10);
+                void modal.offsetWidth;
+                modal.classList.add('opacity-100');
+                if (window.innerWidth < 640) {
+                    modalContent.classList.remove('translate-y-full');
+                    modalContent.classList.add('translate-y-0');
+                } else {
+                    modalContent.classList.remove('sm:scale-95', 'sm:translate-y-10');
+                    modalContent.classList.add('sm:scale-100', 'sm:translate-y-0');
+                }
                 document.body.style.overflow = 'hidden';
             } else {
                 modal.classList.remove('opacity-100');
-                modalContent.classList.remove('scale-100');
-                modalContent.classList.add('scale-95');
+                if (window.innerWidth < 640) {
+                    modalContent.classList.remove('translate-y-0');
+                    modalContent.classList.add('translate-y-full');
+                } else {
+                    modalContent.classList.remove('sm:scale-100', 'sm:translate-y-0');
+                    modalContent.classList.add('sm:scale-95', 'sm:translate-y-10');
+                }
                 setTimeout(() => {
                     modal.classList.add('hidden');
                     document.body.style.overflow = 'auto';
-                }, 500); 
+                }, 300); 
             }
         }
         window.closeModal = () => setModalState(false);
 
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) setModalState(false);
+        });
+
         window.showWorkflowModal = (id) => {
             const w = workflowsData.find(x => x.id === id);
             document.getElementById('modal-header').innerHTML = `
-                <div class="flex items-center gap-x-4 mb-6">
-                    <span class="px-4 py-2 text-[10px] font-bold tracking-widest uppercase rounded-full bg-teal-500 text-white shadow-lg">${w.category}</span>
-                    <span class="text-sm text-slate-400 font-bold uppercase tracking-widest">${w.tags.join(' • ')}</span>
+                <div class="flex items-center gap-x-3 mb-4">
+                    <span class="px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-full bg-blue-500 text-white shadow-md shadow-blue-500/20">${w.category}</span>
                 </div>
-                <h3 class="text-5xl md:text-7xl font-display font-bold text-white tracking-tighter leading-tight">${w.title}</h3>`;
+                <h3 class="text-2xl md:text-4xl sf-pro-display font-bold text-white tracking-tight leading-tight">${w.title}</h3>`;
             
             document.getElementById('modal-body').innerHTML = `
-                <p class="text-2xl font-medium text-slate-300 leading-relaxed">${w.long}</p>
-                <div class="mt-16 p-10 glass rounded-[2.5rem] border border-teal-500/30 bg-teal-500/5 relative overflow-hidden">
-                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-teal-500/20 blur-3xl rounded-full"></div>
-                    <div class="uppercase text-[10px] font-bold tracking-widest text-teal-400 mb-4 relative z-10">Project Deliverables</div>
-                    <div class="font-display font-bold text-white text-3xl relative z-10">Publication-ready visualizations & structural integrity.</div>
-                </div>`;
+                <p class="text-base text-gray-300 leading-relaxed font-medium">${w.long}</p>`;
             
             const fd = document.getElementById('modal-files');
             fd.innerHTML = w.files.length ? w.files.map(p => {
                 const n = decodeURIComponent(p.split('/').pop());
-                return `<a href="${p}" target="_blank" class="hover-target px-8 py-4 text-sm font-bold tracking-wide uppercase rounded-full bg-white text-black hover:bg-teal-400 hover:text-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_40px_rgba(20,184,166,0.6)] flex items-center gap-x-3">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    ${n.length > 30 ? n.substring(0, 27) + '...' : n}
+                return `<a href="${p}" target="_blank" class="active-press px-5 py-2.5 text-xs font-bold uppercase tracking-widest rounded-full bg-white text-black hover:bg-blue-500 hover:text-white transition-all flex items-center gap-x-3 shadow-md">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    ${n.length > 25 ? n.substring(0, 22) + '...' : n}
                 </a>`;
-            }).join('') : `<span class="text-lg font-bold text-slate-500">Internal files available upon request.</span>`;
+            }).join('') : `<span class="text-xs font-bold tracking-widest uppercase text-gray-500">Internal files available upon request.</span>`;
             
             setModalState(true);
         };
 
         window.showAllWorkflowsModal = () => {
             document.getElementById('modal-header').innerHTML = `
-                <h3 class="text-6xl md:text-8xl font-display font-bold text-white tracking-tighter">Portfolio<span class="text-teal-500">.</span></h3>
-                <p class="text-xl text-slate-400 mt-6 font-medium">14 comprehensive projects and leadership roles.</p>`;
+                <h3 class="text-3xl md:text-5xl sf-pro-display font-bold text-white tracking-tight">Portfolio.</h3>`;
             
-            document.getElementById('modal-body').innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">` + 
+            document.getElementById('modal-body').innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">` + 
                 workflowsData.map(w => `
-                <div onclick="showWorkflowModal(${w.id})" class="hover-target group flex gap-6 p-6 glass rounded-[2.5rem] cursor-pointer border border-white/10 hover:border-teal-500/50 hover:bg-white/5 transition-all duration-300">
-                    <img src="${w.image}" class="w-28 h-28 rounded-[2rem] object-cover shadow-2xl group-hover:scale-105 transition-transform" onerror="this.src='https://picsum.photos/id/106/64/64'">
-                    <div class="flex-1 flex flex-col justify-center">
-                        <div class="font-display font-bold text-white text-2xl leading-tight group-hover:text-teal-300 transition-colors">${w.title}</div>
-                        <div class="text-[10px] text-teal-400 mt-3 font-bold tracking-widest uppercase">${w.category}</div>
+                <div onclick="showWorkflowModal(${w.id})" class="active-press flex items-center gap-4 p-4 glass-panel squircle cursor-pointer hover:bg-white/10 hover:border-blue-500/50 transition-all border border-white/10 group transform-gpu">
+                    <img src="${w.image}" class="w-16 h-16 rounded-xl object-cover shadow-lg group-hover:scale-102 transition-transform" onerror="this.src='https://picsum.photos/id/106/64/64'">
+                    <div class="flex-1">
+                        <div class="sf-pro-display font-bold text-white text-base leading-tight group-hover:text-blue-400 transition-colors">${w.title}</div>
+                        <div class="text-[9px] text-blue-400 mt-1.5 font-bold tracking-widest uppercase">${w.category}</div>
                     </div>
                 </div>`).join('') + `</div>`;
             document.getElementById('modal-files').innerHTML = '';
@@ -769,75 +771,68 @@ const workflowsData = [
 
         window.showCertModal = () => {
             document.getElementById('modal-header').innerHTML = `
-                <h3 class="text-6xl md:text-7xl font-display font-bold text-white tracking-tighter">Certifications<span class="text-teal-500">.</span></h3>
-                <p class="text-xl text-slate-400 mt-6 font-medium">Verified professional credentials</p>`;
+                <h3 class="text-3xl md:text-5xl sf-pro-display font-bold text-white tracking-tight">Credentials.</h3>`;
             
             const certs = workflowsData.filter(w => w.category === 'Certification');
-            let html = `<div class="space-y-6 mt-10">` + certs.map(c => `
-                <div class="flex flex-col md:flex-row md:items-center justify-between p-8 glass rounded-[2.5rem] border border-white/10 hover:border-white/30 transition-all">
-                    <div class="mb-6 md:mb-0">
-                        <div class="font-display font-bold text-white text-3xl">${c.title}</div>
-                        <div class="text-lg font-medium text-slate-400 mt-2">${c.short}</div>
+            let html = `<div class="space-y-4 mt-6">` + certs.map(c => `
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between p-6 glass-panel squircle border border-white/10 hover:border-white/20 transition-colors">
+                    <div class="mb-4 sm:mb-0">
+                        <div class="sf-pro-display font-bold text-white text-xl">${c.title}</div>
+                        <div class="text-sm text-gray-400 font-medium mt-1">${c.short}</div>
                     </div>
-                    ${c.files.length ? `<a href="${c.files[0]}" target="_blank" class="hover-target px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-full bg-white text-black hover:bg-teal-400 hover:text-white transition-all shadow-lg whitespace-nowrap">View Document</a>` : ''}
+                    ${c.files.length ? `<a href="${c.files[0]}" target="_blank" class="active-press px-6 py-2 text-xs font-bold uppercase tracking-widest rounded-full bg-white text-black hover:bg-blue-500 hover:text-white transition-all whitespace-nowrap shadow-md">Verify</a>` : ''}
                 </div>`).join('');
-                
-            html += `
-                <div class="flex flex-col md:flex-row md:items-center justify-between p-8 glass rounded-[2.5rem] border border-white/10 hover:border-white/30 transition-all">
-                    <div class="mb-6 md:mb-0"><div class="font-display font-bold text-white text-3xl">Certified Volunteerism</div><div class="text-lg font-medium text-slate-400 mt-2">LEAD Academy • Sep 2023</div></div>
-                    <a href="https://lead.academy/download-certificate/747" target="_blank" class="hover-target px-8 py-4 text-xs font-bold uppercase tracking-widest rounded-full bg-white text-black hover:bg-teal-400 hover:text-white transition-all shadow-lg whitespace-nowrap">Verify URL</a>
-                </div>
-            </div>`;
+            html += `</div>`;
             
             document.getElementById('modal-body').innerHTML = html;
             document.getElementById('modal-files').innerHTML = '';
             setModalState(true);
         };
 
-        // Initialize 3D Gallery
+        // Populate Swiper View Engine
         const gallery = document.getElementById('university-gallery');
         [
-            { src: "https://github.com/FDSZONE/fdszone/blob/main/Necessary%20Picture/IMG_20240309_205345.jpg", cap: "JU Campus • 2020" },
-            { src: "https://github.com/FDSZONE/fdszone/blob/main/Necessary%20Picture/IMG-20241029-WA0104.jpg", cap: "Mathematics Dept." },
-            { src: "assets/Necessary Picture/20240309_144452.jpg", cap: "SAC-JU Event" },
-            { src: "https://github.com/FDSZONE/fdszone/blob/main/Necessary%20Picture/FB_IMG_1779367389864.jpg", cap: "Thesis Defense" },
-            { src: "https://github.com/FDSZONE/fdszone/blob/main/Necessary%20Picture/20200104124805_IMG_8927~2.JPG", cap: "STEM Bootcamp" },
-            { src: "https://github.com/FDSZONE/fdszone/blob/main/Necessary%20Picture/20200104115604_IMG_8783~2.JPG", cap: "YSSE Team" },
-            { src: "assets/YSSE INTERNSHIP/1701588669796.jpeg", cap: "Volunteering" },
-            { src: "assets/BYLC-CareerX/Untitled-2001000.jpg", cap: "CareerX Graduation" }
+            { src: "Necessary Picture/IMG_20240309_205345.jpg", cap: "JU Campus Topology" },
+            { src: "Necessary Picture/IMG-20241029-WA0104.jpg", cap: "Mathematics Faculty Hub" },
+            { src: "assets/Necessary Picture/20240309_144452.jpg", cap: "SAC-JU Event Coordination" },
+            { src: "Necessary Picture/FB_IMG_1779367389864.jpg", cap: "Thesis Panel Defense" },
+            { src: "Necessary Picture/20200104124805_IMG_8927~2.JPG", cap: "STEM Outreach Operations" },
+            { src: "Necessary Picture/20200104115604_IMG_8783~2.JPG", cap: "YSSE Headquarters Session" },
+            { src: "assets/YSSE INTERNSHIP/1701588669796.jpeg", cap: "HR Pipeline Internship" },
+            { src: "assets/BYLC-CareerX/Untitled-2001000.jpg", cap: "CareerX 36 Capstone Execution" },
+            { src: "Asset/OSTAD/ce57d9e9-d81c-450e-a487-0cb49577f597_1.jpg", cap: "Data Analytics Specialization" }
         ].forEach(img => {
             gallery.innerHTML += `
-                <div class="swiper-slide w-[320px] md:w-[450px] rounded-[3.5rem] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.8)] border border-white/20 hover-target">
-                    <div class="relative h-[600px] p-2 bg-white/5">
-                        <img src="${rawUrl(img.src)}" class="w-full h-full object-cover rounded-[3rem]" onerror="this.src='https://picsum.photos/id/1018/600/800'">
-                        <div class="absolute inset-x-2 bottom-2 bg-gradient-to-t from-[#020617] via-[#020617]/70 to-transparent h-1/2 rounded-b-[3rem]"></div>
-                        <div class="absolute bottom-12 left-10 right-10">
-                            <div class="text-[10px] font-bold tracking-[0.2em] text-teal-400 mb-3 uppercase">Gallery</div>
-                            <div class="text-4xl font-display font-bold leading-tight text-white drop-shadow-2xl">${img.cap}</div>
+                <div class="swiper-slide w-[280px] md:w-[420px] squircle overflow-hidden border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.7)] transform-gpu">
+                    <div class="relative h-[420px] md:h-[560px]">
+                        <img src="${rawUrl(img.src)}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/1018/600/800'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-black/10 to-transparent"></div>
+                        <div class="absolute bottom-8 left-6 right-6">
+                            <div class="text-[9px] font-bold tracking-[0.2em] text-blue-400 mb-1.5 uppercase">Spatial Library</div>
+                            <div class="text-2xl font-display font-bold text-white drop-shadow-xl tracking-tight leading-tight">${img.cap}</div>
                         </div>
                     </div>
                 </div>`;
         });
 
-        // Init
         window.onload = () => {
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
             new Swiper('.mySwiper', {
                 effect: 'coverflow', grabCursor: true, centeredSlides: true, slidesPerView: 'auto',
-                initialSlide: 2, speed: 1000,
-                coverflowEffect: { rotate: 20, stretch: -20, depth: 300, modifier: 1, slideShadows: true },
+                initialSlide: 2, speed: 850,
+                coverflowEffect: { rotate: 12, stretch: -8, depth: 250, modifier: 1, slideShadows: false },
                 pagination: { el: '.swiper-pagination', clickable: true },
-                autoplay: { delay: 4000, disableOnInteraction: false }, loop: true
+                autoplay: { delay: 3800, disableOnInteraction: false }, loop: true
             });
             
-            VanillaTilt.init(document.querySelectorAll('.workflow-card, .bento-hover, [data-tilt]'), { 
-                max: 10, speed: 1000, glare: true, "max-glare": 0.2, perspective: 1500 
+            VanillaTilt.init(document.querySelectorAll('.tilt-card, [data-tilt]'), { 
+                max: 4, speed: 1200, glare: true, "max-glare": 0.12, perspective: 1200, scale: 1.01
             });
         };
 
         function triggerConfetti() {
-            confetti({ particleCount: 250, spread: 120, origin: { y: 0.6 }, colors: ['#ffffff', '#14b8a6', '#6366f1'] });
+            confetti({ particleCount: 160, spread: 90, origin: { y: 0.6 }, colors: ['#ffffff', '#0A84FF', '#30D158'] });
         }
     </script>
 </body>
