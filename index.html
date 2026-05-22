@@ -974,63 +974,96 @@
             });
         }
         
-        // Gallery
-        function initGallery() {
-            const wrapper = document.getElementById('gallery-wrapper');
-            
-            const images = [
-                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG_20240309_205345.jpg", caption: "JU Campus Topology" },
-                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG-20241029-WA0104.jpg", caption: "Mathematics Faculty Hub" },
-                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/Necessary%20Picture/20240309_144452.jpg", caption: "SAC-JU Event Coordination" },
-                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/FB_IMG_1779367389864.jpg", caption: "Thesis Panel Defense" },
-                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/20200104124805_IMG_8927~2.JPG", caption: "STEM Outreach Operations" },
-                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/YSSE%20INTERNSHIP/1701588669796.jpeg", caption: "HR Pipeline Internship" },
-                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg", caption: "CareerX 36 Capstone" }
-            ];
-            
-            images.forEach(img => {
-                const slide = document.createElement('div');
-                slide.className = 'swiper-slide w-[300px] md:w-[420px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl';
-                slide.innerHTML = `
-                    <div class="relative h-[460px] md:h-[580px]">
-                        <img src="${img.src}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/1018/600/800'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-                        <div class="absolute bottom-8 left-8">
-                            <div class="text-xs tracking-[1.5px] text-blue-400 font-bold">SPATIAL LIBRARY</div>
-                            <div class="text-white text-3xl font-bold tracking-tighter leading-none mt-2">${img.caption}</div>
-                        </div>
-                    </div>
-                `;
-                slide.onclick = () => {
-                    window.open(img.src, '_blank');
-                };
-                wrapper.appendChild(slide);
-            });
-            
-            new Swiper('.mySwiper', {
-                effect: 'coverflow',
-                grabCursor: true,
-                centeredSlides: true,
-                slidesPerView: 'auto',
-                speed: 900,
-                coverflowEffect: {
-                    rotate: 8,
-                    stretch: -12,
-                    depth: 220,
-                    modifier: 1.1,
-                    slideShadows: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                autoplay: {
-                    delay: 4200,
-                    disableOnInteraction: false,
-                },
-                loop: true
-            });
+        // Gallery — Updated with your new pictures
+function initGallery() {
+    const wrapper = document.getElementById('gallery-wrapper');
+    
+    const images = [
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/20200104115604_IMG_8783~2.JPG", 
+            caption: "Campus Life • January 2020" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/20200104124805_IMG_8927~2.JPG", 
+            caption: "STEM Outreach Operations" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/20240309_144452.jpg", 
+            caption: "SAC-JU Event Coordination" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/FB_IMG_1773180065209.jpg", 
+            caption: "Student Leadership Summit" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG-20241029-WA0104.jpg", 
+            caption: "Mathematics Faculty Hub" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG-20251119-WA0027.jpg", 
+            caption: "Late 2025 Campus View" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG20230104112400.jpg", 
+            caption: "New Year Campus 2023" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG20230619132119.jpg", 
+            caption: "Summer 2023 Academic Event" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG_20240309_205345.jpg", 
+            caption: "JU Campus Topology" 
+        },
+        { 
+            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG_20260224_144703.jpg", 
+            caption: "Thesis Defense Day • 2026" 
         }
+    ];
+    
+    images.forEach(img => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide w-[300px] md:w-[420px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl';
+        slide.innerHTML = `
+            <div class="relative h-[460px] md:h-[580px]">
+                <img src="${img.src}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/1018/600/800'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-8 left-8">
+                    <div class="text-xs tracking-[1.5px] text-blue-400 font-bold">SPATIAL LIBRARY</div>
+                    <div class="text-white text-3xl font-bold tracking-tighter leading-none mt-2">${img.caption}</div>
+                </div>
+            </div>
+        `;
+        slide.onclick = () => {
+            window.open(img.src, '_blank');
+        };
+        wrapper.appendChild(slide);
+    });
+
+    new Swiper('.mySwiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        speed: 900,
+        coverflowEffect: {
+            rotate: 8,
+            stretch: -12,
+            depth: 220,
+            modifier: 1.1,
+            slideShadows: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        autoplay: {
+            delay: 4200,
+            disableOnInteraction: false,
+        },
+        loop: true
+    });
+}
         
         // Confetti
         function triggerConfetti() {
