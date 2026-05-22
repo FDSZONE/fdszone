@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="MD Farhad Hossen — Mathematics Specialist & Data Scientist | iOS-Level Portfolio">
+    <meta name="description" content="MD Farhad Hossen — Mathematics Specialist &amp; Data Scientist | Pure iOS 18 / visionOS Experience">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>MD Farhad Hossen • Mathematics &amp; Data Science</title>
@@ -30,10 +30,9 @@
         :root {
             --bg: #000000;
             --surface: #1c1c1e;
-            --glass: rgba(28, 28, 30, 0.72);
+            --glass: rgba(28, 28, 30, 0.78);
             --accent: #0A84FF;
             --text: #F5F5F7;
-            --text-secondary: #86868B;
         }
         
         body {
@@ -47,17 +46,16 @@
         
         .ios-glass {
             background: var(--glass);
-            backdrop-filter: blur(60px) saturate(180%) brightness(1.05);
-            -webkit-backdrop-filter: blur(60px) saturate(180%) brightness(1.05);
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.6),
-                        inset 0 1px 0 rgba(255,255,255,0.15);
+            backdrop-filter: blur(72px) saturate(220%) brightness(1.08);
+            -webkit-backdrop-filter: blur(72px) saturate(220%) brightness(1.08);
+            border: 1px solid rgba(255,255,255,0.09);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.65),
+                        inset 0 1px 0 rgba(255,255,255,0.18);
         }
         
         .liquid-glass {
-            background: linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
-            backdrop-filter: blur(80px) saturate(200%);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%);
+            backdrop-filter: blur(90px) saturate(240%);
         }
         
         .aurora {
@@ -65,26 +63,26 @@
             inset: 0;
             z-index: -2;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(10,132,255,0.18) 0%, transparent 50%),
-                radial-gradient(circle at 75% 20%, rgba(48,209,88,0.12) 0%, transparent 45%),
-                radial-gradient(circle at 40% 80%, rgba(191,90,242,0.15) 0%, transparent 55%),
-                radial-gradient(circle at 85% 75%, rgba(255,69,58,0.08) 0%, transparent 40%);
-            filter: blur(100px);
-            animation: auroraFlow 25s ease-in-out infinite alternate;
-            will-change: transform;
+                radial-gradient(circle at 25% 35%, rgba(10,132,255,0.22) 0%, transparent 55%),
+                radial-gradient(circle at 70% 25%, rgba(48,209,88,0.16) 0%, transparent 50%),
+                radial-gradient(circle at 45% 85%, rgba(191,90,242,0.18) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(255,69,58,0.12) 0%, transparent 45%);
+            filter: blur(110px);
+            animation: auroraFlow 28s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+            will-change: transform, filter;
         }
         
         @keyframes auroraFlow {
-            0% { transform: scale(1) translate(0, 0); }
-            50% { transform: scale(1.12) translate(25px, -35px); }
-            100% { transform: scale(1.05) translate(-30px, 20px); }
+            0%   { transform: scale(1) translate(0, 0); }
+            50%  { transform: scale(1.15) translate(35px, -30px); }
+            100% { transform: scale(1.08) translate(-25px, 25px); }
         }
         
         .section-header {
-            font-size: clamp(2.25rem, 5vw, 4.5rem);
-            line-height: 0.95;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 0.92;
             font-weight: 700;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.045em;
         }
         
         .premium-text {
@@ -93,30 +91,20 @@
             -webkit-text-fill-color: transparent;
         }
         
-        .tilt-card {
-            transform-style: preserve-3d;
-            transition: transform 0.4s cubic-bezier(0.23, 1.0, 0.32, 1);
+        .spring {
+            transition: transform 0.55s cubic-bezier(0.23, 1, 0.32, 1), 
+                        box-shadow 0.55s cubic-bezier(0.23, 1, 0.32, 1);
         }
         
-        .spring-hover {
-            transition: transform 0.5s cubic-bezier(0.23, 1.0, 0.32, 1), 
-                        box-shadow 0.5s cubic-bezier(0.23, 1.0, 0.32, 1);
-        }
-        
-        .spring-hover:hover {
-            transform: translateY(-6px) scale(1.015);
-            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.65);
-        }
-        
-        .nav-hidden {
-            transform: translate(-50%, -180%) !important;
-            transition: transform 0.4s cubic-bezier(0.23, 1.0, 0.32, 1);
+        .spring:hover {
+            transform: translateY(-8px) scale(1.018);
+            box-shadow: 0 50px 110px rgba(0,0,0,0.7);
         }
         
         .reveal {
             opacity: 0;
-            transform: translateY(40px) scale(0.985);
-            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(45px) scale(0.97);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         .reveal.active {
@@ -124,36 +112,37 @@
             transform: translateY(0) scale(1);
         }
         
-        .ios-grid {
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size: 28px 28px;
-        }
-        
-        .metric-number {
-            font-variant-numeric: tabular-nums;
-        }
-        
-        .sf-pro {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
-            letter-spacing: -0.025em;
-        }
-        
         .dynamic-island {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5),
-                        inset 0 1px 0 rgba(255,255,255,0.2);
+            box-shadow: 0 14px 40px rgba(0,0,0,0.6),
+                        inset 0 1px 0 rgba(255,255,255,0.25);
         }
         
         .scroll-progress {
             position: fixed;
             top: 0;
             left: 0;
-            height: 2.5px;
-            background: linear-gradient(to right, #0A84FF, #30D158, #BF5AF2);
+            height: 3px;
+            background: linear-gradient(90deg, #0A84FF, #30D158, #BF5AF2);
             z-index: 9999;
-            transition: width 0.05s linear;
-            box-shadow: 0 0 12px rgba(10, 132, 255, 0.6);
+            box-shadow: 0 0 18px rgba(10, 132, 255, 0.7);
+            transition: width 0.06s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .clock-pill {
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -0.02em;
+        }
+        
+        .squircle {
+            border-radius: 28px;
+        }
+        
+        .ios-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+            background-size: 26px 26px;
         }
         
         .workflow-card {
@@ -165,18 +154,18 @@
             box-shadow: 0 50px 100px -15px rgb(0 0 0 / 0.6);
         }
         
-        .stat-value {
-            font-size: 3.25rem;
-            line-height: 1;
-            font-weight: 700;
+        .metric-number {
+            font-variant-numeric: tabular-nums;
             font-feature-settings: "ss02";
         }
         
-        .glass-deep {
-            box-shadow: 
-                0 25px 60px rgba(0,0,0,0.55),
-                inset 0 1px 0 rgba(255,255,255,0.18),
-                0 0 0 1px rgba(255,255,255,0.06);
+        .nav-hidden {
+            transform: translate(-50%, -180%) !important;
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .tilt-card {
+            transform-style: preserve-3d;
         }
     </style>
 </head>
@@ -185,42 +174,53 @@
     <!-- Scroll Progress -->
     <div id="scroll-progress" class="scroll-progress" style="width: 0%"></div>
     
-    <!-- Aurora Background -->
-    <div class="aurora"></div>
+    <!-- Dynamic Aurora Background -->
+    <div id="aurora-bg" class="aurora"></div>
     
-    <!-- NAV -->
-    <div id="nav-container" class="fixed top-6 left-1/2 -translate-x-1/2 z-[999] w-[94%] max-w-[1080px] transition-all duration-500">
-        <nav class="dynamic-island ios-glass rounded-[28px] px-5 py-3 flex items-center justify-between border border-white/10 shadow-2xl">
-            <div class="flex items-center gap-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <!-- FLOATING iOS DYNAMIC ISLAND NAV -->
+    <div id="nav-container" class="fixed top-6 left-1/2 -translate-x-1/2 z-[9999] w-[94%] max-w-[1080px] transition-all duration-500">
+        <nav class="dynamic-island ios-glass squircle px-6 py-3.5 flex items-center justify-between border border-white/10 shadow-2xl">
+            
+            <!-- Logo -->
+            <div onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex items-center gap-x-3 cursor-pointer active:scale-95 transition-transform">
                 <div class="w-9 h-9 rounded-2xl bg-white flex items-center justify-center shadow-inner">
-                    <span class="text-black text-[21px] font-bold tracking-tighter">F</span>
+                    <span class="text-black text-2xl font-bold tracking-[-1px]">F</span>
                 </div>
-                <div class="hidden md:block">
-                    <div class="text-white text-[13px] font-semibold tracking-tight">MD Farhad Hossen</div>
-                    <div class="text-[9px] text-white/50 -mt-0.5">Mathematics • Data Science</div>
+                <div class="hidden md:flex flex-col leading-none">
+                    <span class="font-semibold text-white text-base tracking-tight">MD Farhad Hossen</span>
+                    <span class="text-[10px] text-white/60 -mt-px">Mathematics • Data Science</span>
                 </div>
             </div>
             
-            <!-- Desktop Nav -->
-            <div class="hidden md:flex items-center gap-x-1 bg-black/40 rounded-3xl p-1 border border-white/5">
-                <a href="#impact" class="nav-link px-5 py-1.5 text-xs font-medium rounded-3xl hover:bg-white/10 transition-all active:text-white">Impact</a>
-                <a href="#workflows" class="nav-link px-5 py-1.5 text-xs font-medium rounded-3xl hover:bg-white/10 transition-all active:text-white">Workflows</a>
-                <a href="#expertise" class="nav-link px-5 py-1.5 text-xs font-medium rounded-3xl hover:bg-white/10 transition-all active:text-white">Expertise</a>
-                <a href="#journey" class="nav-link px-5 py-1.5 text-xs font-medium rounded-3xl hover:bg-white/10 transition-all active:text-white">Journey</a>
+            <!-- LIVE CLOCK (iOS style) -->
+            <div id="live-clock" class="clock-pill hidden md:flex items-center gap-x-2 px-5 py-1.5 text-base font-medium text-white/90 bg-black/30 rounded-3xl border border-white/10 shadow-inner">
+                <span id="clock-time" class="tabular-nums">12:34</span>
+                <span id="clock-ampm" class="text-xs text-white/50 font-medium">PM</span>
+                <div class="w-px h-3 bg-white/30"></div>
+                <span class="text-xs text-white/60 font-medium tracking-[0.5px]">DHK</span>
             </div>
             
-            <div class="flex items-center gap-x-2.5">
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center bg-black/40 rounded-3xl p-1 border border-white/5">
+                <a href="#impact" class="nav-link px-6 py-2 text-xs font-semibold rounded-3xl transition-all hover:bg-white/10">Impact</a>
+                <a href="#workflows" class="nav-link px-6 py-2 text-xs font-semibold rounded-3xl transition-all hover:bg-white/10">Workflows</a>
+                <a href="#expertise" class="nav-link px-6 py-2 text-xs font-semibold rounded-3xl transition-all hover:bg-white/10">Expertise</a>
+                <a href="#journey" class="nav-link px-6 py-2 text-xs font-semibold rounded-3xl transition-all hover:bg-white/10">Journey</a>
+            </div>
+            
+            <!-- Right side -->
+            <div class="flex items-center gap-x-3">
                 <a href="https://github.com/FDSZONE/fdszone/blob/main/CV%2026/MD_Farhad_Hossen_CV.pdf" 
                    target="_blank" download
                    onclick="triggerConfetti()"
-                   class="hidden md:flex items-center gap-x-2 px-5 py-2 text-xs font-semibold bg-white text-black rounded-3xl active:scale-[0.97] transition-all shadow-[0_4px_20px_rgba(255,255,255,0.3)] hover:shadow-[0_8px_30px_rgba(255,255,255,0.4)]">
+                   class="hidden md:flex items-center gap-x-2 px-6 py-2.5 text-xs font-semibold bg-white text-black rounded-3xl active:scale-95 transition-all shadow-lg">
                     <span>Download CV</span>
                 </a>
                 
-                <button id="mobile-menu-btn"
-                        class="md:hidden w-10 h-10 flex items-center justify-center rounded-2xl bg-white/10 active:bg-white/20 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M4 6h16M4 12h16M4 18h16" />
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center rounded-3xl bg-white/10 active:bg-white/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
@@ -228,137 +228,99 @@
     </div>
     
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-[998] hidden flex-col items-center justify-center gap-y-8 text-3xl font-medium">
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-3xl z-[998] hidden flex-col items-center justify-center gap-10 text-3xl font-medium">
         <a href="#impact" class="mobile-link">Impact</a>
         <a href="#workflows" class="mobile-link">Workflows</a>
         <a href="#expertise" class="mobile-link">Expertise</a>
         <a href="#journey" class="mobile-link">Journey</a>
         <a href="#contact" class="mobile-link">Connect</a>
-        
-        <div class="pt-8">
-            <a href="https://github.com/FDSZONE/fdszone/blob/main/CV%2026/MD_Farhad_Hossen_CV.pdf" 
-               target="_blank" download
-               class="px-8 py-3.5 text-sm font-semibold bg-white text-black rounded-3xl">Download CV</a>
+        <div class="mt-8">
+            <a href="https://github.com/FDSZONE/fdszone/blob/main/CV%2026/MD_Farhad_Hossen_CV.pdf" target="_blank" download class="px-8 py-4 bg-white text-black rounded-3xl text-lg font-semibold">Download CV</a>
         </div>
     </div>
     
-    <!-- HERO -->
-    <header class="min-h-[100dvh] pt-24 flex items-center relative overflow-hidden">
-        <div class="max-w-screen-2xl mx-auto px-6 relative z-10 w-full">
-            <div class="max-w-5xl mx-auto text-center">
-                
-                <!-- Status Badge -->
-                <div class="reveal inline-flex items-center gap-x-2.5 px-5 py-2 rounded-3xl ios-glass text-xs font-medium mb-8 border border-white/10">
-                    <div class="flex items-center gap-x-1.5">
-                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                        <span class="font-semibold tracking-[0.5px]">Available for selective consulting • Class of 2026</span>
-                    </div>
+    <!-- HERO — Pure iOS Vision -->
+    <header class="min-h-[100dvh] pt-28 flex items-center relative">
+        <div class="max-w-screen-2xl mx-auto px-6 w-full relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="reveal inline-flex items-center px-6 py-2.5 bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 text-xs font-medium mb-8">
+                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse mr-2"></div>
+                    CLASS OF 2026 • OPEN FOR SELECT CONSULTING
                 </div>
                 
-                <!-- Main Headline -->
-                <div class="reveal delay-100">
-                    <h1 class="text-[15vw] md:text-[92px] leading-[0.88] font-bold tracking-tighter premium-text mb-4">
-                        MD Farhad<br>Hossen
-                    </h1>
-                    
-                    <div class="flex items-center justify-center gap-x-4 mb-6">
-                        <div class="h-px w-12 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-                        <div class="text-xl md:text-[27px] font-semibold tracking-tight text-white/90">Mathematics Specialist &amp; Data Scientist</div>
-                        <div class="h-px w-12 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-                    </div>
+                <h1 class="reveal delay-100 text-[14vw] md:text-[98px] leading-[0.88] font-bold tracking-[-3px] premium-text mb-2">
+                    MD FARHAD<br>HOSSEN
+                </h1>
+                
+                <div class="reveal delay-200 text-2xl md:text-3xl font-semibold text-white/90 tracking-tight">
+                    Mathematics Specialist &amp; Data Scientist
                 </div>
                 
-                <p class="reveal delay-200 max-w-2xl mx-auto text-[17px] md:text-xl text-white/70 leading-relaxed">
+                <p class="reveal delay-300 max-w-xl mx-auto mt-8 text-lg text-white/70 leading-relaxed">
                     Double alumnus of Jahangirnagar University.<br>
-                    Transforming complex data into elegant, actionable intelligence.
+                    Turning raw data into architectural intelligence.
                 </p>
                 
-                <!-- CTA -->
-                <div class="reveal delay-300 mt-10 flex flex-col md:flex-row items-center justify-center gap-4">
+                <div class="reveal delay-400 mt-12 flex justify-center gap-4">
                     <button onclick="document.getElementById('impact').scrollIntoView({behavior:'smooth'})" 
-                            class="group flex items-center justify-center gap-x-3 px-9 h-14 bg-white text-black font-semibold rounded-3xl text-[15px] active:scale-[0.985] transition-all shadow-[0_10px_40px_rgba(255,255,255,0.25)] hover:shadow-[0_20px_60px_rgba(255,255,255,0.35)]">
-                        <span>Explore My Impact</span>
-                        <svg class="w-4 h-4 group-active:translate-x-0.5 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7-7 7" />
-                        </svg>
+                            class="spring flex items-center gap-x-3 px-8 h-14 bg-white text-black font-semibold rounded-3xl text-lg active:scale-95 shadow-xl">
+                        Explore Impact
+                        <span class="text-2xl">→</span>
                     </button>
-                    
                     <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
-                            class="flex items-center justify-center gap-x-3 px-8 h-14 ios-glass rounded-3xl text-[15px] font-medium border border-white/10 hover:bg-white/5 active:bg-white/10 transition-all">
-                        Let's Connect
-                    </button>
+                            class="spring px-8 h-14 ios-glass rounded-3xl text-lg font-medium">Let’s Connect</button>
                 </div>
                 
-                <!-- Trust Signals -->
-                <div class="reveal delay-400 mt-16 flex justify-center">
-                    <div class="flex -space-x-3">
-                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/Necessary%20Picture/20240309_144452.jpg" class="w-9 h-9 rounded-2xl border-[2.5px] border-black object-cover ring-1 ring-white/10" alt="">
-                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/YSSE%20INTERNSHIP/1701588668676.jpeg" class="w-9 h-9 rounded-2xl border-[2.5px] border-black object-cover ring-1 ring-white/10" alt="">
-                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg" class="w-9 h-9 rounded-2xl border-[2.5px] border-black object-cover ring-1 ring-white/10" alt="">
+                <!-- Trust bar -->
+                <div class="reveal delay-500 mt-16 flex justify-center items-center gap-x-8 text-xs">
+                    <div class="flex -space-x-4">
+                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/Necessary%20Picture/20240309_144452.jpg" class="w-8 h-8 rounded-2xl ring-2 ring-black object-cover">
+                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/YSSE%20INTERNSHIP/1701588668676.jpeg" class="w-8 h-8 rounded-2xl ring-2 ring-black object-cover">
+                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg" class="w-8 h-8 rounded-2xl ring-2 ring-black object-cover">
                     </div>
-                    <div class="ml-4 text-left text-xs leading-tight">
-                        <div class="font-semibold">Featured in</div>
-                        <div class="text-white/50">YSSE • BYLC • IAAC</div>
-                    </div>
+                    <div>YSSE • BYLC • IAAC • SAC-JU</div>
                 </div>
             </div>
         </div>
         
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-y-1 text-[10px] tracking-[2px] text-white/40">
-            <div>SCROLL TO BEGIN</div>
-            <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"></div>
+        <!-- iOS-style scroll hint -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center text-[10px] text-white/40 tracking-widest">
+            <div>SCROLL FOR MORE</div>
+            <div class="mt-2 w-5 h-8 border-2 border-white/30 rounded-3xl flex items-start justify-center pt-1">
+                <div class="w-1 h-2 bg-white/60 rounded-full animate-bounce"></div>
+            </div>
         </div>
     </header>
     
     <!-- IMPACT DASHBOARD -->
-    <section id="impact" class="max-w-screen-2xl mx-auto px-6 pb-20 pt-8">
-        <div class="reveal mb-8">
-            <div class="flex items-end justify-between">
-                <div>
-                    <div class="uppercase tracking-[3px] text-xs font-bold text-blue-400">2026 • Real Impact</div>
-                    <h2 class="section-header">Quantified Excellence.</h2>
-                </div>
-                <div class="hidden md:block text-right text-xs text-white/50">Live metrics • Updated today</div>
+    <section id="impact" class="max-w-screen-2xl mx-auto px-6 py-16">
+        <div class="reveal mb-8 flex items-end justify-between">
+            <div>
+                <span class="uppercase text-xs font-bold text-blue-400 tracking-[2px]">LIVE • 2026</span>
+                <h2 class="section-header">Quantified Impact.</h2>
             </div>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <!-- Stat Cards -->
-            <div class="reveal delay-100 ios-glass rounded-3xl p-7 tilt-card" data-tilt data-tilt-max="6">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="text-xs font-bold tracking-widest text-blue-400">THESES</div>
-                    <div class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10">5</div>
-                </div>
-                <div class="stat-value metric-number text-white" data-target="5">0</div>
-                <div class="text-xs text-white/60 mt-1">Master-level econometric theses engineered</div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="reveal delay-100 ios-glass squircle p-8 spring tilt-card" data-tilt data-tilt-max="8">
+                <div class="text-xs font-bold text-blue-400">THESES ENGINEERED</div>
+                <div id="stat-theses" class="metric-number text-7xl font-bold mt-4 tabular-nums">5</div>
+                <div class="text-sm text-white/60">Master of Development Studies</div>
             </div>
-            
-            <div class="reveal delay-200 ios-glass rounded-3xl p-7 tilt-card" data-tilt data-tilt-max="6">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="text-xs font-bold tracking-widest text-emerald-400">PROJECTS</div>
-                    <div class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10">14</div>
-                </div>
-                <div class="stat-value metric-number text-white" data-target="14">0</div>
-                <div class="text-xs text-white/60 mt-1">Data science &amp; mathematical modeling projects</div>
+            <div class="reveal delay-200 ios-glass squircle p-8 spring tilt-card" data-tilt data-tilt-max="8">
+                <div class="text-xs font-bold text-emerald-400">PROJECTS DELIVERED</div>
+                <div id="stat-projects" class="metric-number text-7xl font-bold mt-4 tabular-nums">14</div>
+                <div class="text-sm text-white/60">Data &amp; Mathematical Models</div>
             </div>
-            
-            <div class="reveal delay-300 ios-glass rounded-3xl p-7 tilt-card" data-tilt data-tilt-max="6">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="text-xs font-bold tracking-widest text-purple-400">HOURS</div>
-                    <div class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10">1200+</div>
-                </div>
-                <div class="stat-value metric-number text-white" data-target="1200">0</div>
-                <div class="text-xs text-white/60 mt-1">Precision analysis &amp; LaTeX typesetting</div>
+            <div class="reveal delay-300 ios-glass squircle p-8 spring tilt-card" data-tilt data-tilt-max="8">
+                <div class="text-xs font-bold text-purple-400">ANALYSIS HOURS</div>
+                <div id="stat-hours" class="metric-number text-7xl font-bold mt-4 tabular-nums">1200</div>
+                <div class="text-sm text-white/60">Precision LaTeX &amp; Modeling</div>
             </div>
-            
-            <div class="reveal delay-400 ios-glass rounded-3xl p-7 tilt-card" data-tilt data-tilt-max="6">
-                <div class="flex items-center justify-between mb-6">
-                    <div class="text-xs font-bold tracking-widest text-orange-400">CLIENTS</div>
-                    <div class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/10">8</div>
-                </div>
-                <div class="stat-value metric-number text-white" data-target="8">0</div>
-                <div class="text-xs text-white/60 mt-1">Academic &amp; organizational partners</div>
+            <div class="reveal delay-400 ios-glass squircle p-8 spring tilt-card" data-tilt data-tilt-max="8">
+                <div class="text-xs font-bold text-orange-400">CLIENTS SERVED</div>
+                <div id="stat-clients" class="metric-number text-7xl font-bold mt-4 tabular-nums">8</div>
+                <div class="text-sm text-white/60">Academic &amp; Organizational</div>
             </div>
         </div>
     </section>
@@ -373,7 +335,7 @@
             
             <div class="flex items-center gap-x-3">
                 <div class="hidden md:flex items-center bg-white/5 rounded-3xl p-1 text-xs">
-                    <button onclick="filterWorkflows('all')" class="filter-btn active px-4 py-1.5 rounded-3xl">All</button>
+                    <button onclick="filterWorkflows('all')" class="filter-btn active px-4 py-1.5 rounded-3xl bg-white text-black">All</button>
                     <button onclick="filterWorkflows('Research')" class="filter-btn px-4 py-1.5 rounded-3xl">Research</button>
                     <button onclick="filterWorkflows('Mathematics')" class="filter-btn px-4 py-1.5 rounded-3xl">Mathematics</button>
                     <button onclick="filterWorkflows('Leadership')" class="filter-btn px-4 py-1.5 rounded-3xl">Leadership</button>
@@ -387,7 +349,6 @@
             </div>
         </div>
         
-        <!-- Horizontal Ribbon -->
         <div class="relative">
             <div id="workflow-ribbon" class="flex gap-5 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide -mx-6 px-6 md:mx-0 md:px-0">
                 <!-- Populated by JS -->
@@ -416,7 +377,6 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Skill Cards -->
                 <div onclick="showSkillDetail(0)" class="reveal spring-hover ios-glass rounded-3xl p-8 cursor-pointer tilt-card group" data-tilt data-tilt-max="5">
                     <div class="w-11 h-11 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 border border-blue-500/30">
                         <svg class="w-5 h-5 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2" /></svg>
@@ -469,7 +429,6 @@
         <div class="max-w-3xl mx-auto relative">
             <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-white/10 via-white/30 to-white/10"></div>
             
-            <!-- Timeline Items -->
             <div class="space-y-16">
                 <!-- 2026 -->
                 <div class="reveal relative flex flex-col md:flex-row gap-8 md:items-center group">
@@ -588,11 +547,10 @@
             </div>
             
             <div class="mt-16 text-center">
-    <div class="mt-16 text-center">
-    <div class="inline-flex items-center px-5 py-2 rounded-3xl text-xs text-white/50 border border-white/10">
-        © 2026 MD Farhad Hossen • Engineered in Dhaka with precision
-    </div>
-</div
+                <div class="inline-flex items-center px-5 py-2 rounded-3xl text-xs text-white/50 border border-white/10">
+                    © 2026 MD Farhad Hossen • Engineered in Dhaka with precision
+                </div>
+            </div>
         </div>
     </section>
     
@@ -609,16 +567,31 @@
             document.documentElement.style.setProperty('--accent', '#0A84FF');
         }
         
+        // LIVE CLOCK — Professional & attractive iOS style
+        function updateLiveClock() {
+            const timeEl = document.getElementById('clock-time');
+            const ampmEl = document.getElementById('clock-ampm');
+            
+            setInterval(() => {
+                const now = new Date();
+                let hours = now.getHours();
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+                
+                timeEl.textContent = `${hours}:${minutes}`;
+                ampmEl.textContent = ampm;
+            }, 1000);
+        }
+        
         // Lenis Ultra-Smooth Scrolling
         let lenis;
         function initLenis() {
             lenis = new Lenis({
-                duration: 1.15,
+                duration: 1.2,
                 easing: (t) => Math.min(1, 1.001 * Math.pow(2, -10 * t)),
                 smoothWheel: true,
-                smoothTouch: false,
-                wheelMultiplier: 0.9,
-                touchMultiplier: 1.8
+                wheelMultiplier: 0.85
             });
             
             function raf(time) {
@@ -630,16 +603,6 @@
             // Sync scroll progress
             lenis.on('scroll', ({ progress }) => {
                 document.getElementById('scroll-progress').style.width = (progress * 100) + '%';
-            });
-        }
-        
-        // Scroll Progress (fallback)
-        function initScrollProgress() {
-            window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                document.getElementById('scroll-progress').style.width = scrolled + "%";
             });
         }
         
@@ -719,14 +682,86 @@
         
         // Workflow Data
         const workflows = [
-            { id: 1, title: "Livestock Sector Economic Returns", category: "Research", short: "Radar charts, ROI matrices & logframe for 131-page MDS thesis", long: "Led comprehensive data visualization and document formatting for a major development studies thesis examining gendered economic dynamics in Bangladesh's livestock sector.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riyad/1779417631832.png", tags: ["Matplotlib", "GIS"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Saiful%20Islam/Printable/New%20Thesis%20of%20Saiful%20Islam.pdf"] },
-            { id: 2, title: "E-banking Challenges & Prospects", category: "Research", short: "134-page thesis typesetting + economic modeling", long: "Executed rigorous document typesetting and structuring of complex econometric models for a 134-page master's thesis on digital banking adoption in Bangladesh.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riyad/1779417554272.png", tags: ["LaTeX", "Econometrics"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riza/Printable/New%20Thesis%20of%20Riza.pdf"] },
-            { id: 3, title: "Chuadanga Poverty & Informal Sector", category: "Research", short: "Multivariate logistic regression + regional GIS mapping", long: "Processed and formatted multivariate logistic regression tables and Pearson correlation matrices. Integrated regional GIS mapping for Chuadanga district poverty reduction analysis.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riyad/1779417694017.png", tags: ["SPSS", "GIS"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/Printable/New%20Thesis%20of%20Riyad.pdf"] },
-            { id: 4, title: "Boolean Algebra Visualization", category: "Mathematics", short: "Structural graphs using Python Matplotlib", long: "Utilized Python's Matplotlib library to generate high-quality structural graphs analyzing Boolean functions and their properties. Project successfully defended.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/Screenshot_20260521-232553~2.jpg", tags: ["Python", "Boolean Algebra"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/New%20Work%20Boolean%20Algebra.pdf"] },
-            { id: 5, title: "SAC-JU Student Survey Analytics", category: "Leadership", short: "Large-scale Google Forms + Excel analytics pipeline", long: "Engineered and deployed comprehensive student demographic surveys. Structured and analyzed complex datasets in Excel to support strategic decisions.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Project%20Certificate/Certificate/20260521_233917-COLLAGE.jpg", tags: ["Excel", "Survey Design"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20Certificate/Certificate/Certificate%20SAC-JU.pdf"] },
-            { id: 6, title: "YSSE HR Documentation", category: "Leadership", short: "Professional publication design & operational reporting", long: "Authored formal operational reports and designed the official YSSE newsletter as a key member of the Documentation Sub-Group.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Project%20YSSE/Screenshot_20260522-081202.png", tags: ["Documentation", "HR"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/NEWSLETTER.pdf"] },
-            { id: 7, title: "Data Science Certificate", category: "Certification", short: "Comprehensive Data Science Program — Ostad", long: "Completed intensive Data Science Certificate Program covering Python, machine learning fundamentals, data wrangling, and visualization.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Asset/OSTAD/ce57d9e9-d81c-450e-a487-0cb49577f597_1.jpg", tags: ["Python", "ML"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-A11357.pdf"] },
-            { id: 8, title: "Python for Data Science & AI", category: "Certification", short: "IBM-backed specialization — Coursera", long: "Mastered Python libraries for data science including Pandas, NumPy, Matplotlib, and Scikit-learn.", image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Asset/Coursera/1779416760359.png", tags: ["Python", "AI"], files: ["https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Coursera%205XHY8EKHBZVU.pdf"] }
+            { 
+                id: 1, 
+                title: "Livestock Sector Economic Returns", 
+                category: "Research", 
+                short: "Radar charts, ROI matrices & logframe for 131-page MDS thesis", 
+                long: "Led comprehensive data visualization and document formatting for a major development studies thesis examining gendered economic dynamics in Bangladesh's livestock sector.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riyad/1779417631832.png", 
+                tags: ["Matplotlib", "GIS"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Saiful%20Islam/Printable/New%20Thesis%20of%20Saiful%20Islam.pdf"] 
+            },
+            { 
+                id: 2, 
+                title: "E-banking Challenges & Prospects", 
+                category: "Research", 
+                short: "134-page thesis typesetting + economic modeling", 
+                long: "Executed rigorous document typesetting and structuring of complex econometric models for a 134-page master's thesis on digital banking adoption in Bangladesh.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riyad/1779417554272.png", 
+                tags: ["LaTeX", "Econometrics"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riza/Printable/New%20Thesis%20of%20Riza.pdf"] 
+            },
+            { 
+                id: 3, 
+                title: "Chuadanga Poverty & Informal Sector", 
+                category: "Research", 
+                short: "Multivariate logistic regression + regional GIS mapping", 
+                long: "Processed and formatted multivariate logistic regression tables and Pearson correlation matrices. Integrated regional GIS mapping for Chuadanga district poverty reduction analysis.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Thesis%20of%20Riyad/1779417694017.png", 
+                tags: ["SPSS", "GIS"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Thesis%20of%20Riyad/Printable/New%20Thesis%20of%20Riyad.pdf"] 
+            },
+            { 
+                id: 4, 
+                title: "Boolean Algebra Visualization", 
+                category: "Mathematics", 
+                short: "Structural graphs using Python Matplotlib", 
+                long: "Utilized Python's Matplotlib library to generate high-quality structural graphs analyzing Boolean functions and their properties. Project successfully defended.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/Screenshot_20260521-232553~2.jpg", 
+                tags: ["Python", "Boolean Algebra"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Report%20on%20Boolean%20Algebra/New%20Work%20Boolean%20Algebra.pdf"] 
+            },
+            { 
+                id: 5, 
+                title: "SAC-JU Student Survey Analytics", 
+                category: "Leadership", 
+                short: "Large-scale Google Forms + Excel analytics pipeline", 
+                long: "Engineered and deployed comprehensive student demographic surveys. Structured and analyzed complex datasets in Excel to support strategic decisions.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Project%20Certificate/Certificate/20260521_233917-COLLAGE.jpg", 
+                tags: ["Excel", "Survey Design"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20Certificate/Certificate/Certificate%20SAC-JU.pdf"] 
+            },
+            { 
+                id: 6, 
+                title: "YSSE HR Documentation", 
+                category: "Leadership", 
+                short: "Professional publication design & operational reporting", 
+                long: "Authored formal operational reports and designed the official YSSE newsletter as a key member of the Documentation Sub-Group.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Project%20Linkedln/Project%20YSSE/Screenshot_20260522-081202.png", 
+                tags: ["Documentation", "HR"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Project%20Linkedln/Project%20YSSE/NEWSLETTER.pdf"] 
+            },
+            { 
+                id: 7, 
+                title: "Data Science Certificate", 
+                category: "Certification", 
+                short: "Comprehensive Data Science Program — Ostad", 
+                long: "Completed intensive Data Science Certificate Program covering Python, machine learning fundamentals, data wrangling, and visualization.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Asset/OSTAD/ce57d9e9-d81c-450e-a487-0cb49577f597_1.jpg", 
+                tags: ["Python", "ML"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-A11357.pdf"] 
+            },
+            { 
+                id: 8, 
+                title: "Python for Data Science & AI", 
+                category: "Certification", 
+                short: "IBM-backed specialization — Coursera", 
+                long: "Mastered Python libraries for data science including Pandas, NumPy, Matplotlib, and Scikit-learn.", 
+                image: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Asset/Coursera/1779416760359.png", 
+                tags: ["Python", "AI"], 
+                files: ["https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Coursera%205XHY8EKHBZVU.pdf"] 
+            }
         ];
         
         // Render Workflow Cards
@@ -921,7 +956,7 @@
             const counters = document.querySelectorAll('.metric-number');
             
             counters.forEach(counter => {
-                const target = parseInt(counter.dataset.target);
+                const target = parseInt(counter.id === 'stat-hours' ? 1200 : counter.textContent);
                 let current = 0;
                 const increment = target > 100 ? 50 : 1;
                 const duration = 1400;
@@ -940,83 +975,62 @@
         }
         
         // Gallery
-function initGallery() {
-    const wrapper = document.getElementById('gallery-wrapper');
-    
-    const images = [
-        { 
-            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG_20240309_205345.jpg", 
-            caption: "JU Campus Spatial Topology" 
-        },
-        { 
-            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG-20241029-WA0104.jpg", 
-            caption: "Mathematics Faculty Spatial Hub" 
-        },
-        { 
-            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/Necessary%20Picture/20240309_144452.jpg", 
-            caption: "SAC-JU Event Coordination" 
-        },
-        { 
-            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/FB_IMG_1779367389864.jpg", 
-            caption: "Thesis Defense Panel" 
-        },
-        { 
-            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/20200104124805_IMG_8927~2.JPG", 
-            caption: "STEM Outreach Operations" 
-        },
-        { 
-            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/YSSE%20INTERNSHIP/1701588669796.jpeg", 
-            caption: "YSSE HR Pipeline Internship" 
-        },
-        { 
-            src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg", 
-            caption: "CareerX 36 Capstone" 
+        function initGallery() {
+            const wrapper = document.getElementById('gallery-wrapper');
+            
+            const images = [
+                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG_20240309_205345.jpg", caption: "JU Campus Topology" },
+                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/IMG-20241029-WA0104.jpg", caption: "Mathematics Faculty Hub" },
+                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/Necessary%20Picture/20240309_144452.jpg", caption: "SAC-JU Event Coordination" },
+                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/FB_IMG_1779367389864.jpg", caption: "Thesis Panel Defense" },
+                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/20200104124805_IMG_8927~2.JPG", caption: "STEM Outreach Operations" },
+                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/YSSE%20INTERNSHIP/1701588669796.jpeg", caption: "HR Pipeline Internship" },
+                { src: "https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg", caption: "CareerX 36 Capstone" }
+            ];
+            
+            images.forEach(img => {
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide w-[300px] md:w-[420px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl';
+                slide.innerHTML = `
+                    <div class="relative h-[460px] md:h-[580px]">
+                        <img src="${img.src}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/1018/600/800'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8">
+                            <div class="text-xs tracking-[1.5px] text-blue-400 font-bold">SPATIAL LIBRARY</div>
+                            <div class="text-white text-3xl font-bold tracking-tighter leading-none mt-2">${img.caption}</div>
+                        </div>
+                    </div>
+                `;
+                slide.onclick = () => {
+                    window.open(img.src, '_blank');
+                };
+                wrapper.appendChild(slide);
+            });
+            
+            new Swiper('.mySwiper', {
+                effect: 'coverflow',
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 'auto',
+                speed: 900,
+                coverflowEffect: {
+                    rotate: 8,
+                    stretch: -12,
+                    depth: 220,
+                    modifier: 1.1,
+                    slideShadows: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 4200,
+                    disableOnInteraction: false,
+                },
+                loop: true
+            });
         }
-    ];
-    
-    images.forEach(img => {
-        const slide = document.createElement('div');
-        slide.className = 'swiper-slide w-[300px] md:w-[420px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl';
-        slide.innerHTML = `
-            <div class="relative h-[460px] md:h-[580px]">
-                <img src="${img.src}" class="w-full h-full object-cover" onerror="this.src='https://picsum.photos/id/1018/600/800'">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-                <div class="absolute bottom-8 left-8">
-                    <div class="text-xs tracking-[1.5px] text-blue-400 font-bold">SPATIAL LIBRARY</div>
-                    <div class="text-white text-3xl font-bold tracking-tighter leading-none mt-2">${img.caption}</div>
-                </div>
-            </div>
-        `;
-        slide.onclick = () => {
-            window.open(img.src, '_blank');
-        };
-        wrapper.appendChild(slide);
-    });
-    
-    new Swiper('.mySwiper', {
-        effect: 'coverflow',
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        speed: 900,
-        coverflowEffect: {
-            rotate: 8,
-            stretch: -12,
-            depth: 220,
-            modifier: 1.1,
-            slideShadows: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        autoplay: {
-            delay: 4200,
-            disableOnInteraction: false,
-        },
-        loop: true
-    });
-}
         
         // Confetti
         function triggerConfetti() {
@@ -1040,8 +1054,8 @@ function initGallery() {
         // Initialize Everything
         function initializePortfolio() {
             initializeTailwind();
+            updateLiveClock();
             initLenis();
-            initScrollProgress();
             initNavBehavior();
             initMobileMenu();
             initReveals();
@@ -1066,7 +1080,7 @@ function initGallery() {
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     const modal = document.getElementById('modal');
-                    if (!modal.classList.contains('hidden') && modal.style.display !== 'none') {
+                    if (modal.style.display === 'flex') {
                         modal.style.display = 'none';
                     }
                 }
@@ -1075,7 +1089,6 @@ function initGallery() {
                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                 }
             });
-        
             
             // Initial tilt on hero cards
             setTimeout(() => {
@@ -1088,12 +1101,7 @@ function initGallery() {
                 });
             }, 800);
             
-            // Boot confetti on first load (subtle)
-            setTimeout(() => {
-                // Uncomment for production: triggerConfetti();
-            }, 2400);
-            
-            // Easter egg — click logo 5 times
+            // Easter egg — click logo 5 times for confetti
             let logoClicks = 0;
             const logo = document.querySelector('#nav-container .flex.items-center');
             if (logo) {
@@ -1106,7 +1114,7 @@ function initGallery() {
                 });
             }
             
-            console.log('%c[Portfolio] Ultra-premium iOS experience initialized successfully.', 'color:#666');
+            console.log('%c[Portfolio] Ultra-premium iOS 18 experience initialized successfully.', 'color:#0A84FF');
         }
         
         // Boot
