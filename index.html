@@ -273,61 +273,338 @@
         </div>
     </div>
     
-    <!-- HERO — Pure iOS Vision -->
-    <header class="min-h-[100dvh] pt-28 flex items-center relative">
-        <div class="max-w-screen-2xl mx-auto px-6 w-full relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="reveal inline-flex items-center px-6 py-2.5 bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 text-xs font-medium mb-8">
-                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse mr-2"></div>
-                    CLASS OF 2026 • OPEN FOR SELECT CONSULTING
+    <header id="hero" class="min-h-[100dvh] pt-20 md:pt-28 flex items-center relative overflow-hidden bg-[#0a0a0a]">
+    <!-- Ultra-premium iOS Vision Pro Background -->
+    <div class="absolute inset-0 bg-[#0a0a0a]"></div>
+    
+    <!-- Dynamic Mesh + Subtle Noise (iOS signature) -->
+    <div class="absolute inset-0 bg-[radial-gradient(#ffffff0a_0.8px,transparent_1.6px)] bg-[length:3.5px_3.5px]"></div>
+    
+    <!-- Floating Vision Pro Orbs (slow ambient animation) -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-[15%] left-[8%] w-[420px] h-[420px] bg-emerald-400/5 rounded-full blur-[120px] animate-[float_18s_ease-in-out_infinite]"></div>
+        <div class="absolute bottom-[18%] right-[12%] w-[380px] h-[380px] bg-white/5 rounded-full blur-[110px] animate-[float_22s_ease-in-out_infinite_4s]"></div>
+        <div class="absolute top-[55%] left-[65%] w-[280px] h-[280px] bg-emerald-300/4 rounded-full blur-[90px] animate-[float_25s_ease-in-out_infinite_8s]"></div>
+    </div>
+
+    <div class="max-w-screen-2xl mx-auto px-6 w-full relative z-10">
+        <div class="grid md:grid-cols-12 gap-x-8 lg:gap-x-12 items-center">
+            
+            <!-- TEXT COLUMN -->
+            <div class="md:col-span-7 text-center md:text-left">
+                
+                <!-- Premium Status Badge (Vision Pro style) -->
+                <div class="reveal inline-flex items-center gap-x-3 px-6 py-2.5 bg-white/[0.035] backdrop-blur-3xl rounded-[22px] border border-white/10 text-xs font-medium tracking-[1.25px] mb-9 shadow-inner">
+                    <div class="flex items-center gap-x-2">
+                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                        <span class="text-emerald-400 font-semibold">CLASS OF 2026</span>
+                    </div>
+                    <div class="w-px h-3 bg-white/20"></div>
+                    <span class="text-white/70">OPEN FOR SELECT CONSULTING</span>
                 </div>
                 
-                <h1 class="reveal delay-100 text-[14vw] md:text-[98px] leading-[0.88] font-bold tracking-[-3px] premium-text mb-2">
+                <!-- Name with iOS-level typography -->
+                <h1 class="reveal delay-100 text-[13.5vw] md:text-[94px] lg:text-[112px] leading-[0.82] font-semibold tracking-[-5.2px] text-white mb-2 drop-shadow-[0_4px_30px_rgb(0,0,0,0.6)]">
                     MD FARHAD<br>HOSSEN
                 </h1>
                 
-                <div class="reveal delay-200 text-2xl md:text-3xl font-semibold text-white/90 tracking-tight">
+                <!-- Title -->
+                <div class="reveal delay-200 text-[22px] md:text-[28px] font-semibold text-white/90 tracking-[-0.4px]">
                     Mathematics Specialist &amp; Data Scientist
                 </div>
                 
-                <p class="reveal delay-300 max-w-xl mx-auto mt-8 text-lg text-white/70 leading-relaxed">
+                <!-- Description -->
+                <p class="reveal delay-300 max-w-[41ch] mx-auto md:mx-0 mt-7 text-[17.5px] text-white/70 leading-relaxed">
                     Double alumnus of Jahangirnagar University.<br>
                     Turning raw data into architectural intelligence.
                 </p>
                 
-                <div class="reveal delay-400 mt-12 flex justify-center gap-4">
-                    <button onclick="document.getElementById('impact').scrollIntoView({behavior:'smooth'})" 
-                            class="spring flex items-center gap-x-3 px-8 h-14 bg-white text-black font-semibold rounded-3xl text-lg active:scale-95 shadow-xl">
-                        Explore Impact
-                        <span class="text-2xl">→</span>
+                <!-- CTA Buttons (Ultra iOS) -->
+                <div class="reveal delay-400 mt-11 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    
+                    <!-- Primary Button -->
+                    <button onclick="document.getElementById('impact').scrollIntoView({behavior:'smooth'})"
+                            class="group relative flex items-center justify-center gap-x-3.5 px-10 h-[58px] bg-white text-black font-semibold rounded-[22px] text-[17px] overflow-hidden active:scale-[0.985] transition-all duration-300 shadow-[0_12px_40px_-12px_rgb(255,255,255,0.45)] hover:shadow-[0_25px_60px_-15px_rgb(255,255,255,0.55)]">
+                        <span class="relative z-10">Explore Impact</span>
+                        <span class="text-2xl transition-transform group-hover:translate-x-0.5">→</span>
+                        
+                        <!-- Subtle shine on hover -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[150%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                     </button>
-                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
-                            class="spring px-8 h-14 ios-glass rounded-3xl text-lg font-medium">Let’s Connect</button>
+                    
+                    <!-- Secondary Glass Button -->
+                    <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                            class="group px-10 h-[58px] ios-glass rounded-[22px] text-[17px] font-medium border border-white/15 hover:bg-white/10 active:scale-[0.985] transition-all duration-300 flex items-center justify-center gap-x-2">
+                        Let’s Connect
+                        <span class="text-lg transition-all group-hover:rotate-12">↗︎</span>
+                    </button>
                 </div>
                 
-                <!-- Trust bar -->
-        <div class="reveal delay-500 mt-16 flex justify-center items-center gap-x-8 text-xs">
-           <div class="flex -space-x-4">
-           <!-- Logo 1 -->
-             <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/Logo/Logo1.png" class="w-8 h-8 rounded-2xl ring-2 ring-black object-cover" alt="Logo 1">
-        
-           <!-- Logo 2 -->
-              <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/Logo/Logo2.png" class="w-8 h-8 rounded-2xl ring-2 ring-black object-cover" alt="Logo 2">
-        
-           <!-- Logo 3: Kept your original image since the provided Gemini link is a webpage, not an image file -->
-              <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg" class="w-8 h-8 rounded-2xl ring-2 ring-black object-cover" alt="Logo 3">
-          </div>
-             <div>YSSE • BYLC • IAAC • SAC-JU</div>
-         </div>
-        
-        <!-- iOS-style scroll hint -->
-        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center text-[10px] text-white/40 tracking-widest">
-            <div>SCROLL FOR MORE</div>
-            <div class="mt-2 w-5 h-8 border-2 border-white/30 rounded-3xl flex items-start justify-center pt-1">
-                <div class="w-1 h-2 bg-white/60 rounded-full animate-bounce"></div>
+                <!-- Trust Bar -->
+                <div class="reveal delay-500 mt-16 flex justify-center md:justify-start items-center gap-x-5 text-xs text-white/50">
+                    <div class="flex -space-x-3">
+                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/Logo/Logo1.png"
+                             class="w-8 h-8 rounded-2xl ring-2 ring-[#0a0a0a] object-cover hover:scale-110 transition-transform duration-300" alt="YSSE">
+                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/Necessary%20Picture/Logo/Logo2.png"
+                             class="w-8 h-8 rounded-2xl ring-2 ring-[#0a0a0a] object-cover hover:scale-110 transition-transform duration-300" alt="BYLC">
+                        <img src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/assets/BYLC-CareerX/Untitled-2001000.jpg"
+                             class="w-8 h-8 rounded-2xl ring-2 ring-[#0a0a0a] object-cover hover:scale-110 transition-transform duration-300" alt="IAAC">
+                    </div>
+                    <div class="font-medium tracking-[1.5px]">YSSE • BYLC • IAAC • SAC-JU</div>
+                </div>
             </div>
+            
+            <!-- iOS-STYLE PHOTO BOX (MAXIMUM PREMIUM) -->
+            <div class="md:col-span-5 mt-16 md:mt-0 flex justify-center">
+                <div id="photo-container" class="relative group cursor-pointer" style="perspective: 1200px;">
+                    
+                    <!-- Deep Emerald Glow Aura -->
+                    <div class="absolute -inset-[55px] bg-gradient-to-br from-emerald-400/10 via-white/5 to-transparent rounded-[5.25rem] blur-[85px] opacity-70"></div>
+                    <div class="absolute -inset-[75px] bg-emerald-400/5 rounded-[5.5rem] blur-[110px]"></div>
+                    
+                    <!-- Main Glass Frame -->
+                    <div class="relative rounded-[4.25rem] p-[8px] bg-white/6 backdrop-blur-3xl border border-white/12
+                                shadow-[0_60px_140px_-30px_rgb(0,0,0,0.85),_0_0_0_1px_rgba(255,255,255,0.1)]">
+                        
+                        <!-- Photo -->
+                        <img id="hero-photo"
+                             src="https://raw.githubusercontent.com/FDSZONE/fdszone/main/IMG_0004.jpeg"
+                             alt="MD Farhad Hossen — Professional Portrait"
+                             class="w-[320px] h-[400px] md:w-[380px] md:h-[475px] object-cover rounded-[3.6rem]
+                                    shadow-inner transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)]
+                                    group-hover:shadow-[0_0_0_1px_rgba(255,255,255,0.25)]">
+                        
+                        <!-- Top-left iOS Highlight -->
+                        <div class="absolute inset-0 rounded-[3.6rem] bg-gradient-to-br from-white/15 via-transparent to-transparent pointer-events-none"></div>
+                        
+                        <!-- Subtle Inner Bevel -->
+                        <div class="absolute inset-0 rounded-[3.6rem] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),inset_0_-1px_0_rgba(0,0,0,0.3)] pointer-events-none"></div>
+                    </div>
+                    
+                    <!-- Floating 2026 Badge -->
+                    <div class="absolute -bottom-4 -right-4 px-5 py-1.5 bg-black/75 backdrop-blur-2xl rounded-3xl border border-white/10 text-[10px] font-medium tracking-[2px] text-white/75 shadow-lg">
+                        2026
+                    </div>
+                </div>
+            </div>
+            
         </div>
-    </header>
+    </div>
+    
+    <!-- iOS Scroll Indicator (Premium) -->
+    <div onclick="document.getElementById('impact').scrollIntoView({behavior:'smooth'})"
+         class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-[10px] text-white/30 tracking-[3px] font-medium cursor-pointer hover:text-white/50 transition-colors">
+        <div>SCROLL TO BEGIN</div>
+        <div class="mt-3 w-[22px] h-[38px] border border-white/20 rounded-[28px] flex items-start justify-center pt-2">
+            <div class="w-[3.5px] h-[12px] bg-white/40 rounded-full animate-[bounce_2.4s_infinite]"></div>
+        </div>
+    </div>
+</header>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=SF+Pro+Display:wght@500;600&amp;display=swap');
+    
+    :root {
+        --ios-ease: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    
+    .ios-glass {
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+    }
+    
+    .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: all 0.9s var(--ios-ease);
+    }
+    
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; }
+    
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(18px, -22px); }
+    }
+    
+    /* Ultra smooth photo tilt */
+    #hero-photo {
+        will-change: transform;
+        transition: transform 0.4s var(--ios-ease);
+    }
+</style>
+
+<script>
+    // Tailwind script (for full control)
+    function initTailwind() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .ios-glass {
+                box-shadow: 0 10px 30px -15px rgb(0 0 0 / 0.4),
+                            inset 0 1px 0 rgba(255,255,255,0.15);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Scroll reveal animations (iOS feel)
+    function initReveals() {
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        
+        reveals.forEach(el => observer.observe(el));
+    }
+    
+    // Advanced 3D Tilt on Photo (Vision Pro level)
+    function initPhotoTilt() {
+        const container = document.getElementById('photo-container');
+        const photo = document.getElementById('hero-photo');
+        
+        if (!container || !photo) return;
+        
+        let raf = null;
+        
+        container.addEventListener('mousemove', (e) => {
+            if (raf) cancelAnimationFrame(raf);
+            
+            raf = requestAnimationFrame(() => {
+                const rect = container.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                
+                const rotX = y * -14;
+                const rotY = x * 18;
+                
+                photo.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.015)`;
+            });
+        });
+        
+        container.addEventListener('mouseleave', () => {
+            if (raf) cancelAnimationFrame(raf);
+            photo.style.transition = 'transform 0.7s cubic-bezier(0.23,1,0.32,1)';
+            photo.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)';
+            
+            setTimeout(() => {
+                photo.style.transition = 'transform 0.4s cubic-bezier(0.23,1,0.32,1)';
+            }, 700);
+        });
+        
+        // Touch support for mobile
+        container.addEventListener('touchmove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = (e.touches[0].clientX - rect.left) / rect.width - 0.5;
+            const y = (e.touches[0].clientY - rect.top) / rect.height - 0.5;
+            
+            const rotX = y * -10;
+            const rotY = x * 14;
+            
+            photo.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.01)`;
+        });
+        
+        container.addEventListener('touchend', () => {
+            photo.style.transition = 'transform 0.6s cubic-bezier(0.23,1,0.32,1)';
+            photo.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+    }
+    
+    // Button ripple effect (iOS touch feedback)
+    function initButtonRipples() {
+        const buttons = document.querySelectorAll('button');
+        
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255,255,255,0.35)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
+                ripple.style.left = `${e.offsetX - 25}px`;
+                ripple.style.top = `${e.offsetY - 25}px`;
+                ripple.style.width = '50px';
+                ripple.style.height = '50px';
+                ripple.style.pointerEvents = 'none';
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 650);
+            });
+        });
+        
+        // Add ripple keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(3.5);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    // Boot everything
+    function bootHero() {
+        initTailwind();
+        initReveals();
+        initPhotoTilt();
+        initButtonRipples();
+        
+        // Trigger initial reveals after load
+        setTimeout(() => {
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+                setTimeout(() => el.classList.add('active'), i * 80);
+            });
+        }, 180);
+        
+        // Easter egg: Double-click photo for special glow
+        const photoContainer = document.getElementById('photo-container');
+        if (photoContainer) {
+            photoContainer.addEventListener('dblclick', () => {
+                const aura = photoContainer.querySelector('.absolute.-inset-\\[55px\\]');
+                if (aura) {
+                    aura.style.transition = 'all 0.4s ease';
+                    aura.style.opacity = '1';
+                    aura.style.filter = 'blur(60px)';
+                    
+                    setTimeout(() => {
+                        aura.style.opacity = '0.7';
+                        aura.style.filter = 'blur(85px)';
+                    }, 1200);
+                }
+            });
+        }
+        
+        console.log('%c[Hero] Ultra-premium iOS Vision Pro 2026 segment initialized ✨', 'color:#34d399');
+    }
+    
+    // Auto-boot when loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bootHero);
+    } else {
+        bootHero();
+    }
+</script>
     
     <!-- IMPACT DASHBOARD -->
     <section id="impact" class="max-w-screen-2xl mx-auto px-6 py-16">
