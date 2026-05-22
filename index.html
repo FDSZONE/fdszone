@@ -24,6 +24,7 @@
     <!-- Canvas Confetti -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=SF+Pro+Display:wght@400;500;600;700&amp;display=swap');
         
@@ -167,6 +168,39 @@
         .tilt-card {
             transform-style: preserve-3d;
         }
+        
+    /* iOS Style Scrollbar & Momentum Scrolling */
+.custom-scrollbar {
+    /* Enables momentum scrolling on iOS devices */
+    -webkit-overflow-scrolling: touch; 
+    
+    /* Prevents scroll chaining (scrolling the body when modal hits bottom) */
+    overscroll-behavior-y: contain; 
+    
+    /* Firefox support */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* WebKit (Chrome, Safari, Edge) support */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px; /* Thin iOS-style width */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Invisible track */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white */
+    border-radius: 10px; /* Fully rounded edges */
+    border: 2px solid transparent; /* Creates padding around the thumb */
+    background-clip: padding-box;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly brighter on hover */
+}
     </style>
 </head>
 <body class="ios-grid selection:bg-blue-500/30 selection:text-white">
@@ -948,117 +982,118 @@ function showCertModal() {
                     <div class="text-xs tracking-[2px] font-bold text-white/50">VERIFIED CREDENTIALS</div>
                     <div class="text-3xl font-bold tracking-tighter">Certificates & Achievements</div>
                 </div>
-                <button onclick="closeModal()" class="text-2xl">✕</button>
+                <button onclick="closeModal()" class="text-2xl transition-transform hover:scale-110 active:scale-95">✕</button>
             </div>
             
-            <div class="space-y-4 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar">
+            <!-- Upgraded scrolling container: Added 'overscroll-contain' and 'scroll-smooth' -->
+            <div class="space-y-4 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar overscroll-contain scroll-smooth">
                 
                 <!-- Ostad -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Data Science Certificate — Ostad</div>
                         <div class="text-xs text-white/50">Comprehensive program • 2025</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-A11357.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/OSTAD/MD%20FARHAD%20HOSSEN-Data%20Science%2026-A11357.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
                 
                 <!-- IBM/Coursera -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Python for Data Science & AI — IBM (Coursera)</div>
                         <div class="text-xs text-white/50">Specialization • 2025</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Coursera%205XHY8EKHBZVU.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Coursera%205XHY8EKHBZVU.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- BYLC -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">CareerX Program — BYLC</div>
                         <div class="text-xs text-white/50">Career Development</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/BYLC-CareerX/Untitled-2001000.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/BYLC-CareerX/Untitled-2001000.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- Bohubrihi -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">The Art of Job Searching — Bohubrihi</div>
                         <div class="text-xs text-white/50">Career Preparation</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Bohubrihi/Art%20of%20job%20searching%20bohubrihi.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Bohubrihi/Art%20of%20job%20searching%20bohubrihi.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- Coursera: Data Analytics -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Data Analytics — Coursera</div>
                         <div class="text-xs text-white/50">Professional Course</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Data%20Analytics.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Data%20Analytics.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- Coursera: Excel -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Introduction to Excel — Coursera</div>
                         <div class="text-xs text-white/50">Data Fundamentals</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Introduction%20Excel.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/Introduction%20Excel.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- Coursera: Python Badge -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Python for Data Science & AI (Badge) — Coursera</div>
                         <div class="text-xs text-white/50">Skill Credential • 2023</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/PythonforDataScienceandAI_Badge20230804-28-kygtze.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Coursera/PythonforDataScienceandAI_Badge20230804-28-kygtze.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- Kampus -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Kampus Program Certificate — Kampus</div>
                         <div class="text-xs text-white/50">Professional Development</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Kampus/MD%20FARHAD%20HOSSEN.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Kampus/MD%20FARHAD%20HOSSEN.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- Lead Academy -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Professional Certification — Lead Academy</div>
                         <div class="text-xs text-white/50">Skill Development Training</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Lead%20Academy/LA-1695825143certificate.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/Lead%20Academy/LA-1695825143certificate.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- Simplilearn -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">Technical Certification — Simplilearn</div>
                         <div class="text-xs text-white/50">Professional Training</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/SIMPLILEARN/4523311_1695218407.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/SIMPLILEARN/4523311_1695218407.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- STEM Bootcamp -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">STEM Empowerment Bootcamp</div>
                         <div class="text-xs text-white/50">Intensive Bootcamp Completion</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/STEM%20Empowerment%20Bootcamp/MD%20Farhad%20Hossen%20(1).pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/STEM%20Empowerment%20Bootcamp/MD%20Farhad%20Hossen%20(1).pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
                 <!-- YSSE Internship -->
-                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center">
+                <div class="ios-glass p-6 rounded-3xl flex justify-between items-center transition-transform hover:scale-[1.02]">
                     <div>
                         <div class="font-semibold">HR Internship Completion — YSSE</div>
                         <div class="text-xs text-white/50">Youth School for Social Entrepreneurs • 9 Months</div>
                     </div>
-                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/MD%20Farhad%20Hossen.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold">View</a>
+                    <a href="https://github.com/FDSZONE/fdszone/blob/main/Asset/YSSE%20INTERNSHIP/MD%20Farhad%20Hossen.pdf" target="_blank" class="px-5 py-2 text-xs bg-white text-black rounded-2xl font-semibold hover:bg-gray-200 transition-colors">View</a>
                 </div>
 
             </div>
